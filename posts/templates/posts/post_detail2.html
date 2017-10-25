@@ -1,0 +1,1797 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+
+<link rel='stylesheet' href='{% static "/static/style.css" %}' />
+
+{% block content %}
+   
+<title> {% block head_title %} Cafe- Trek List {% endblock head_title %} </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+    <script>
+
+
+          function myMap() {
+                var mapCanvas = document.getElementById("map");
+                var mapOptions = {center: new google.maps.LatLng(18.5204, 73.8567)},
+                          zoom: 8,
+                          styles: [
+                        {
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#ebe3cd"
+                            }
+                          ]
+                        },
+                        {
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#523735"
+                            },
+                            {
+                              "weight": 1.5
+                            }
+                          ]
+                        },
+                        {
+                          "elementType": "labels.text.stroke",
+                          "stylers": [
+                            {
+                              "color": "#f5f1e6"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "administrative",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#987c3a"
+                            },
+                            {
+                              "weight": 2
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "administrative",
+                          "elementType": "geometry.stroke",
+                          "stylers": [
+                            {
+                              "color": "#c9b2a6"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "landscape.natural",
+                          "stylers": [
+                            {
+                              "weight": 2.5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "landscape.natural",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#ece3ce"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#dfd2ae"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#93817c"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.park",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                            {
+                              "color": "#a5b076"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.park",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#447530"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#f5f1e6"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.highway",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#fbe0a8"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.local",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#806b63"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.line",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#dfd2ae"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.line",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#8f7d77"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.line",
+                          "elementType": "labels.text.stroke",
+                          "stylers": [
+                            {
+                              "color": "#ebe3cd"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#dfd2ae"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.airport",
+                          "stylers": [
+                            {
+                              "visibility": "on"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.airport",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "weight": 4
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.airport",
+                          "elementType": "labels.icon",
+                          "stylers": [
+                            {
+                              "visibility": "on"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.bus",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#806b63"
+                            },
+                            {
+                              "weight": 4
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.rail",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#806b63"
+                            },
+                            {
+                              "weight": 4
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "water",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                            {
+                              "color": "#67caeb"
+                            },
+                            {
+                              "weight": 4.5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "water",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#92998d"
+                            }
+                          ]
+                        }
+                      ]
+};
+
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {SummitPoint},  // Denali.
+         
+           mapTypeControlOptions: {
+            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map'],
+          },
+          styles :
+              [
+                        {
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#ebe3cd"
+                            }
+                          ]
+                        },
+                        {
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#523735"
+                            }
+                          ]
+                        },
+                        {
+                          "elementType": "labels.text.stroke",
+                          "stylers": [
+                            {
+                              "color": "#f5f1e6"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "administrative",
+                          "elementType": "geometry.stroke",
+                          "stylers": [
+                            {
+                              "color": "#c9b2a6"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "administrative.country",
+                          "stylers": [
+                            {
+                              "color": "#a00404"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "administrative.locality",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#f9772e"
+                            },
+                            {
+                              "visibility": "simplified"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "landscape.natural",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#dfd2ae"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#dfd2ae"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi",
+                          "elementType": "labels.text",
+                          "stylers": [
+                            {
+                              "visibility": "off"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#93817c"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.government",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "weight": 5.5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.medical",
+                          "stylers": [
+                            {
+                              "weight": 5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.medical",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "visibility": "on"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.park",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                            {
+                              "color": "#a5b076"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.park",
+                          "elementType": "labels.text",
+                          "stylers": [
+                            {
+                              "color": "#ff3339"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "poi.park",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#447530"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#f5f1e6"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.arterial",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#fdfcf8"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.highway",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#fa1034"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.highway",
+                          "elementType": "geometry.stroke",
+                          "stylers": [
+                            {
+                              "color": "#e9bc62"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.highway.controlled_access",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#e98d58"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.local",
+                          "elementType": "labels",
+                          "stylers": [
+                            {
+                              "visibility": "off"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "road.local",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#806b63"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.line",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#dfd2ae"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.line",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#8f7d77"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.line",
+                          "elementType": "labels.text.stroke",
+                          "stylers": [
+                            {
+                              "color": "#f70144"
+                            },
+                            {
+                              "weight": 3.5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "color": "#dfd2ae"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.airport",
+                          "elementType": "labels",
+                          "stylers": [
+                            {
+                              "weight": 4.5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.bus",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "weight": 6.5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.bus",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                            {
+                              "visibility": "simplified"
+                            },
+                            {
+                              "weight": 3.5
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.bus",
+                          "elementType": "labels.icon",
+                          "stylers": [
+                            {
+                              "weight": 8
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "transit.station.rail",
+                          "elementType": "geometry",
+                          "stylers": [
+                            {
+                              "weight": 8
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "water",
+                          "elementType": "geometry.fill",
+                          "stylers": [
+                            {
+                              "color": "#b9d3c2"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "water",
+                          "elementType": "labels.icon",
+                          "stylers": [
+                            {
+                              "visibility": "simplified"
+                            }
+                          ]
+                        },
+                        {
+                          "featureType": "water",
+                          "elementType": "labels.text.fill",
+                          "stylers": [
+                            {
+                              "color": "#92998d"
+                            }
+                          ]
+                        }
+                  ],
+
+        });
+         
+
+            var SummitPoint = new google.maps.LatLng( {{instance.Summit_Coordinates}} );
+            var BaseVillage1 = new google.maps.LatLng( {{ instance.Base_Village1_Coordinates }});
+            var BaseVillage2 = new google.maps.LatLng( {{ instance.Base_Village2_Coordinates }} );
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: SummitPoint, zoom: 12};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var MarkerSummit = new google.maps.Marker({position:SummitPoint});
+            MarkerSummit.setMap(map);
+            var MarkerBase1 = new google.maps.Marker({position:BaseVillage1});
+            MarkerBase1.setMap(map);
+            var MarkerBase2 = new google.maps.Marker({position:BaseVillage2});
+            MarkerBase2.setMap(map);
+            var infoBase = new google.maps.InfoWindow({content: "Base Village for Route 1: {{ instance.base_village }}"});
+            infoBase.open(map,MarkerBase1);
+            var infoSummit = new google.maps.InfoWindow({content: "Summit Point: {{ instance.title }}" });
+            infoSummit.open(map,MarkerSummit);
+
+            var elevator = new google.maps.ElevationService;
+        var infowindow = new google.maps.InfoWindow({map: map});
+
+        // Add a listener for the click event. Display the elevation for the LatLng of
+        // the click inside the infowindow.
+        map.addListener('click', function(event) {
+          displayLocationElevation(event.latLng, elevator, infowindow);
+        });
+      }
+
+        function displayLocationElevation(location, elevator, infowindow) {
+  // Initiate the location request
+  elevator.getElevationForLocations({
+    'locations': [location]
+  }, function(results, status) {
+    infowindow.setPosition(location);
+    if (status === 'OK') {
+      // Retrieve the first result
+      if (results[0]) {
+        // Open the infowindow indicating the elevation at the clicked position.
+        infowindow.setContent('The elevation at this point <br>is ' +
+            results[0].elevation + ' meters.');
+      } else {
+        infowindow.setContent('No results found');
+      }
+    } else {
+      infowindow.setContent('Elevation service failed due to: ' + status);
+    }
+  });
+}
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdU_KsgaJdnlLhDepXnX2_6JCwBidaU5w"></script>
+      
+</head>
+
+  <style>
+      
+            body    
+           {
+            font-family: "Roboto",sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            background: :#fff;
+               text-align: justify;
+
+
+  }
+    .text-muted {
+                color: #767676; 
+  }
+      
+              h1      {
+            font-size: 65px;
+            color: #484848;
+            font-weight: 300;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+  }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        p      {
+            font-size: 13sp;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+            margin: 0;
+                line-height: 1.43;
+            -webkit-font-smoothing: antialiased;
+  }
+      
+        hr     {
+                margin-top: 5px;
+                margin-bottom: 10px;
+                border: 0;
+                border-top: 1px solid #eee;         
+  }
+  
+    .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+  }  
+    .tabpanel{
+            background-color:#212121;
+            color: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+  }
+     
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Halvetica","Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+        .tab-text-format {
+            padding: 5px 5px;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin: 0 0 8px;
+            text-align: left;
+  }
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+        .panel {
+            border: 1px solid #2D4A64 !important;
+            border-radius:0 !important;
+            transition: box-shadow 0.5s;
+  }
+  
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 2px;
+  }
+      
+ 
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: justify;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+
+
+ 
+        .searchbar-masthead {
+            padding: 2px 6px;
+            width:80%;
+            height: 36px;
+            padding-top: 1px;
+            font-size: 16px;
+  }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;}
+      
+
+   
+      
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+
+        .info-text {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 40px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+  
+        .navbar {
+            margin-bottom:auto;
+            background-color: #424242;
+            z-index: 9999;
+            border: 0;
+            font-size: 14px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: "Roboto","Arial", sans-serif;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  }
+        .card1{
+            height: 500px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+  }
+
+          .card1 img{
+            position:absolute; 
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-color: #f5f5f5;
+            height: 100%;
+            margin: auto;
+
+  }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fafafa !important;
+  }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #607D8B !important;
+            background-color: #fff !important;
+  }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+  }
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+  }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+  }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+           .map-position {
+            width: 100%;
+
+            max-height: 600px;
+            z-index: 0;
+  }
+          .post-pic{
+            width: 100%;
+            max-height: 500px;
+            margin-bottom: 0px;
+            background-size: cover;
+  }
+
+        .topstories-pic{
+            max-height: relative;
+            max-width: relative;
+  }
+        
+        .top-stories{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 40px;
+            padding-bottom: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 10px;     
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #E0E0E0;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 5px;
+   }
+        .map-style{
+            padding: 5px 5px;
+   }
+   
+        .image-link{
+            padding: 5px 5px;
+   }
+.fa {
+  padding: 5px;
+  font-size: 40px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+
+      
+  </style>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" onload="myMap();">
+    
+<div id="fb-root"></div>
+
+
+      <header>
+      <ul class="w3-navbar navbar w3-navitem w3-center">
+        <li style="width:10%"><a href="/home/">HOME</a></li>
+           <li style="width:10%"><a href="#"></a></li>
+        <li style="width:55%">
+          <form method='GET' action='' style="margin-bottom: 0px;">
+          <input type='text' class="searchbar-masthead" name='q' placeholder='Search Your Place...'>
+        
+          <button type='submit' value='Search' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#fafafa; "> <B> Search </B>
+          </button>
+          </form>
+        </li>
+      </ul>
+    </header>
+   
+
+    
+
+<div class="w3-container" style="background-color: #FFF;">
+    
+    <div class="w3-container" style="padding: 0px 0px; margin-top:30px;">
+        <div class="w3-row">
+            <div class="w3-col l12">
+                <div class="w3-card card1"> 
+                    <img src='{{ instance.Cover_Pic.url }}' style="width: 100%; height:550px;" alt="">
+                    <div class="w3-display-bottomleft w3-container w3-white w3-hover-white w3-hide-small" style="bottom: 80%;opacity: 0.4;width: 40%;">
+                     <h2 style="color: #000"> <b>{{ instance.title}}</b> </h2>    
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+  
+    
+    
+        <div class="w3-row">
+            <div class="w3-col l12">
+<ul class="w3-navbar tabpanel" style="color: #fffff">
+  <li><a href="#" onclick="openTab('Info')" style="color: #E0E0E0">INFO</a></li>
+
+</ul>
+            </div>
+    </div>
+    </div>
+    
+
+<div id="Info" class="w3-container tabs">
+    <div class="w3-row">
+        <div class="w3-col l12">
+            <div class="w3-container">
+                  <div class="w3-row">
+                  
+                  <h3 class="text-muted" style="padding-left: 15px;"> GENERAL INFORMATION </h3>
+
+                    <div class="w3-col l7">
+                    <hr>
+
+                      <div class="w3-container">                             
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b> About Trek</b></p>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                              <p> {{ instance.about_the_trek|linebreaks }} </p>
+                         </div>
+                        </div>
+            
+                          <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                            <p class="text-muted"><b>Highest Altitude</b></p>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                              <p><b>{{instance.highest_altitude}}</b></p>
+                         </div>
+                        </div>
+                          
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                            <p class="text-muted"><b>State</b></p>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                         <p>{{ instance.region }}, India</p>
+                         </div>
+                        </div>
+
+                         <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Wildlife Reserve</b></p>
+                             </div>
+                                      <div class="w3-col l10 info-text">
+                             <p>{{ instance.wildlife_reserve|linebreaks }}</p>
+                             </div>
+                          </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                                <p class="text-muted"><b>Best Time</b></p>
+                           </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.best_time|linebreaks  }}</p>
+                                   </div>
+                        </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                                <p class="text-muted"><b>What To Explore</b></p>
+                           </div>
+                                    <div class="w3-col l10 info-text">
+                           <p>{{ instance.Exploration_Spots|linebreaks }}</p>
+                           </div>
+                        </div>
+                        </div>
+                  </div>
+
+                  <div class="w3-col l5">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                        <br>
+                        
+                        <iframe width="560" height="316"  src="{{ instance.link }}" frameborder="0" allowfullscreen></iframe>
+                  <a  href="https://www.youtube.com/embed/YKRRWjOPwaU"> <p>Credits </p> </a>
+                        </div>
+                      </div>
+                   
+
+                      
+                      <br>
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                        <h3>Let there be Light:</h3>
+                          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"> <span class="fa fa-facebook"></span></a>
+                          <a href="https://twitter.com/home?status={{ share_string }}http:{{ request.build_absolute_uri }}" class="fa fa-twitter"> </a>
+                          <a href="{{ request.build_absolute_uri }}" data-pin-do="buttonBookmark" data-pin-custom="true"><span class="fa fa-pinterest"></span></a>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+                         
+
+            <div class="w3-container">
+                  <div class="w3-row">
+                    <div class="w3-col l7">
+                      <div class="w3-container">
+                        <div class="w3-row">
+                          <div class="w3-col l12">
+                       <h3 class="text-muted"> TRAIL DETAILS </h3>
+                                          <hr>
+                                          </div>
+                                          </div>
+
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b>Route</b></p>
+                             </div>
+                            <div class="w3-col l10 info-text">
+                              <p> <b>Trail 1 </b></p> <br>
+                              <p>{{ instance.trek_route|linebreaks }}</p><br>
+                              <p> <b> Trail 2 </b> </p> <br>
+                              <p> Let us know if you have an alternate trail</p>
+                                </div>
+            
+                          </div>
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Trail Highlights</b></p>
+                             </div>
+                            
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.trail_highlights|linebreaks }}</p>
+                             </div>
+                          </div>
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Equipments Required</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p></p>
+                             </div>
+                          </div>
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Food  Availability</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.food_availability|linebreaks }}</p>
+                             </div>
+
+                          </div>
+            
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Water  Resources</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.water_availability|linebreaks }}</p>
+                             </div>
+                          </div>
+                          
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Shade/ Accomodations</b></p>
+                             </div>
+                                  <div class="w3-col l10 info-text">
+                                      <p>{{ instance.accomodation|linebreaks }}</p>
+                             </div>
+                          </div>
+                    
+                  <div class="w3-row">
+                    <div class="w3-col l12">
+                    <h3 class="text-muted"> SOS DETAILS</h3>
+                    <hr>
+                      </div>
+                      </div>
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Police Station</b></p>
+                                 </div>
+                                      <div class="w3-col l10 info-text">
+                                          <p>{{ instance.police_station|linebreaks }}</p>
+                                 </div>
+                              </div>
+                              
+                               <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>ATM</b></p>
+                                 </div>
+                                      <div class="w3-col l10 info-text">
+                                          <p>Kangan
+
+</p>
+                                 </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Mobile Connectivity</b></p>
+                                 </div>
+                                      <div class="w3-col l10 info-text">
+                                          <p>Srinagar
+</p>
+                                 </div>
+                              </div>
+
+                              <div class="w3-row">
+                      <div class="w3-col l12">
+                        <div class="w3-content" style="max-width:1000px">
+                          <img class="mySlides" src="/media/Picture2.png" style="width:100%">
+                              
+                                    </div>
+                    
+                      </div>
+                      </div>
+
+                              </div>
+         
+                  </div>
+                  <div class="w3-col l5">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                    <div id="map" style="width: 100%; min-height: 550px; margin-top: 20px;"></div>  
+                      </div>
+                      </div>
+                        <div class="w3-row">
+                      <div class="w3-col l12">
+                      <h3 class="text-muted"> WAY TO BASE CAMP</h3>
+                      </div>
+                  </div>
+                <div class="w3-row tab-text-format">
+                    <div class="w3-col l4 ">
+                      <p class="text-muted"><b>Onwards</b></p>
+                    </div>
+                    <div class="w3-col l8 ">
+                      <p>{{ instance.route_to_base_camp|linebreaks }}</p>
+                    </div>
+                    </div>
+
+                    <div class="w3-row tab-text-format">
+                    <div class="w3-col l4 ">
+                      <p class="text-muted"><b>Route Details </b></p>
+                    </div>
+                    <div class="w3-col l8 ">
+                      <p>{{ instance.route_details|linebreaks }}</p>
+                    </div>
+                </div>
+
+                <div class="w3-row tab-text-format">
+                    <div class="w3-col l4 ">
+                      <p class="text-muted"><b>Nearest Railway station</b></p>
+                    </div>
+                    <div class="w3-col l8 ">
+                      <p>{{ instance.railway_station|linebreaks }}</p>
+                    </div>
+                </div>
+
+                   <div class="w3-row tab-text-format">
+                    <div class="w3-col l4 ">
+                      <p class="text-muted"><b>Nearest Airport </b></p>
+                    </div>
+                    <div class="w3-col l8 ">
+                      <p>{{ instance.airport|linebreaks }}</p>
+                    </div>
+                </div>
+
+                 <div class="w3-row tab-text-format">
+                    <div class="w3-col l4 ">
+                      <p class="text-muted"><b>Nearest Bus/Taxi station</b></p>
+                    </div>
+                    <div class="w3-col l8 ">
+                      <p>{{ instance.bus_stand|linebreaks }}</p>
+                    </div>
+                </div>
+
+                    
+                  </div>
+
+                </div>
+                </div>
+                    
+            </div>
+    
+    
+    
+    <div class="w3-container related-search">
+       <div class="w3-row">
+        <div class="w3-col l7">
+        <div class="fb-comments" data-href="{{  request.build_absolute_url }}" data-numposts="5"></div>
+        </div>     
+          <div class="w3-col l5">
+            <h3>Let there be Light:</h3>
+              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"> <span class="fa fa-facebook"></span></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="https://plus.google.com/share?url=http://codingforentrepreneurs.com" class="fa fa-google"></a>
+              <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><span class="fa fa-pinterest"></span></a> <br>
+              <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style = "background-color:#2D4A64; color: #00B6BD;"><b>Be a Contributer</b></button>
+     <dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title" style = "
+    border-bottom-width: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;">Contribute to the community.</h4>
+
+    <p style = "
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;"> <b>Tell us if you find any wrong information. <br> Tell us if you want to add any information. <br> Showcase your articles, photos and videos. </b></p>
+    <div class="mdl-dialog__content">
+      <p>
+        <b>Mail us @ cafeclipboard@gmail.com.</b>
+      </p>
+    </div>
+    <div class="mdl-dialog__actions" style = "
+    border-bottom-width: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;">
+    
+      
+      <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent close" style = "background-color:#ed1b2e; color: #EEE;">Close</button>
+    </div>
+  </dialog>
+  
+          </div>
+        </div>
+      </div>
+          
+        </div>
+
+
+   
+</div>
+
+
+
+
+<script>
+  openTab("Info")
+function openTab(tabName) {
+    var i;
+    var x = document.getElementsByClassName("tabs");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+    </script>
+    <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+    
+
+  
+
+<div id="Photos" class="w3-container tabs">
+ <div class="w3-container">
+    <div class="w3-row" >
+             <div class="w3-col l3">
+           <div class="w3-card-12 w3-hover-shadow card">
+                  <img src="roop.jpg" class="vendor-logos" alt="">
+               <div class="w3-container">
+                    <img src="roop.jpg" class="vendor-logos" alt="">
+               </div>
+                
+               <div class="w3-container">
+               
+               <button type="button" class="mdl-chip">
+    <span class="mdl-chip__text">Button Chip</span>
+</button>
+                   <button type="button" class="mdl-chip">
+    <span class="mdl-chip__text">Button Chip</span>
+</button>
+               </div>
+                    
+
+</div>
+
+</div>
+          
+             <div class="w3-col l3">
+            <div class="w3-card-12 w3-hover-shadow card">
+                <img src="" alt="">
+                    <div class="w3-container w3-center">
+                 
+                    </div>
+                </div>
+            </div>
+           
+             <div class="w3-col l3">
+            <div class="w3-card-12 w3-hover-shadow card">
+                <img src="" alt="">
+                    <div class="w3-container w3-center">
+                 
+                    </div>
+                </div>
+            </div>
+             <div class="w3-col l3">
+            <div class="w3-card-12 w3-hover-shadow card">
+                <img src="" alt="">
+                    <div class="w3-container w3-center">
+                 
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+
+<div id="BOOK TREK" class="w3-container tabs" style="background-color: #F5F5F5;">
+    <div class="w3-row text-center">
+         <div class="w3-container booking-card w3-hover-shadow" style="background-color: #FFFFFF;">
+            <div class="w3-row">
+                
+                <div class="w3-col l2">
+                <h2>India Hikes </h2>
+                    <img src="images.png" class="vendor-logos" alt="">
+                </div>
+                
+                <div class="w3-col l2" >
+                <h5> Amenities</h5>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Batch Dates</h5>
+                </div>
+        
+                <div class="w3-col l2">
+                <h5>Rating</h5><br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Rating</h5><br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2 text-center">
+                    <h3><b> INR 700 </b></h3>
+                    <br>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#2D4A64; color: #00B6BD; min-width: 150px; font-size: 18px;
+    font-weight: 550;"> <B>
+            Book Now </B></button>
+                </div>
+        </div>            
+      </div>
+        
+    <div class="w3-container booking-card w3-hover-shadow" style="background-color: #FFFFFF;">
+            <div class="w3-row">
+                
+                <div class="w3-col l2">
+                <h2>India Hikes </h2>
+                    <img src="trek%20group%20logo.png" class="vendor-logos" alt="">
+                </div>
+                
+                <div class="w3-col l2">
+                <h5> Amenities</h5>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Batch Dates</h5>
+                </div>
+        
+                <div class="w3-col l2">
+                <h5>Rating</h5><br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Rating</h5><br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2 text-center">
+                    <h3><b> INR 700 </b></h3>
+                    <br>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#2D4A64; color: #00B6BD; min-width: 150px; font-size: 18px;
+    font-weight: 550;"> <B>
+            Book Now </B></button>
+                </div>
+        </div>            
+      </div>
+        
+       <div class="w3-container booking-card w3-hover-shadow" style="background-color: #FFFFFF;">
+            <div class="w3-row">
+                
+                <div class="w3-col l2">
+                <h2>India Hikes </h2>
+                    <img src="images.png" class="vendor-logos" alt="">
+                </div>
+                
+                <div class="w3-col l2">
+                <h5> Amenities</h5>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Batch Dates</h5>
+                </div>
+        
+                <div class="w3-col l2">
+                <h5>Rating</h5>
+                    <br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Rating</h5>
+                    <br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2 text-center">
+                    <h3><b> INR 700 </b></h3>
+                    <br>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#2D4A64; color: #00B6BD; min-width: 150px; font-size: 18px;
+    font-weight: 550;"> <B>
+            Book Now </B></button>
+                </div>
+        </div>            
+      </div>
+        
+       <div class="w3-container booking-card w3-hover-shadow" style="background-color: #FFFFFF;">
+            <div class="w3-row">
+                
+                <div class="w3-col l2">
+                <h2>India Hikes </h2>
+                    <img src="images.png" class="vendor-logos" alt="">
+                </div>
+                
+                <div class="w3-col l2">
+                <h5> Amenities</h5>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Batch Dates</h5>
+                </div>
+        
+                <div class="w3-col l2">
+                <h5>Rating</h5>
+                    <br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2">
+                <h5>Rating</h5>
+                    <br>
+                    <h3><b>4.5 </b>
+                    </h3>
+                </div>
+                
+                <div class="w3-col l2 text-center">
+                    <h3><b> INR 700 </b></h3>
+                    <br>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#2D4A64; color: #00B6BD; min-width: 150px; font-size: 18px;
+    font-weight: 550;"> <B>
+            Book Now </B></button>
+                </div>
+        </div>              
+      </div>
+    
+        
+      </div>
+    
+    </div>
+
+
+    
+<footer class="w3-container text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</footer>
+
+
+ 
+
+
+
+</body>
+</html>
+{% endblock content %}

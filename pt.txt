@@ -1,0 +1,149 @@
+Performing system checks...
+
+September 04, 2017 - 15:44:31
+Django version 1.10.6, using settings 'LOGAN.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Kashmir Great Lakes
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}, {'color': '#008489', 'tagname': ' Western Ghats Trek etc'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+..{$ article.img_link$}
+Kashmir Great Lakes
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}, {'color': '#008489', 'tagname': ' Western Ghats Trek etc'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+['Bike Riding', 'Hill station', 'Tracking']
+Kashmir Great Lakes
+tips_list
+[]
+tips_list
+[]
+Kashmir Great Lakes
+11
+sadsad
+['26.733465799999998', '83.4369139']
+https://lh3.googleusercontent.com/p/AF1QipNUZS-EwG2TdQbUhqHkjOIv2_a8rEYaV0LvPgXC=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipNUZS-EwG2TdQbUhqHkjOIv2_a8rEYaV0LvPgXC=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipOpcnPdqRDJvhSpl8svKRGmSNp2EWDl7M6WjpTV=s1600-w500-h327
+https://lh3.googleusercontent.com/p/AF1QipOpcnPdqRDJvhSpl8svKRGmSNp2EWDl7M6WjpTV=s1600-w500-h327
+https://lh3.googleusercontent.com/p/AF1QipNCpZ--NsHsikSOPe0f102mdObIujGa7aTfARKZ=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipNCpZ--NsHsikSOPe0f102mdObIujGa7aTfARKZ=s1600-w500-h500
+Kashmir Great Lakes
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}, {'color': '#008489', 'tagname': ' Western Ghats Trek etc'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+Kashmir Great Lakes
+..{$ article.img_link$}
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}]
+[{'color': '#008489', 'tagname': 'Tracking'}, {'color': '#008489', 'tagname': 'Enter trek type'}, {'color': '#008489', 'tagname': ' e.g. Himalyan Trek'}, {'color': '#008489', 'tagname': ' Western Ghats Trek etc'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+['Bike Riding', 'Hill station', 'Tracking']
+Kashmir Great Lakes
+tips_list
+[]
+tips_list
+[]
+Kashmir Great Lakes
+11
+sadsad
+['26.733465799999998', '83.4369139']
+Performing system checks...
+
+September 04, 2017 - 15:46:31
+Django version 1.10.6, using settings 'LOGAN.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Kashmir Great Lakes
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}, {'tagname': ' Western Ghats Trek etc', 'color': '#008489'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+Kashmir Great Lakes
+..{$ article.img_link$}
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}, {'tagname': ' Western Ghats Trek etc', 'color': '#008489'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+['Bike Riding', 'Hill station', 'Tracking']
+tips_list
+[]
+Kashmir Great Lakes
+Kashmir Great Lakes
+tips_list
+[]
+11
+sadsad
+['26.733541499999998', '83.4375602']
+https://lh3.googleusercontent.com/p/AF1QipNUZS-EwG2TdQbUhqHkjOIv2_a8rEYaV0LvPgXC=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipNUZS-EwG2TdQbUhqHkjOIv2_a8rEYaV0LvPgXC=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipOpcnPdqRDJvhSpl8svKRGmSNp2EWDl7M6WjpTV=s1600-w500-h327
+https://lh3.googleusercontent.com/p/AF1QipOpcnPdqRDJvhSpl8svKRGmSNp2EWDl7M6WjpTV=s1600-w500-h327
+https://lh3.googleusercontent.com/p/AF1QipNCpZ--NsHsikSOPe0f102mdObIujGa7aTfARKZ=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipNCpZ--NsHsikSOPe0f102mdObIujGa7aTfARKZ=s1600-w500-h500
+Kashmir Great Lakes
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}, {'tagname': ' Western Ghats Trek etc', 'color': '#008489'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+..{$ article.img_link$}
+Kashmir Great Lakes
+extra tag list
+Western Ghats Trek
+<QuerySet [<extra_tag: Western Ghats Trek>]>
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}]
+[{'tagname': 'Tracking', 'color': '#008489'}, {'tagname': 'Enter trek type', 'color': '#008489'}, {'tagname': ' e.g. Himalyan Trek', 'color': '#008489'}, {'tagname': ' Western Ghats Trek etc', 'color': '#008489'}]
+True
+OrderedDict([('About This Place', 'Kashmir Great Lakes trek is one of the most beautiful Himalayan trek that truly portrays the grandeur of Kashmir. With it’s brilliant cyan skyline, grasslands sprinkled with vibrant wild flowers, seven grand glacial lakes in various hues of blue and the thud of three mountain passes; this trek is painted with scenery that puts you in a state of constant awe. It is the perfect destination for the photographers with every single sight worth capturing. \r\nThe trail constantly runs on the high altitudes for seven to eight days, with nearly 8 hrs of trekking everyday, which can be streneous.\r\nThe avg. temperature during day time is 15°C to 10°C while at night is 0°C to -3°C.'), ('Location', 'Valley of Kashmir'), ('Best Time to Visit', '  July to September'), ('Open Timings', 'Let us know if you have been here..'), ('Govt. Guidelines', 'Let us know if you have been here..'), ('Languages Spoken', '   Hindi, English')])
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+['Bike Riding', 'Hill station', 'Tracking']
+tips_list
+[]
+Kashmir Great Lakes
+Kashmir Great Lakes
+tips_list
+[]
+11
+sadsad
+['26.733465799999998', '83.4369139']
+https://lh3.googleusercontent.com/p/AF1QipNUZS-EwG2TdQbUhqHkjOIv2_a8rEYaV0LvPgXC=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipNUZS-EwG2TdQbUhqHkjOIv2_a8rEYaV0LvPgXC=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipOpcnPdqRDJvhSpl8svKRGmSNp2EWDl7M6WjpTV=s1600-w500-h327
+https://lh3.googleusercontent.com/p/AF1QipOpcnPdqRDJvhSpl8svKRGmSNp2EWDl7M6WjpTV=s1600-w500-h327
+https://lh3.googleusercontent.com/p/AF1QipNCpZ--NsHsikSOPe0f102mdObIujGa7aTfARKZ=s1600-w500-h500
+https://lh3.googleusercontent.com/p/AF1QipNCpZ--NsHsikSOPe0f102mdObIujGa7aTfARKZ=s1600-w500-h500

@@ -1,0 +1,6 @@
+Performing system checks...
+
+August 20, 2017 - 12:06:10
+Django version 1.10.6, using settings 'LOGAN.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.

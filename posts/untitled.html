@@ -1,0 +1,689 @@
+ <html>
+ <head>
+
+ <link rel="stylesheet" href="./lib/w3.css">
+<link rel="stylesheet" href="./lib/mycss.css">
+<link rel="stylesheet" href="./lib/w3-theme-teal.css">
+<link rel="stylesheet" href="./lib/bootstrap-horizon.css">
+<link href="./lib/agency.min.css" rel="stylesheet">
+<link href="./lib/simple-sidebar.css" rel="stylesheet">
+<link href="./lib/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <!--link rel="stylesheet" href="bootstrap_files/trix.css"-->
+<link rel='stylesheet' href="dist/textAngular.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bootstrap_files/bootstrap.min.js"></script>
+  <script src="bootstrap_files/angular.js"></script>
+  <!--script src="bootstrap_files/angular-sanitize.js"></script-->
+   <script src="bootstrap_files/angular-route.js"></script>
+  <script src="bootstrap_files/angular-cookies.min.js"></script>
+  <script src="bootstrap_files/tinymce.js"></script>
+  <!--script src="bootstrap_files/angular-trix.js"></script>
+  <script src="bootstrap_files/trix.js"></script>
+  <!--script src="bootstrap_files/tinymce1.js"></script-->
+  <link rel='stylesheet' href='build/loading-bar.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='build/loading-bar.min.js'></script>
+<script src="dist/textAngular-rangy.min.js"></script>
+<script src="dist/textAngular-sanitize.min.js"></script>
+<script src="dist/textAngular.min.js"></script>
+<script src="dist/textAngularSetup.min.js"></script>
+<script src="dist/elasticui.min.js"></script>
+<script src="dist/elastic.js"></script>
+<script src="dist/elasticsearch.angular.js"></script>
+<script src="dist/ng-infinite-scroll.js"></script>
+<script src="dist/ui-bootstrap-tpls-0.10.0.js"></script>
+ <script src="https://rangy.googlecode.com/svn/trunk/currentrelease/rangy-core.js"></script>
+    <script src="https://rangy.googlecode.com/svn/trunk/currentrelease/rangy-selectionsaverestore.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    
+  <script src="build/ngProgress.min.js"></script>
+<link rel="stylesheet" href="build/ngprogress.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family:  "Comic Sans MS", sans-serif; font-size:15px;}
+.myaccordion-content a:hover{
+	background-color:#fff;
+}
+
+.w3-accordion-content a:hover{
+	background-color:#fff;
+}
+.btn-circle {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  padding: 0px 0;
+  font-size: 10px;
+  line-height: 1.42;
+  border-radius: 60px;
+  -webkit-transition:opacity 0s;
+  transition:opacity 0s
+}
+.btn-primary {
+    background: #607d8b ;
+    color: #ffffff;
+	padding:2px;
+	border-color:#ffffff;
+}
+.btn-circle:active{
+	opacity:0.5;
+}
+.btn-circle:hover{
+	box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.my-ppt
+{
+	content:url('my-ppt1.png');
+	
+}
+img[title]:hover:after {
+  content: attr(title);
+  padding: 4px 8px;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 20;
+  white-space: nowrap;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 4px #222;
+  -webkit-box-shadow: 0px 0px 4px #222;
+  box-shadow: 0px 0px 4px #222;
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+}
+.myshow{display:block!important}
+.myshow1{display:block!important}
+.myshow2{display:block!important}
+.myshow3{display:block!important}
+
+.mydisplay{display:block}
+.mydisplay1{display:none}
+.mydisplay2{display:block}
+.mydisplay3{display:none}
+.mydisplay4{display:block}
+.mydisplay5{display:none}
+img {
+    max-width: 80%;
+    max-height: 80%;
+}
+.ta-editor.form-control.myform1-height, .ta-scroll-window.form-control.myform1-height  {
+    min-height: 150px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.form-control.myform1-height > .ta-bind {
+    height: auto;
+    min-height: 150px;
+    padding: 6px 12px;
+}
+#loading-bar .bar {
+  position: relative;
+  color:red;
+}
+
+/* the icons (main level menu icon and sublevel icons) */
+
+</style>
+</head>
+<body>
+
+  <div class="w3-container w3-card-2 w3-white w3-round w3-margin" ><br>
+        
+	
+
+ 
+        <div class="w3-row">
+		<div class="w3-col s2">
+		</br>
+		<img src="" class="w3-circle " style="height:60px;width:60px" alt="Avatar"></a>
+  </div>
+	<span class="w3-right w3-opacity"  ></span>
+		<div class="w3-col s6 m6 w3-dropdown-hover w3-white" >
+             <br><button class="w3-btn w3-white"><b><h4></h4></b></button>
+			 <div class="w3-dropdown-content w3-border w3-card-2 ">
+   
+   
+
+<div class="w3-container w3-small ">
+  
+  <div class="w3-row-padding">
+  <div class="w3-col s4"><br>
+  <img src=""  alt="user" class="w3-image w3-circle " style="width:40px;height:40px;">
+  </div>
+  <div class="w3-col s8 w3-small">
+  
+  <h4>
+  <b>dfgdfgfdgdf</b></h4>
+  <br>
+  dfgdfgfdgfdgfdfg
+  </div>
+  </div>
+ 
+  <p class="w3-opacity "><i class="fa fa-graduation-cap w3-opacity"></i>Studies at dgdfgdfgfdgfdg</p>
+  <p class="w3-opacity "><i class="fa fa-home w3-opacity"></i>Lives in fgdfgdfgdfgdfgdfgfdgfd.</p>
+ 
+	
+  <br>
+ 
+</div>
+
+<footer class="w3-container w3-white w3-padding-large">
+
+
+<div ng-if="question.statususerfollower=='YES'">
+<form ng-submit="user_follower(question,sessionid)" method="POST">
+<input type="text" style="display:none;" ng-model="sessionid">
+<input type="text" style="display:none;" ng-model="userfollowbtn">
+<input type="text" style="display:none;" ng-model="quserid">
+<button type="submit" class="w3-btn w3-teal w3-round-small">Unfollow</button>
+</form>
+</div>
+<div ng-if="question.statususerfollower=='NO'" >
+<form ng-submit="user_follower(question,sessionid)" method="POST">
+<input type="text" style="display:none;" ng-model="sessionid">
+<input type="text" style="display:none;" ng-model="question.userfollowbtn">
+<input type="text" style="display:none;" ng-model="question.quserid">
+<button type="submit" class="w3-btn w3-teal w3-round-small">Follow</button>
+</form>
+</div>
+</footer>
+   
+   
+   
+   
+   
+   
+  </div>
+            </div>
+			<div class="w3-col s6 w3-white" ng-if="question.quserid==sessionid">
+			</br>
+			<h4>{{question.questionaskname}}</h4>
+			</div>
+			</br>
+		<div class="w3-col s1" style="margin-left:22%" ng-if="question.quserid==sessionid">
+	
+		<a href="" ng-click="mymodal('idql'+question.id)"class="w3-text-teal w3-xlarge" name="post_question"><i class="fa fa-pencil"></i></a> 
+		
+		<div id="idql{{question.id}}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-8">
+      <header class="w3-container w3-teal"> 
+        <span ng-click="mymodal('idql'+question.id)" 
+        class="w3-closebtn">&times;</span>
+        <h2>UPDATE YOUR QUESTION</h2>
+      </header>
+      <div class="w3-container">
+	  <form method="POST" ng-submit="editingquestion(question,sessionid)">
+	  <!--textarea  ui-tinymce="tinymceOptions"  name="question_txt" rows="8" cols="120" ng-model="question.ques"></textarea-->
+	  <!--trix-editor angular-trix ng-model="question.ques" class="trix-content"></trix-editor-->
+	    <div text-angular ng-model="question.ques"  
+        ta-text-editor-class="form-control myform1-height" 
+        ta-html-editor-class="form-control myform1-height"></div>
+	  <input type="text" style="display:none;" name="q_id" ng-model="question.id">
+	  <input type="text" style="display:none;" name="user_id" ng-model="sessionid" >
+	  <input type="text" style="display:none;" ng-model="question.editqbtn">
+        <hr>
+		
+		 <button type="submit" class="w3-btn w3-teal" name="edit_question"><i class="fa fa-pencil"></i>EDIT QUESTION</button> 
+		
+		 </form>
+		 </br>
+	  </div>
+      <footer class="w3-container w3-teal"style="width:100%;">
+        <p>powered by Scholarsgo.com</p>
+      </footer>
+    
+  </div>
+</div>
+		</div>
+		</div>
+        <hr class="w3-clear">
+        
+		  <a href="" class="w3-text-black" ng-click="loadparticularquestion(sessionid,question.id)" target="_blank"><div style="word-wrap:break-word;" ng-bind-html="html" >{{question.sharequestion=htmlspecialchars_decode(question.ques)}}</div></a>
+          </br>
+		<div class="w3-row w3-padding-large">
+		
+        
+		<div class="w3-col s1" style="" ng-if="question.statuslike=='LIKE'">
+		<form method="post" >
+		<input type="text" style="display:none;" ng-model="question.id">
+		<input type="text" style="display:none;" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="question.likeqbtn">
+		
+		<a href="" ng-click="upvoting(question,sessionid)" name="like" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-up" style=""></i>|{{question.nooflike}}</a>
+        </form>
+		</div>
+		
+		
+       
+		<div class="w3-col s1" style="" ng-if="question.statuslike==''">
+		<form method="post">
+		<input type="text" style="display:none;" ng-model="question.id">
+		<input type="text" style="display:none;" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="question.likeqbtn">
+		<a href="" ng-click="upvoting(question,sessionid)" name="like" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-o-up" style=""></i>|{{question.nooflike}}</a>
+		</form>
+		</div>
+		
+		
+		<div class="w3-col s1" style="margin-left:8.33333%;" ng-if="question.statusunlike=='UNLIKE'">
+		<form method="post">
+		<input type="text" style="display:none;" ng-model="question.id">
+		<input type="text" style="display:none;" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="question.unlikeqbtn">
+	
+		
+		<a href="" ng-click="downvoting(question,sessionid)" name="unlike" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-down" style=""></i>|{{question.noofunlike}}</a>		
+		</form>    
+		</div>
+	
+	
+		<div class="w3-col s1" style="margin-left:8.33333%" ng-if="question.statusunlike==''">
+		<form method="post">
+		<input type="text" style="display:none;" ng-model="question.id">
+		<input type="text" style="display:none;" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="question.unlikeqbtn">
+		<a href="" ng-click="downvoting(question,sessionid)" name="unlike" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-o-down" style=""></i>|{{question.noofunlike}}</a>		
+        
+		</form>
+		</div>
+		
+	  
+	  <div class="w3-col s1" style="margin-left:8.33333%;">
+		
+	  <a ng-click="mymodal1('idqR'+question.id);" class="w3-large w3-margin-bottom" title="Request"><i class="fa fa-envelope"></i></a> 
+	  <div id="idqR{{question.id}}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-8">
+      <header class="w3-container w3-teal"> 
+        <span ng-click="mymodal1('idqR'+question.id)" 
+        class="w3-closebtn">&times;</span>
+        <h2>REQUEST FOR THIS QUESTION</h2>
+      </header>
+	  </br>
+	  </br>
+      <div class="w3-container" >
+<div class="w3-row w3-section">	 
+
+	 <form ng-submit="searching(sessionid,question.id,searchusername)" method="POST">
+	 <div class="w3-col s12">
+	 <input class="w3-input w3-border" type="text" name="result_search" ng-model="searchusername" style="" ng-minlength="2" placeholder="Search the person" autocomplete="off" ng-required="required">
+	 <input type="text" style="display:none" ng-model="sessionid">
+	 <input type="text" style="display:none" ng-model="question.id">
+	 <input type="submit" style="display:none;" name="search_personality_here">
+</div>
+
+	
+		 
+		 </form>
+		 </div>
+	  </br>
+	  
+	  <div class="w3-row-padding"  ng-repeat="people in peoples  | filter: { username: searchusername } track by people.userid">
+	 
+	  <div ng-if="searchusername.length > 0">
+	  <div class="w3-col s3">
+	  
+	  <img src="{{people.userpic}}" class="w3-circle " style="height:40px;width:40px" alt="Avatar">
+	  </div>
+	  <div class="w3-col s3" style="margin-left:16.66666%;margin-right:16.66666%;">
+	  {{people.username}}
+	  </div>
+	  <div class="w3-col s2 w3-padding-8" ng-if="people.requeststatus==''">
+	  <form ng-submit="requesting(people,sessionid,question.id)" method="POST">
+	  <input type="text" style="display:none;" ng-model="people.userid">
+	  <input type="text" style="display:none;" ng-model="sessionid">
+	  <input type="text" style="display:none" ng-model="question.id">
+	  <input type="text" style="display:none;" ng-model="people.requestbtn">
+	  <button class="w3-btn w3-small w3-teal w3-padding-large">Request</button>
+	  
+	  </form>
+	  </div>
+	  	  <div class="w3-col s2 w3-padding-8" ng-if="people.requeststatus=='YES'">
+	  <form ng-submit="requesting(people,sessionid,question.id)" method="POST">
+	  <input type="text" style="display:none;" ng-model="people.userid">
+	  <input type="text" style="display:none;" ng-model="sessionid">
+	  <input type="text" style="display:none" ng-model="question.id">
+	  <input type="text" style="display:none;" ng-model="people.requestbtn">
+	  <button class="w3-btn w3-small w3-teal w3-padding-large ">Cancel Request</button>
+	  
+	  </form>
+	  </div>
+	  </div>
+	  </div>
+	  </br>
+	  
+	  
+
+	  </div>
+      <footer class="w3-container w3-teal"style="width:100%;">
+        <p>powered by Scholarsgo.com</p>
+      </footer>
+    
+  </div>
+</div>
+	  </div>
+	  
+		
+	
+		<div class="w3-col s1" style="margin-left:16.66666%;" ng-if="sessionid!=question.quserid && question.follow==0">
+	<form method="post" ng-submit="following(question,sessionid)">
+	<input type="text" style="display:none;" name="q_id" ng-model="question.id" >
+	<input type="text" style="display:none;" name="following_id" ng-model="question.quserid">
+	<input type="text" style="display:none;" name="follower_id" ng-model="sessionid">
+	<input type="text" style="display:none;" ng-model="question.followqbtn">
+	<span> <a href="" ng-click="following(question,sessionid)" name="unfollow" class="w3-margin-bottom"><i class="fa fa-user"></i>Follow</a> 
+	  </span>
+	  </form>
+	  </div>
+	
+		<div class="w3-col s1" style="margin-left:16.66666%;" ng-if="sessionid!=question.quserid && question.follow!=0">
+	<form method="post" >
+	<input type="text" style="display:none;" name="q_id" ng-model="question.id" >
+	<input type="text" style="display:none;" name="following_id" ng-model="question.quserid">
+	<input type="text" style="display:none;" name="follower_id" ng-model="sessionid">
+	<input type="text" style="display:none;" ng-model="question.followqbtn">	 
+	<span class=""> <a href="" ng-click="following(question,sessionid)" name="unfollow" class="w3-margin-bottom"><i class="fa fa-user"></i>Unfollow</a> 
+	  </span>
+	  </form>
+	
+	  </div>
+	  <div class="w3-col s3 w3-margin-small w3-left" style="margin-left:8.333333%">
+		<div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+        FB.init({appId: '1818878211723475', status: true, cookie: true,
+        xfbml: true});
+    };
+    (function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+    }());
+  </script>
+	  <a href="" ng-click="share(question.ques)"><i class="w3-large fa fa-facebook-square"></i></a>
+	  </div>
+	  </div>
+	  
+	  <div class="w3-row w3-accordion w3-padding-large">
+	  
+	 <a  style="margin-left:8.33333%;" ng-click="myFunction('Demsl'+question.id);loadanswers(question.id,sessionid);" class="w3-text-teal w3-margin-bottom">ANSWERS({{question.noofanswers}})</a> 
+	  <a ng-click="mymodal100('Demslm'+question.id)" style="margin-left:8.33333%" class="w3-xlarge w3-text-theme-d2 w3-margin-bottom" name="new_post_question"><i class="fa fa-comment"></i></a>
+				   
+				   <div id="Demslm{{question.id}}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-8">
+      <header class="w3-container w3-teal"> 
+        <span ng-click="mymodal100('Demslm'+question.id)" 
+        class="w3-closebtn">&times;</span>
+        <h2>Give Your Answer Here</h2>
+      </header>
+      <div class="w3-container">
+	 
+		  <form method="post" ng-submit="postinganswer(question,sessionid)">
+	  <input type="text" style="display:none;" name="q_user_id" ng-model="sessionid">
+	  <input type="text" style="display:none;" name="q_id" ng-model="question.id">
+	  <input type="text" style="display:none;" name="answer_post_time" value="">
+	 
+	  <div text-angular ng-model="question.newanswer"  
+        ta-text-editor-class="form-control myform1-height" 
+        ta-html-editor-class="form-control myform1-height"></div>
+	  <input type="text" style="display:none;" ng-model="question.answerqbtn">
+	  </br>
+<button type="submit" class="w3-btn w3-teal" name="post_question"><i class="fa fa-pencil"></i>POST ANSWER</button> 
+	  </form>
+		 </br>
+	  </div>
+      <footer class="w3-container w3-teal"style="width:100%;">
+        <p>powered by Scholarsgo.com</p>
+      </footer>
+    
+  </div>
+</div>
+      <div id="Demsl{{question.id}}" class="w3-accordion-content w3-padding">
+	  <!--div class="w3-row">
+	  <div class="w3-col s1">
+	  
+ <img src="{{user_pic}}" class="w3-circle w3-margin-right" style="height:45px;width:45px" alt="Avatar"><span class="w3-text-white"></span></a>
+  
+
+	  </div>
+	  <div class="w3-col s10" style="margin-right:8.33333%;">
+	  <form method="post" ng-submit="postinganswer(question,sessionid)">
+	  <input type="text" style="display:none;" name="q_user_id" ng-model="sessionid">
+	  <input type="text" style="display:none;" name="q_id" ng-model="question.id">
+	  <input type="text" style="display:none;" name="answer_post_time" value="">
+	  <input class="w3-input answerinput w3-border" type="text" name="answer" ng-model="question.newanswer" placeholder="GIVE YOUR ANSWER HERE" autocomplete="off">
+	  <input type="text" style="display:none;" ng-model="question.answerqbtn">
+	  <input type="submit" name="post_answer" value="" id="inputSuccess4" style="display:none;" >
+	  </form>
+	  </div>
+	  </div-->
+	 
+	  <div class="w3-row-padding w3-card-2" style="margin-top:16px;" ng-if="answer.answerid!='' && answer.qid==question.id"  ng-repeat="answer in answers | limitTo:answerdisplayed track by $index">
+            <div class="w3-row" style="word-wrap:break-word">
+			<div class="w3-col s2 w3-padding-large">
+	
+ <img src="{{answer.userpic1}}" class="w3-circle w3-margin-right" style="height:45px;width:45px" alt="Avatar"><span class="w3-text-white"></span></a>
+  
+	
+			</div>
+			<div class="w3-col s4" style="">
+			<h4><b>{{answer.answername}}</h4></b>
+			
+			</div>
+			<div class="w3-col s2 w3-padding-large" style="margin-left:33.3333%" ng-if="answer.qansweruserid==sessionid">
+		
+	
+		<a href="" ng-click="mymodal3('idal'+answer.answerid)"class="w3-large w3-text-teal" name="post_question"><i class="fa fa-pencil"></i></a> 
+		
+		<div id="idal{{answer.answerid}}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-8">
+      <header class="w3-container w3-teal"> 
+        <span ng-click="mymodal3('idal'+answer.answerid)" 
+        class="w3-closebtn">&times;</span>
+        <h2>UPDATE YOUR ANSWER</h2>
+      </header>
+      <div class="w3-container">
+	  <form method="POST" ng-submit="edittinganswer(answer,sessionid)">
+	  </br>
+	  <!--textarea class="" name="answer_txt" rows="8" cols="120" ng-model="answer.ans"></textarea-->
+	  <!--trix-editor ng-if="true" angular-trix ng-model="answer.ans" class="trix-content"></trix-editor-->
+	  
+	  <div text-angular ng-model="answer.ans" 
+        ta-text-editor-class="form-control myform1-height" 
+        ta-html-editor-class="form-control myform1-height"></div>
+	  <input type="text" style="display:none;" name="q_id" ng-model="answer.qid">
+	  <input type="text" style="display:none;" name="user_id" ng-model="sessionid">
+	  <input type="text" style="display:none;" name="answer_id" ng-model="answer.answerid">
+	  <input type="text" style="display:none;" ng-model="answer.editabtn">
+        <hr>
+		 
+		 <button type="submit" class="w3-btn w3-teal" name="edit_answer"><i class="fa fa-pencil"></i>EDIT ANSWER</button> 
+		
+		 </form>
+		 </br>
+	  </div>
+      <footer class="w3-container w3-teal"style="width:100%;">
+        <p>powered by Scholarsgo.com</p>
+      </footer>
+    
+  </div>
+</div>
+			</div>
+			</div>
+			
+			<div class="w3-row">
+			<div class="w3-col s8" style="word-wrap:break-word;margin-left:16.66666%;margin-right:16.66666%;" ng-bind-html="html">
+			{{htmlspecialchars_decode(answer.ans)}}
+            </div>
+			</div>
+			</br>
+             <div class="w3-row w3-container">
+		
+	
+		<div class="w3-col s2" style="margin-left:16.66666%;" ng-if="answer.answerstatuslike=='LIKE'">
+		<form method="post">
+		<input type="text" style="display:none" name="q_id" ng-model="answer.qid">
+		<input type="text" style="display:none" name="answer_id" ng-model="answer.answerid">
+		<input type="text" style="display:none" name="user_id" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="answer.likeabtn">
+		<a href="" ng-click="answerupvoting(answer,sessionid)" name="answerlike" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-up" style=""></i>|{{answer.noofanswerlike}}</a>
+        </form>
+		</div>
+	
+		<div class="w3-col s2" style="margin-left:16.66666%;" ng-if="answer.answerstatuslike==''">
+		<form method="post">
+		<input type="text" style="display:none" name="q_id" ng-model="answer.qid">
+		<input type="text" style="display:none" name="answer_id" ng-model="answer.answerid">
+		<input type="text" style="display:none" name="user_id" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="answer.likeabtn">
+		<a href="" ng-click="answerupvoting(answer,sessionid)" name="answernolike" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-o-up"></i>|{{answer.noofanswerlike}}</a>
+        </form>
+		
+        </div>
+		
+		
+		
+		
+		<div class="w3-col s2" ng-if="answer.answerstatusunlike=='UNLIKE'">
+		<form method="post">
+		<input type="text" style="display:none" name="q_id" ng-model="answer.qid">
+		<input type="text" style="display:none" name="answer_id" ng-model="answer.answerid">
+		<input type="text" style="display:none" name="user_id" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="answer.unlikeabtn">
+		<a href="" ng-click="answerdownvoting(answer,sessionid)" name="answerunlike" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-down" style=""></i>|{{answer.noofanswerunlike}}</a>		
+        </form>
+		</div>
+		
+		<div class="w3-col s2" ng-if="answer.answerstatusunlike==''">
+		<form method="post" >
+		<input type="text" style="display:none" name="q_id" ng-model="answer.qid">
+		<input type="text" style="display:none" name="answer_id" ng-model="answer.answerid">
+		<input type="text" style="display:none" name="user_id" ng-model="sessionid">
+		<input type="text" style="display:none" ng-model="answer.unlikeabtn">
+		<a href="" ng-click="answerdownvoting(answer,sessionid)" name="answernounlike" class="w3-margin-bottom w3-large"><i class="fa fa-thumbs-o-down"></i>|{{answer.noofanswerunlike}}</a>		
+        </form>
+	
+        </div>
+		</div>
+			 <div class="my-accordion w3-row">
+		
+	  <a  href="" style="margin-right:55%;margin-left:18%;" ng-click="myFunction1('Deosl'+answer.answerid,question.id);loadreplies(answer.answerid,question.id,sessionid);"  class="w3-text-teal w3-margin-bottom"></i>REPLIES({{answer.noofreplies}})</a> 
+	  
+	 
+	  <div class="my-accordion-content w3-padding" id="Deosl{{answer.answerid}}" ng-class="{myshow:currentid == {{answer.answerid}}}">
+	  <div class="w3-row" >
+	  <div class="w3-col s1">
+
+ <img src="{{user_pic}}" class="w3-circle w3-margin-right" style="height:35px;width:35px" alt="Avatar"><span class="w3-text-white"></span></a>
+  
+
+	  </div>
+	  <div class="w3-col s10" style="margin-right:8.33333%;">
+	 <form method="post" ng-submit="postingreply(answer,sessionid)">
+	  <input type="text" style="display:none;" name="q_user_id" ng-model="sessionid">
+	  <input type="text" style="display:none;" name="q_id" ng-model="answer.qid">
+	  <input type="text" style="display:none;" name="answer_id" ng-model="answer.answerid">
+	  <input type="text" style="display:none;" name="answer_post_time" value="">
+	 <input type="text" style="display:none;" ng-model="answer.replyabtn">
+	 <input class="w3-input w3-border replyinput" type="text" name="reply" ng-model="answer.newreply" ng-required="answer.newreply" placeholder="Reply Here..." autocomplete="off">
+	  
+	  <input type="submit" name="post_reply" value="" id="inputSuccess4" style="display:none;" >
+	  </form>
+	  </div>
+	  </div>
+	 
+	  <div class="w3-row-padding w3-card-2" style="margin-top:8px;"  ng-if="reply.replyid!='' && reply.answerreplyid==answer.answerid && reply.answerquestionid==answer.qid" ng-repeat="reply in replies | limitTo:replydisplayed track by reply.replyid" >
+			<div class="w3-row">
+			<div class="w3-col s2">
+	
+
+ <img src="{{reply.userpic}}" class="w3-circle w3-margin-right" style="height:45px;width:45px" alt="Avatar"><span class="w3-text-white"></span></a>
+  
+
+			
+			</div>
+			<div class="w3-col s4">
+			<h5><b>{{reply.answerreplyname}}</b></h5>
+			</div>
+			<div class="w3-col s2" style="margin-left:33.3333%;" ng-if="reply.answerreplyuserid==reply.sessionuserid2">
+		
+		<a href="" ng-click="mymodal4('idrl'+reply.replyid)" class="w3-text-teal" name="post_question"><i class="fa fa-pencil"></i></a> 
+		
+		<div id="idrl{{reply.replyid}}" class="w3-modal" >
+    <div class="w3-modal-content w3-animate-zoom w3-card-8">
+      <header class="w3-container w3-teal"> 
+        <span ng-click="mymodal4('idrl'+reply.replyid)" 
+        class="w3-closebtn">&times;</span>
+        <h2>UPDATE YOUR REPLY</h2>
+      </header>
+      <div class="w3-container">
+	  <form method="POST" ng-submit="edittingreply(reply,sessionid)">
+	  </br>
+	  <!--textarea class="" name="reply_txt" rows="8" cols="120" ng-model="reply.answerreply" ng-required="required"></textarea-->
+	  <!--trix-editor angular-trix ng-model="reply.answerreply" class="trix-content"></trix-editor-->
+	    <div text-angular ng-model="reply.answerreply"  
+        ta-text-editor-class="form-control myform1-height" 
+        ta-html-editor-class="form-control myform1-height"></div>
+	  <input type="text" style="display:none;" name="q_id" ng-model="reply.answerquestionid">
+	  <input type="text" style="display:none;" name="user_id" ng-model="sessionid">
+	  <input type="text" style="display:none;" name="answer_id" ng-model="reply.answerreplyid">
+	  <input type="text" style="display:none;" name="reply_id" ng-model="reply.replyid">
+	  <input type="text" style="display:none;" ng-model="reply.editreplybtn">
+        <hr>
+		 
+		 <button type="submit" class="w3-btn w3-teal" name="edit_reply"><i class="fa fa-pencil"></i>EDIT REPLY</button> 
+		
+		 </form>
+		 </br>
+	  </div>
+      <footer class="w3-container w3-teal"style="width:100%;">
+        <p>powered by Scholarsgo.com</p>
+      </footer>
+    
+  </div>
+</div>
+			</div>
+			
+			</div>
+			<div class="w3-row">
+			<div class="w3-col s8" style="word-wrap:break-word;margin-right:16.66666%;margin-left:16.66666%;">
+			<p ng-bind-html="html">{{htmlspecialchars_decode(reply.answerreply)}}</p>
+            </div>
+			</div>
+			
+			</div>
+			<div ng-if="answer.noofreplies>replydisplayed">
+	<center><a href=""class="w3-margin-left w3-margin-top" ng-click="loadmorereply()">See more replies...</a></center> 
+			 </div>
+			 </div>
+			 </div>
+			</div>
+			<div ng-if="question.noofanswers>answerdisplayed">
+		<center><a href="" class="w3-margin-left w3-margin-top" ng-click="loadmoreanswer()">See more answers...</a></center> 
+	  </div>
+	  </div>
+	  </div>
+        </div>
+	 
+		<center><a href="" class="w3-margin-left w3-margin-top" ng-click="loadMore()">See more...</a> </center>
+	  </div>
+	  </div>
+	 </body>
+	 </html>

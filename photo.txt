@@ -1,0 +1,19 @@
+Performing system checks...
+
+August 20, 2017 - 11:56:22
+Django version 1.10.6, using settings 'LOGAN.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+undefined
+Performing system checks...
+
+August 20, 2017 - 11:57:37
+Django version 1.10.6, using settings 'LOGAN.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+August 20, 2017 - 11:57:48
+Django version 1.10.6, using settings 'LOGAN.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.

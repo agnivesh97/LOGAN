@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html ng-app="myApp">
+<head>
+<title> {% block head_title %} Cafe- Trek List {% endblock head_title %} </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104444238-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    	 <script src="{% static 'files/angular.js' %}"></script>
+    	 <script src="{% static 'files/scrollglue.js' %}"></script>
+	 <script src="{% static 'files/angular-sanitize.js' %}"></script>
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+</head>
+
+  <style>
+      body    
+           {
+            font-family: "Roboto",sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            background: :#fff;
+               text-align: justify;
+
+
+  }
+    .text-muted {
+                color: #767676; 
+  }
+      
+              h1      {
+            font-size: 112sp;
+            color: #484848;
+            font-weight: 300;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+  }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        p      {
+            font-size: 16sp;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+            margin: 0;
+                line-height: 1.43;
+            -webkit-font-smoothing: antialiased;
+  }
+     .myscroll{
+
+     height:400px;
+     overflow:auto;
+     }
+        hr     {
+                margin-top: 1%;
+                margin-bottom: 2%;
+                border: 0;
+                border-top: 1px solid #eee;         
+  }
+  
+    .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+  }  
+    .tabpanel{
+            background-color:#212121;
+            color: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+  }
+     
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Halvetica","Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+        .tab-text-format {
+            padding: 5px 5px;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin: 0 0 8px;
+            text-align: left;
+  }
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+        .panel {
+            border: 1px solid #2D4A64 !important;
+            border-radius:0 !important;
+            transition: box-shadow 0.5s;
+  }
+  
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 2px;
+  }
+      
+ 
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: justify;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+
+
+ 
+         .searchbar-masthead {
+            padding: 2px 6px;
+            width: 100%;
+            border-color: #FFF;
+            padding-top: 1px;
+            font-size: 16px;
+	    border-radius: 5px 0px 0px 5px;
+  }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;}
+      
+
+   
+      
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+
+        .info-text {
+            padding-left: 12px;
+            padding-right: 8px;
+        }
+
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 40px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+  
+        .navbar {
+            margin-bottom:auto;
+            background-color: #FFF;
+            font-style: bold;
+            border: 1px;
+            font-size: 15px !important;
+            letter-spacing: 4px;
+            border-radius: 0px;
+            border: 1px solid #F5F5F5;
+            font-family: "Roboto","Arial", sans-serif;
+            box-shadow: 0 0px 0px 0 ;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+
+  }
+        .card1{
+            height: 500px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+  }
+
+          .card1 img{
+            position:absolute; 
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-color: #f5f5f5;
+            height: 100%;
+            margin: auto;
+
+  }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fafafa !important;
+  }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #607D8B !important;
+            background-color: #fff !important;
+  }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+  }
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+  }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+  }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+           .map-position {
+            width: 100%;
+
+            max-height: 600px;
+            z-index: 0;
+  }
+          .post-pic{
+            width: 100%;
+            max-height: 500px;
+            margin-bottom: 0px;
+            background-size: cover;
+  }
+
+        .topstories-pic{
+            max-height: relative;
+            max-width: relative;
+  }
+        
+        .top-stories{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 40px;
+            padding-bottom: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 10px;     
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #E0E0E0;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 5px;
+   }
+        .map-style{
+            padding: 5px 5px;
+   }
+   
+        .image-link{
+            padding: 5px 5px;
+   }
+.fa {
+  padding: 5px;
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #E0F2F1;
+}
+
+.message-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+    margin-top: 5%;
+
+}
+     .header-large-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+        .header-small-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+      .header-medium-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+}
+     .footer-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+           .button-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 0px;
+
+}
+    .post-icon {
+  color: #008489;
+
+}
+      .tag-padding {
+          margin-top: 2%;
+          margin-bottom: 2%;
+          margin-right: 3%;
+          margin-left: 3%;
+      }
+      .card-mobile {
+          margin-left: 0px;
+          margin-right: 0px;
+          margin-top: 4%;
+          margin-bottom: 4%;
+          box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+          z-index: .5;
+          padding-left: 5px;
+          padding-right: 5px;
+      }
+      
+      .questionpost {
+    background-color: beige; 
+          
+}
+
+.hovr:hover{
+box-shadow: 0 0 0 2px #fff, 0 0 0 4px #b5b5b5 !important;
+background-color: #fff!important;
+color: #484848;
+}
+
+   	.w3-light-grey {
+	color: #555 !important;
+	background-color: #efefef !important;
+   }
+
+.w3-button:hover {
+	
+	border: 0px !important;
+	color: #484848 !important; 
+
+} 
+a[ng-click]{
+    cursor: pointer;
+}
+      
+  </style>
+<body class="w3-theme-l5" ng-controller="myCtrl">
+
+<!-- Header for Large Screens -->
+    <header class="w3-hide-small w3-hide-medium">
+      <ul class="w3-navbar navbar navbar-fixed  w3-navitem w3-center" style="padding-top: 0px; padding-bottom: 0px; border-bottom: 1px solid #efefef; ">
+       <a href="/"> <li class="w3-padding" style="width:6%; margin-top: .3%;"><i class="material-icons header-large-icon">home</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Home</p></li>     </a>     
+          <form method='GET' action='/logan/' style="margin-bottom: 0px;">
+          <li style="width:66%; padding-left: -0.88%; padding-right: 0px; margin-top: 1%; margin-bottom: 1%;"> 
+          <input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black w3-border-right " id="text_search"   name='q' placeholder='Enter a place ..' list="mylist" ng-model="myValue"  ng-change="search()">
+
+
+          <datalist id="mylist"> 
+            <option ng-repeat="place in results ">{$ place.title $} </option>
+          </datalist>
+
+          </li>
+          <li style="padding-left: 0px; padding-right: 16px; margin-top: 1%; margin-bottom: 1%;">
+          <button type='submit' value='Search' class="w3-button"  style="color: #555; border-radius: 0px 5px 5px 0px;"><B> Search </B></button>
+          </button>
+          </li>
+          </form>
+          <a href="/discover"><li class="w3-center w3-padding" style="width:6%; margin-top:.3%;"><i class="material-icons header-large-icon" style="color: #008489;">explore</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Discover</p></li></a>
+          
+          {% if not pic %}
+          <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-center w3-padding w3-left" style="width:6%; margin-top:.3%; color: #b5b5b5;"><i class="material-icons header-large-icon">mail</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Messages</p></li></a>
+           <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-padding w3-center w3-left" style="width:6%; margin-top:.2%;"><i class="material-icons header-large-icon">person</i><p class="text-muted" style="font-size: 10px; margin-top: -10%;">Feeds</p> </li></a>
+          {% endif %}
+
+           {% if pic %}
+           <a href="/chatting/messagehtml"><li class="w3-center w3-padding w3-left" style="width:6%; margin-top:.3%; color: #b5b5b5;"><i class="material-icons header-large-icon">mail</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Messages</p></li></a>
+
+           <a href="/socialnetwork/profilehtml/" ><li class="w3-padding w3-center w3-left" style="width:6%;margin-top:.2%;"><img src="{{pic}}" class="w3-circle" style="height:30px;width:30px; padding: 0px, 0px;" alt="Avatar"><p class="text-muted" style="font-size: 10px; margin-top: 12%;">My Feeds</p> </li></a>
+          {% endif %}
+          <!--<li class="w3-padding w3-center w3-left" style="width:6%; margin-top:.3%;"><i class="w3-center" title="My Account" style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin: 0px;"><img src="devsena.jpg" class="w3-circle" style="height:40px;width:40px; padding: 0px, 0px;" alt="Avatar"> 
+          </i>
+          </li>-->
+      </ul>
+    </header>
+
+        
+<!-- Header for Medium Screens -->
+    <header class="w3-hide-small w3-hide-large">
+          <div class="w3-row w3-navbar navbar navbar-fixed  w3-navitem w3-center" style="border-bottom: 1px solid #efefef; ">
+          <li class="w3-center" style="width:5%; margin-top: 1.3%;"><i class="material-icons header-medium-icon">home</i></li>
+          <form method='GET' action='' style="margin-bottom: 0px;">
+          <li style="width:65%; padding-left: 16px; padding-right: 0px; padding-top: 8px; padding-bottom: 8px;"> <input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black w3-border-right" name='q' placeholder='Enter a place ..' style=""></li>
+          <li style="padding-left: 0px; padding-top: 8px; padding-bottom: 8px;">
+          <button type='submit' value='Search' class="w3-light-grey w3-button" style="background-color:#BDBDBD; color: #EEEEEE;"><B> Search </B>
+          </button></li>
+          </form>
+          <li class="w3-center" style="width:5%; margin-top: 1.3%; margin-left: 1%;"><i class="material-icons header-medium-icon" style="color: #009688;">explore</i></li>
+          <li class="w3-center" style="width:5%; margin-top: 1.3%; margin-left: 1%; color: #b5b5b5;"><i class="material-icons header-medium-icon">mail</i>
+          <li class="w3-center" style="width:5%; margin-top: 1.3%; margin-left: 1%;"><i class="w3-hide-small w3-center" title="My Account" style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin: 0px;"><img src="{{pic}}" class="w3-circle" style="height:30px;width:30px; padding: 0px, 0px;" alt="Avatar"> 
+          </i></li>
+          </div>
+    </header>
+    
+<!-- Header for Small Screens -->
+    <header class="w3-hide-large w3-hide-medium ">
+            
+                <div class="w3-sidebar w3-animate-left w3-bar-block w3-collapse" style="width:85%; z-index: 2;" id="mySidebar">
+                    
+                    <div class="w3-container" style="padding-top: 0px; padding-left: 0px; padding-right: 0px;">
+                        
+                            <div class="w3-row w3-display-container" style="padding-top: 0px; padding-left: 0px; padding-right: 0px; margin-bottom: 5%;">
+                                
+                            <img  src='arya.jpg' style="width: 100%; height: 250px; margin: auto; overflow: hidden; position: relative; object-fit: cover; " alt="">
+                                <span class="w3-display-topright w3-bar-item" style=""><button class="w3-button w3-right-align" onclick="w3_close()" style=" background-color: transparent; color: white; font-size: 20px;">&times;</button></span>
+                                <span class="w3-display-bottomleft w3-padding" style="color: white"><h4 style="color: white">Arya Stark</h4></span>
+                                
+                            </div>
+                        <h5 class="text-muted" style="margin-left: 6%;"><b>Share with people</b></h5>
+                        <hr>
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Add Photos </b> </span></button>
+                                
+                            </div>
+                        
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">create</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Post Blog</b> </span></button>
+                            </div>
+                          
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">near_me</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share A Plan</b> </span></button>
+                            </div>
+                        
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">insert_link</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share a link</b> </span></button>
+                            </div>
+                            
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Suggest a Location</b> </span></button>
+                            </div>
+                        
+                            <h5 class="text-muted" style="margin-left: 6%;"><b>Goto</b></h5>
+                            <hr>
+                            
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>My Photos </b> </span></button>
+                                
+                            </div>
+                        
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">import_contacts</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>My Articles</b> </span></button>
+                            </div>
+                          
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">card_travel</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>My Plans</b> </span></button>
+                            </div>
+                            
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>My Suggested Location</b> </span></button>
+                            </div>
+                        </div>
+                    </div>
+                
+
+            <ul>
+                <li style="width: 10%"><button class="w3-button w3-center" style="background-color: #008489" onclick="w3_open()"><i class="material-icons heading-icon " style="color: #EEEEEE; width: 100%; margin-top: 3%; font-size: 15px;">dehaze</i></button></li>
+                <form method='GET' action='' style="margin-bottom: 0px;">
+                <li style="width:50%;"> <input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black" name='q' placeholder='Enter a place ..' style="margin-top: 3%; height: 35px; padding-top: 1%;"> </li>
+                 <li style="width: 10%">
+                <button type='submit' value='Search' class="w3-button" style="background-color:#008489; color: #EEEEEE; "><i class="material-icons heading-icon" style="color: #EEEEEE; margin-top: 3%; font-size: 25px;">search</i></button>
+                </li>
+                </form>
+            </ul> 
+    </header>
+    
+<!-- Message for Large Screens -->
+    <div class="w3-container w3-hide-small w3-hide-medium" style="background-color: #FFF; margin-left: 5%; margin-right: 6%;" >
+        <div class="w3-row" style="padding: 0px 0px; margin-top:100px;top: 50px; ">
+            <div class="w3-col l5 w3-padding" ng-init="loadconversationlist()" style="height:550px;overflow-y:scroll" scroll-glue>
+                <div class="w3-row w3-padding" style="margin-bottom: 2.5%;">
+                  <h3>People followed by me..</h3>  
+                </div>
+               <hr>
+                <div class="w3-row w3-padding" ng-repeat="conversation in conversations" >
+                    
+                  <div class="w3-col l2" style="width: 20%;">
+                      <img src="{$ conversation.user_pic $}" alt="" class="w3-left w3-circle" style="width: 60px; height: 60px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+                      </div>
+                
+                      <div class="w3-col l8 w3-left" style="margin-top: 2%;">
+                           <a href="" ng-click="loadmessage(conversation.userid);pollingmessage(conversation.userid);"> <h4>{$ conversation.username $}</h4> </a>
+                          <p>{$ conversation.message $}</p>
+                      </div>  
+                </div>
+                
+            </div>
+        
+        
+        <div class="w3-col l7 w3-border-left w3-padding" >
+            <div class="w3-row w3-padding " style="width: 100%;" >
+                  <div class="w3-col l2" style="width: 20%;">
+                      <img src="{$ viewuserpic $}" alt="Avataaar" class="w3-left w3-circle" style="width: 60px; height: 60px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+                      </div>
+                
+                      <div class="w3-col l5 w3-left-align" style="margin-top: 2%;">
+                            <h4>{$ viewusername $}</h4>
+                      </div>
+                    
+                </div>
+                
+                <hr>
+                    <div class="w3-row" style="margin-bottom: 2%;height:350px;overflow-y:scroll" scroll-glue>
+                     <div class="w3-container" style="" ng-repeat="message in messages | orderBy:'messageid'">
+                    <div class="w3-row w3-left" style="width: 45%" ng-if="message.sessionuserid!=message.msgsenderid">
+
+                        <div class="w3-col l12 w3-padding w3-light-grey" style="width: 100%; word-wrap:break-word;" >
+                        <p><b>{$ message.sendername $}</b></p>
+                        
+                        <p>{$ message.message_reply $}</p>
+                    </div>
+
+                    </div>
+
+
+                    <div class="w3-row w3-right" style="width: 45%; margin-top: 4%;" ng-if="message.sessionuserid==message.msgsenderid">
+                        <div class="w3-col l12 w3-padding w3-light-grey w3-left-align" style="width: 100%;word-wrap:break-word;">
+                            <p><b>Me :</b></p>
+                        
+                            <p>{$ message.message_reply $}</p>
+
+                        </div>
+
+                    </div>
+                </div>
+                        
+            </div>
+            <br>
+ <div  class="w3-row w3-padding" style="margin-botton:12%;margin-top:4%;">
+
+                    <div class="w3-col l10" >
+
+                            <textarea  class=" w3-light-grey w3-round inputElement" ng-model="message.newmessage" placeholder='Type your message here ...' type="text" style="width: 100%; border: 0px #FAFAFA; height: 50px; padding: 1.5%;">
+                            </textarea><input type="text" style="display:none;" ng-model="viewuserid">
+
+
+                    </div>
+
+                    <div class="w3-col l2 w3-right-align" style="margin-top: 1%;">
+                        <a href="" ng-click="createmessage(message,viewuserid); $event.preventDefault();" value="Send" class="w3-button hovr w3-light-grey w3-round-large " >
+                        <p style="color: #4DB6AC;"><b>Send</b></p> </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    
+   
+    
+    </body>
+</html>
+<script>
+    var app = angular.module('myApp', ['ngSanitize','luegg.directives']);
+	app.config(function($httpProvider,$interpolateProvider) {
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $interpolateProvider.startSymbol('{$');
+    $interpolateProvider.endSymbol('$}');
+});
+
+
+
+  app.directive('ngClick', function () {
+    return {
+        link: function (scope, element, attributes) {
+            element.click(function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            });
+        }
+    };
+});
+
+app.controller('myCtrl', function ($scope,$http,$interval) {
+
+		//alert("The controller is working fine");
+
+
+
+//$scope.$watchCollection('messages' , function(){
+    //console.log($scope.messages);
+//    $scope.loadmessage($scope.viewuserid);
+//});
+
+$scope.loadconversationlist=function(){
+
+//alert("In the load conversation list");
+
+ $http({
+
+	  method: "POST",
+      url: "/chatting/conversation/",
+
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response){
+
+
+
+
+			//alert("The conversations are"+response.data);
+
+             $scope.conversations=response.data;
+             //var newresponsedata=response.data;
+
+			//$scope.questions=response.data;
+
+
+
+	});
+},
+//$scope.updateScroll=function(){
+  //  var element = angular.element(document.getElementById("your_div"));
+  //  alert("The element is"+element);
+  //  element.scrollTop = element.scrollHeight;
+//}
+
+$scope.currentid=0; 
+
+$scope.loadmessage=function(msguserid){
+
+//alert("In the load message section"+msguserid);
+$scope.currentid=msguserid;
+var userid=msguserid
+//alert(msguserid);
+var obj={'userid':userid};
+
+ $http({
+
+	  method: "POST",
+      url: "/chatting/message/"+obj.userid+"/",
+	  data:obj,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response){
+
+
+
+
+			//alert("The messages are"+response.data);
+            $scope.messages=response.data;
+             $scope.initiallength=$scope.messages.length;
+            var newresponsedata=response.data;
+            console.log("pahlewala"+$scope.initiallength);
+            $scope.viewuserid=newresponsedata[0].reciverid;
+            $scope.viewusername=newresponsedata[0].receivername;
+            $scope.viewuserpic=newresponsedata[0].receiverpic;
+            //alert("The initial no of messages are"+$scope.viewuserid);
+           
+
+
+	});
+
+
+              $interval(function () {
+               // $event.preventDefault()
+              $scope.pollingmessage(userid);
+              //alert("hello");
+   
+    }, 3000,1);
+
+},
+ 
+
+$scope.createmessage=function(message,viewuserid){
+
+//alert("In the conversation message"+viewuserid);
+var msgreceiverid=viewuserid;
+var newmessage=message.newmessage;
+var obj={'userid':msgreceiverid,'message_reply':newmessage};
+//alert("The objects are "+obj.userid+" "+obj.reply);
+$http({
+
+	  method: "POST",
+      url: "/chatting/newmessage/"+obj.userid+"/",
+	  data:obj,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response){
+
+
+
+
+			//alert("The messages are"+response.data);
+
+			message.newmessage=null;
+
+            var newresponsedata=response.data;
+
+              $scope.messages.splice(0,0,obj);
+
+
+
+
+	});
+
+
+
+},
+
+
+
+
+$scope.pollingmessage=function(msguserid){
+
+//alert("In the polling message function");
+if($scope.currentid!=msguserid)
+{
+  
+  return;
+}
+var userid=msguserid
+var obj={'userid':userid};
+
+ $http({
+
+	  method: "POST",
+      url: "/chatting/pollingmessage/"+obj.userid+"/",
+	  data:obj,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response){
+
+
+      if($scope.currentid!=msguserid)
+      {
+        
+        return;
+      }
+
+			//alert("The no of messages are"+response.data.noofmessages);
+            //$scope.noofmessages=response.data;
+             $scope.currentlength=response.data.noofmessages;
+            //var newresponsedata=response.data;
+            //alert("The new length is"+$scope.currentlength);
+            //$scope.viewuserid=newresponsedata[0].msgreceiverid;
+            //$scope.viewusername=newresponsedata[0].receivername;
+            //console.log($scope.currentlength);
+        if ($scope.currentlength>$scope.initiallength)
+
+        {
+
+        $scope.loadmessage(userid);
+        
+        return ;
+
+
+        }
+
+
+	});
+
+   $interval(function () {
+              //$event.preventDefault()
+
+              
+              
+              if($scope.currentid==msguserid)
+              {
+              $scope.pollingmessage(userid);
+               }
+              //alert("hello");
+   
+    }, 3000,1);
+
+}
+
+
+
+		});
+
+</script>

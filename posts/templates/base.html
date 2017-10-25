@@ -1,0 +1,476 @@
+{% load staticfiles %}
+{% load ctemp %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+
+  {% block content %}  
+
+    <title>{% block head_title %} Cafe- Trek List {% endblock head_title %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='{% static "/static/Post_list.css" %}'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; 
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+  
+    <style> {% block style %} {% endblock style %} </style>
+
+</head>
+<style>
+         
+        body    {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            background: :#fff;
+
+    }
+        
+
+        h1      {
+            font-size: 65px;
+            color: #484848;
+            font-weight: 300;
+            font-family: "Roboto","Arial" sans-serif;
+    }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+    }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+    }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+    }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family:  "Roboto","Arial" sans-serif;
+    }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family:  "Roboto","Arial" sans-serif;
+    }
+      
+        p      {
+            font-size: 13sp;
+            font-family:  "Roboto","Arial" sans-serif;
+            color: #484848;
+             line-height: 1.43;
+            -webkit-font-smoothing: antialiased;
+    }
+      
+        hr     {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+            
+    }
+
+        .post-pic{
+            max-width: 100%;
+            max-height: 300px;
+            background-size: 100% 100%;
+            
+    }
+        .topstories-pic{
+            max-height: relative;
+            max-width: relative;
+    }
+        
+        .top-stories{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 40px;
+            padding-bottom: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 10px;     
+    }
+
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 2px;
+    }
+
+        .pad{
+            padding: 10px 10px;
+        }
+
+
+        .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family:  "Roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+    }
+
+        .tabpanel{
+            background-color:#4DB6AC;
+            color: #fff;
+            font-family:  "Roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+    }
+     
+        
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Roboto","Arial" sans-serif;
+            text-align: center;
+        
+    }
+
+        .tab-text-format {
+            padding: 5px 5px;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            text-align: left;
+            padding-right: 5px;
+            padding-left: 5px;
+    }
+
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+    }
+
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+    }
+    
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+    }
+    
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+    }
+    
+        .panel {
+            border: 1px solid #536E7B;
+            border-radius:0 !important;
+            transition: box-shadow 0.5s;
+    }
+    
+        .navbar {
+            margin-bottom:auto;
+            background-color: #424242;
+            z-index: 9999;
+            border: 0;
+            font-size: 14px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: "Roboto","Arial", sans-serif;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  }
+        .navbar li a, .navbar .navbar-brand {
+            color: #fafafa !important;
+  }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #607D8B !important;
+            background-color: #fff !important;
+  }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+  }
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+      
+
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+            100% { opacity: 1; transform: translateY(0%);} }
+            @-webkit-keyframes slide {
+            0% {
+            opacity: 0;
+            -webkit-transform: translateY(70%);
+    }
+            100% {
+            opacity: 1;
+            -webkit-transform: translateY(0%);
+    }
+  }
+            @media screen and (max-width: 768px) {
+    
+        .col-sm-4 {
+            text-align: center;
+            margin: 25px 0;
+    }
+    
+        .btn-lg {
+            width: 100%;
+            margin-bottom: 35px;
+    }
+  }
+            @media screen and (max-width: 480px) {
+    
+        .logo {
+            font-size: 150px;
+    }
+  }
+      
+        .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+        .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+        .map-position {
+            width: 100%;
+            max-height: 280px;
+            z-index: 0;
+  }
+        .searchbar-masthead {
+            padding: 2px 6px;
+            width:80%;
+            height: 36px;
+            padding-top: 1px;
+            font-size: 16px;
+        }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+
+
+</style>
+
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+         <header>
+      <ul class="w3-navbar navbar w3-navitem w3-center">
+        <li style="width:10%"><a href="/home/">HOME</a></li>
+           <li style="width:10%"><a href="#"></a></li>
+        <li style="width:55%">
+          <form method='GET' action='' style="margin-bottom: 0px;">
+          <input type='text' class="searchbar-masthead" name='q' placeholder='Search Your Place...'>
+        
+          <button type='submit' value='Search' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#fafafa; "> <B> Search </B>
+          </button>
+          </form>
+        </li>
+      </ul>
+    </header>
+
+    <!--<div class="w3-container top-stories ">
+        <h2> Top Stories </h2>
+          <br>
+          
+        <div class="w3-row">      
+            <div class="w3-col l4">
+                <div class="w3-card-12 w3-hover-shadow card">
+                <img src="topstories-pic" alt="">
+                </div>
+            </div>
+              
+              
+            <div class="w3-col l4">
+                <div class="w3-card-12 w3-hover-shadow card">
+                <img src="Paris.jpg" class="topstories-pic" alt="">
+                </div>
+            </div>
+            
+
+            <div class="w3-col l4">
+                <div class="w3-card-2 w3-hover-shadow card">
+                <img src="mountains.jpg" class="topstories-pic" alt="">
+                </div>
+            </div>
+          
+        </div>
+      </div> -->
+
+
+    <div class="container">        
+          <br>
+
+{% for obj in  object_list %}
+
+		    <div class="w3-row">
+          <div class="w3-col l4 pad">
+            	{% if photos %}
+                  <img src= '../media//{{ photos|get_at_index:forloop.counter0 }}' class="post-pic" alt="">
+                  
+            	{% endif %}
+          </div>
+          <div class="w3-col l8 pad">
+                  <a href='/postdetail/{{obj.place_id}}/' style="color: #484848;"> <h3> {{ obj.title }} </h3></a> 
+                   
+
+                  <p style="color: #767676">
+					           {{ obj.about_the_trek|linebreaks|truncatechars:400 }}                    
+                  </p>
+                  <span class="mdl-chip"><span class="mdl-chip__text"><b>{{obj.highest_altitude}}</span></b></span></span>
+                  <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">Himalayan Trek</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{obj.difficulty}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{obj.trek_length}}</span></span>
+                          <span class="mdl-chip"><span class="mdl-chip__text">{{obj.endurance_level}}</span></span>
+                  <br>
+                </div>
+              </div>
+              <hr>  
+{% endfor %}
+
+          </div>
+			<div class="pagination">
+    			<span class="step-links">
+        			{% if object_list.has_previous %}
+            			<a href="?page={{ object_list.previous_page_number }}">previous</a>
+        			{% endif %}
+
+        		<span class="current">
+            		<!-- Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}. -->
+        		</span>
+
+        			{% if object_list.has_next %}
+            			<a href="?page={{ object_list.next_page_number }}">next</a>
+        			{% endif %}
+    			</span>
+			</div>
+
+
+{% endblock content %}
+
+    	</body>
+	</html>

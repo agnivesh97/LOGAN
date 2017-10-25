@@ -1,0 +1,1019 @@
+{% load staticfiles %}
+{% load ctemp %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+
+  {% block content %}  
+
+    <title>{% block head_title %} Cafe- Trek List {% endblock head_title %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href="{% static "/static/Post_list.css" %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; 
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+  
+    <style> {% block style %} {% endblock style %} </style>
+
+</head>
+
+
+<style>
+  .tabselect{
+
+  	color:#008489;
+  }
+
+.loader {
+  border: 14px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #008489;
+  border-right: 16px solid #008489;
+  border-bottom: 16px solid #FAFAFA;
+  border-left: 16px solid #FAFAFA;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.w3-button:hover {
+    color: #767676!important;
+    background-color: #ccc!important;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.myshow{display:block!important}
+.myshow1{display:block!important}
+.myshow2{display:block!important}
+.myshow3{display:block!important}
+.myhide{display:none!important}
+.myhide1{display:none!important}
+.myhide2{display:none!important}
+.myhide3{display:none!important}
+
+
+.mydisplay{display:block}
+.mydisplay1{display:none}
+.mydisplay2{display:block}
+.mydisplay3{display:none}
+.mydisplay4{display:block}
+.mydisplay5{display:none}
+
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+ .affix {
+      top: 0;
+      width: 100%;
+  }
+
+ 
+		
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+
+      body    
+           {
+            font-family: "Roboto",sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            background: :#fff;
+            text-align: justify; 
+        }
+
+    .text-muted {
+                color: #767676;   }
+      
+    h1      {
+            font-size: 112sp;
+            color: #484848;
+            font-weight: 300;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+  }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+         p      {
+            font-size: 16sp;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+            margin: 0;
+                line-height: 1.43;
+            -webkit-font-smoothing: antialiased;
+  }
+      
+        hr     {
+                margin-top: 1%;
+                margin-bottom: 2%;
+                border: 0;
+                border-top: 1px solid #eee;         
+  }
+  
+    .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+  }  
+    .tabpanel{
+            background-color:#212121;
+            color: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+  }
+     
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Halvetica","Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+        .tab-text-format {
+            padding: 5px 5px;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin: 0 0 8px;
+            text-align: left;
+  }
+         .tab-text-format-mobile {
+            padding: 1% 1%;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin: 0 0 0px;
+            text-align: left;
+  }
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+        .panel {
+            border: 1px solid #2D4A64 !important;
+            border-radius:0 !important;
+            transition: box-shadow 0.5s;
+  }
+  
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 2px;
+  }
+      
+ 
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: justify;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+
+      .remove-paddinglr{
+          padding-left: 0px;
+          padding-right: 0px;
+          
+      }
+      
+      .remove-marginlr{
+          margin-left: 0px;
+          margin-right: 0px;
+      }
+      
+      .remove-margintd{
+          margin-top: 0px;
+          margin-bottom: 0px;
+      }
+ 
+           .searchbar-masthead {
+            padding: 2px 6px;
+            width: 100%;
+            border-color: #FFF;
+            padding-top: 1px;
+            font-size: 16px;
+	    border-radius: 5px 0px 0px 5px;
+  }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;}
+      
+
+   
+      
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+
+        .info-text {
+            padding-left: 12px;
+            padding-right: 8px;
+        }
+
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 40px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+  
+        .navbar {
+            margin-bottom:auto;
+            background-color: #FFF;
+            font-style: bold;
+            border: 1px;
+            font-size: 15px !important;
+            letter-spacing: 4px;
+            border-radius: 0px;
+            border: 1px solid #F5F5F5;
+            font-family: "Roboto","Arial", sans-serif;
+            box-shadow: 0 0px 0px 0 ;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+
+  }
+        .card1{
+            height: 500px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+  }
+
+          .card1 img{
+            position:absolute; 
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-color: #f5f5f5;
+            height: 100%;
+            margin: auto;
+
+  }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fafafa !important;
+  }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #607D8B !important;
+            background-color: #fff !important;
+  }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+  }
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+  }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+  }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+           .map-position {
+            width: 100%;
+
+            max-height: 600px;
+            z-index: 0;
+  }
+          .post-pic{
+            width: 100%;
+            max-height: 500px;
+            margin-bottom: 0px;
+            background-size: cover;
+  }
+
+        .topstories-pic{
+            max-height: relative;
+            max-width: relative;
+  }
+        
+        .top-stories{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 40px;
+            padding-bottom: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 10px;     
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #E0E0E0;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 5px;
+   }
+        .map-style{
+            padding: 5px 5px;
+   }
+   
+        .image-link{
+            padding: 5px 5px;
+   }
+.fa {
+  padding: 5px;
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: transparent;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: transparent;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #E0F2F1;
+}
+
+.message-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+    margin-top: 5%;
+
+}
+     .header-large-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+        .header-small-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+      .header-medium-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+}
+     .footer-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+           .button-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 0px;
+
+}
+    .post-icon {
+  color: #008489;
+
+}
+      .card-mobile {
+          margin-left: 0px;
+          margin-right: 0px;
+          margin-top: 4%;
+          margin-bottom: 4%;
+          box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+          z-index: .5;
+          padding-left: 5px;
+          padding-right: 5px;
+      }
+       
+      .questionpost {
+    background-color: beige; 
+          
+}
+
+	.grid figcaption {
+    background: white;
+    padding: 4%;
+    border: 1px solid #E0E0E0;
+    border-radius: 0px 0px 6px 6px;
+}
+
+.searchResults {
+  position:fixed; /* instead of : position:absolute;*/
+  top:9%;         /* instead of : top:100%;*/
+  background-color: white; 
+  z-index: 50;
+  width: 66%;
+  margin-left: 93px
+}
+
+.w3-border {
+    border: 2px solid #ccc!important;
+}
+
+        .error_text{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 20%;
+            padding-bottom: 30%;
+            padding-left: 12%;
+            padding-right: 12%;
+            margin-top: 10px;     
+  }
+      
+</style>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+          
+<!-- Header for Large Screens -->
+    <header class="w3-hide-small w3-hide-medium">
+      <ul class="w3-navbar navbar navbar-fixed  w3-navitem w3-center" style="padding-top: 0px; padding-bottom: 0px; border-bottom: 1px solid #efefef; ">
+       <a href="/"> <li class="" style="padding-top: .61%; padding-right: .61%; width:6%; margin-top: .3%;"><i class="material-icons header-large-icon">home</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">logout.world</p></li>     </a>     
+          <form method='GET' action='/logan/' style="margin-bottom: 0px;">
+          <li style="width:66%; padding-left: -0.88%; padding-right: 0px; margin-top: 1%; margin-bottom: 1%;"> 
+          <input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black w3-border-right " id="text_search"   name='q' placeholder='Enter a place ..' list="mylist" ng-model="myValue"  ng-change="search()">
+
+
+          <datalist id="mylist"> 
+            <option ng-repeat="place in results ">{$ place.title $} </option>
+          </datalist>
+
+          </li>
+          <li style="padding-left: 0px; padding-right: 16px; margin-top: 1%; margin-bottom: 1%;">
+          <button type='submit' value='Search' class="w3-button"  style="color: #555; border-radius: 0px 5px 5px 0px;"><B> Search </B></button>
+          </li>
+          </form>
+          <a href="/discover"><li class="w3-center w3-padding" style="width:6%; margin-top:.3%;"><i class="material-icons header-large-icon" style="color: #008489;">explore</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Discover</p></li></a>
+          
+          {% if not pic %}
+          <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-center w3-padding w3-left" style="width:6%; margin-top:.3%; color: #b5b5b5;"><i class="material-icons header-large-icon">mail</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Messages</p></li></a>
+           <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-padding w3-center w3-left" style="width:6%; margin-top:.2%;"><i class="material-icons header-large-icon">person</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Feeds</p> </li></a>
+          {% endif %}
+
+           {% if pic %}
+           <a href="/chatting/messagehtml"><li class="w3-center w3-padding w3-left" style="width:6%; margin-top:.3%; color: #b5b5b5;"><i class="material-icons header-large-icon">mail</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Messages</p></li></a>
+
+           <a href="/profile/{{username}}" ><li class="w3-padding w3-center w3-left" style="width:6%;margin-top:.2%;"><img src="{{pic}}" class="w3-circle" style="height:30px;width:30px; padding: 0px, 0px;" alt="Avatar"><p class="text-muted" style="font-size: 10px; margin-top: 12%;">My Feeds</p> </li></a>
+          {% endif %}
+          <!--<li class="w3-padding w3-center w3-left" style="width:6%; margin-top:.3%;"><i class="w3-center" title="My Account" style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin: 0px;"><img src="devsena.jpg" class="w3-circle" style="height:40px;width:40px; padding: 0px, 0px;" alt="Avatar"> 
+          </i>
+          </li>-->
+      </ul>
+    </header>
+
+<!-- Header for Small Screens -->
+    <header class="w3-hide-large w3-hide-medium ">
+            <div class="w3-row w3-top" style="background-color: white;  z-index: 5; padding-top: .5%;border-bottom: 1px solid #efefef;">
+                <div class="w3-sidebar w3-animate-left w3-bar-block w3-collapse" style="width:85%; z-index: 5;" id="mySidebar">
+                    
+                    <div class="w3-container w3-border" style="padding-top: 0px; padding-left: 0px; padding-right: 0px; padding-bottom: 12%;">
+                        
+                          <div class="w3-row w3-display-container" style="padding-top: 0px; padding-left: 0px; padding-right: 0px; margin-bottom: 5%;">
+                                       {% if not pic %}
+		<span class="w3-display-topright w3-bar-item" style=""><button class="w3-button w3-right-align" onclick="w3_close()" style=" background-color: transpatent; color: black; font-size: 28px;"><b>&times;</b></button></span>
+                   <div class="w3-col s12 w3-center" style="padding-top: 8px;margin-top: 14%; padding-bottom: 8px; padding-right: 2%; padding-left: 2%;">
+                          <button type='submit' value='Search' class="w3-button w3-round" style="background-color:#3b5998;color: white; width: 100%;"> <p style="color: #FAFAFA;" onclick="window.location='/login/flogin/'" >Login with Facebook</p> </button>
+                      </div>
+                      <div class="w3-col s12 w3-center" style="padding-top: 8px; margin-bottom: 8%; padding-right: 2%; padding-left: 2%;">
+                          <button type='submit' value='Search' onclick="window.location='/login/glogin/'" class="w3-button w3-round" style="background-color:#dd4b39;color: white; width: 100%;"><p style="color: #FAFAFA;">Login with Google </p></button>
+              </div>             
+		{% endif %}
+		
+		{% if pic %}
+               	<img  src="{{pic}}" style="width: 100%; height: 250px; margin: auto; overflow: hidden; position: relative; object-fit: cover; " alt="">
+		<span class="w3-display-topright w3-bar-item" style=""><button class="w3-button w3-right-align" onclick="w3_close()" style=" background-color: transparent; color: white; font-size: 25px;"><b>&times;</b></button></span>
+                    <span class="w3-display-bottomleft w3-padding" style="color: white"><h4 style="color: white">{{username}}</h4></span>
+        
+		{% endif %}
+                            
+                                 
+                         
+
+                            </div>
+                       <h5 class="text-muted" style="margin-left: 6%;"><b>Travel Log</b></h5>
+                            <hr>
+                            
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+				<span class=" w3-left text-muted"style="width:70%; margin-top: 0%; margin-left:1%;">
+                                <b>Bucketlisted Places</b> </span>
+                                <span class="material-icons button-icon w3-left" style="color: #F50057; margin-right: 4%; margin-left:1%;">favorite</span><span><p>{$ count $}</p></span>                                
+                                </button>
+                                
+                            </div>
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 0%; margin-left:1%;">
+                                <b>Visited Places</b> </span>                                
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;"><b>check</b></span><span><p>{$ count1 $}</p></span>                                
+                                </button>
+                                 
+                            </div>
+                        
+                             <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 0%; margin-left:1%;">
+                                <b>Recommended Places</b> </span> 
+                                <span class="material-icons button-icon w3-left" style="color: #00ACC1; margin-right: 4%; margin-left:1%;"><b>thumb_up</b></span><span><p>{$ count2 $}</p></span>                                
+                                </button>                            
+				</div>
+                           <!-- <div class="w3-row" style="margin-top: 1%; padding-top: 8px; padding-bottom: 8px;">
+                                <div class="w3-col s9">
+
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:12%;">
+                                <b>Following</b> </span> </div>
+				<div class="w3-col s1">
+				<span><p class="text-muted" style="font-size: 16px;"><b>34</b></p></div>
+                            </div>
+			
+				<div class="w3-row" style="margin-top: 1%; padding-top: 8px; padding-bottom: 8px;">
+                                 <div class="w3-col s9">
+
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:12%;">
+                                <b>Followers</b> </span> </div>
+				<div class="w3-col s1">
+				<span><p class="text-muted" style="font-size: 16px;"><b>{{follower}}</b></p></div>
+                            </div>
+                          
+                            <div class="w3-row" style="margin-top: 1%; padding-top: 8px; padding-bottom: 8px;">
+                                
+                                <div class="w3-col s9">
+
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:12%;">
+                                <b>Credibility Points</b> </span> </div>
+				<div class="w3-col s1">
+				<span><p class="text-muted" style="font-size: 16px;"><b>{$ point $}</b></p></div>
+                            </div> -->
+                            
+                          <!-- <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">videocam</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Videos</b> </span></button>
+                            </div> -->
+                        <br>
+                        <h5 class="text-muted" style="margin-left: 6%;"><b>Share with people</b></h5>
+                        <hr>
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" onclick="document.getElementById('photoss').style.display='block'" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Add Photos</b> </span></button>
+                                
+                            </div> 
+                        
+                         <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" onclick="document.getElementById('tips').style.display='block'" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">vpn_key</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Post Tips</b> </span></button>
+                            </div>                            
+                          <!--   <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">near_me</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share A Plan</b> </span></button>
+                            </div> -->
+                        
+                            <!-- <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">insert_link</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share a link</b> </span></button>
+                            </div> -->
+                            
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" onclick="showaddmodel();" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Suggest a Location</b> </span></button>
+                            </div>                    </div>
+                            
+                        </div> 
+                    
+                
+
+ 	<!--<div class=" w3-col s2 w3-center" style="">
+                <button class="w3-button w3-center" style="background-color: white" onclick="w3_open()"><i class="material-icons heading-icon" style="color: #EEEEEE; width: 100%; margin-top: 3%; color: #008489; font-size: 25px;"><b>dehaze</b></i></button> 
+                </div> -->
+                <form method='GET' action='/logan/' style="margin-bottom: 0px;">
+                <div class="w3-col s10" style="padding-left: 6%;">
+                <span style="width:100%;"> <input type='text' class="searchbar-masthead w3-input w3-white w3-text-black" name='q' placeholder='Enter a place ..' style="margin-top: 3%; height: 30px; padding-top: 2px;" list="mylist" ng-model="myValue"  ng-change="search()">
+                </span>
+			 <datalist id="mylist"> 
+            <option ng-repeat="place in results ">{$ place.title $} </option>
+          </datalist>
+                </div>
+                <div class="w3-col s2 w3-center">
+                <span style="">
+                <button type='submit' value='Search' class="w3-button" style="background-color: white; color: #EEEEEE; "><i class="material-icons heading-icon" style="color: #008489; margin-top: 3%; font-size: 25px;"><b>search</b></i></button></span>
+                </div>
+                </form>
+        </div>
+
+  </header>
+
+
+<body>
+ <div class="w3-container " style="margin-top: 0%">
+	<div class="w3-row">
+		<div class="w3-col l12 s12 m12  error_text">
+        <h2> We are sorry, no results found. </h3>
+          </div>
+        </div>
+</div>
+
+<!-- Footer for Small Screens -->
+    <div class="w3-bottom w3-hide-large w3-hide-medium" style="border-top: 1px solid #efefef; margin-top: 1%;">
+            <div class="w3-bar w3-row" style="background-color:#FFFFFF;">
+               {% if not pic %}
+		<a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-col s4 w3-bar-item w3-button" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">person</i><p class="text-muted" style="font-size: 12px;"><b> Login</b></p></a>
+               {% endif %}
+		
+		{% if pic %}
+		<a href="/profile/{{username}}" class="w3-col s4 w3-bar-item w3-button" style="padding-bottom: 0px; padding:top: 0px;"><img src="{{pic}}" class="w3-circle" style="height:32px;width:32px; margin-top: 0%; padding: 0px, 0px;" alt="Avatar"><p class="text-muted" style="margin-top: 10%;font-size: 12px;"><b>Feeds</b></p></a>
+               
+		{% endif %}
+		<!-- <a href="#" class="w3-col s3 w3-bar-item w3-button" style="padding-bottom: 0px; padding:top: 0px;"><img src="arya.jpg" style="width: 30px; height: 30px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover;" alt="Avatar"></a> -->
+                <a href="/" class="w3-col s4 w3-bar-item w3-button w3-center" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">home</i><p class="text-muted" style="font-size: 12px;"><b> Home</b></p></a>
+                <!--<a href="#" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">mail</i></a> -->
+                <a href="/logan" class="w3-col s4 w3-bar-item w3-button w3-center" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon" style="color: #008489;">explore</i><p class="text-muted" style="font-size: 12px;"><b> Discover</b></p></a>
+            </div> 
+        </div>
+
+</body>
+
+
+{% endblock content %}
+
+    	</body>
+	</html>

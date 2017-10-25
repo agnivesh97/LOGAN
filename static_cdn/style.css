@@ -1,0 +1,211 @@
+ body    {
+                font-family: "Roboto",sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                background: :#fff;
+
+  }
+    .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+  }  
+    .tabpanel{
+            background-color:#90A4AE;
+            color: #fff;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+  }
+     
+      
+        h1      {
+            font-size: 65px;
+            color: #484848;
+            font-weight: 300;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+  }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family:  "Segoe UI","Halvetica","roboto","Arial" sans-serif;
+  }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family:  "Segoe UI","Halvetica","roboto","Arial" sans-serif;
+            color: #484848;
+  }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family:  "Segoe UI","Halvetica","roboto","Arial" sans-serif;
+  }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+  }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+  }
+      
+        p      {
+            font-size: 13sp;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            color: #484848;
+            -webkit-font-smoothing: antialiased;
+  }
+      
+        hr     {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            
+  }
+      
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Halvetica","Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+        .tab-text-format {
+            padding: 5px 5px;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin: 0 0 16px;
+            text-align: left;
+  }
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+        .panel {
+            border: 1px solid #536E7B;
+            border-radius:0 !important;
+            transition: box-shadow 0.5s;
+  }
+        .navbar {
+            margin-bottom:auto;
+            background-color: #546E7A;
+            z-index: 9999;
+            border: 0;
+            font-size: 14px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: "Roboto","Arial", sans-serif;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  }
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+      
+        .navbar li a, .navbar .navbar-brand {
+            color: #fafafa !important;
+  }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #607D8B !important;
+            background-color: #fff !important;
+  }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+  }
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+      .map-position {
+            width: 100%;
+            max-height: 280px;
+            z-index: 0;
+  }

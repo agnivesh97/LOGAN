@@ -1,0 +1,3717 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html ng-app="myApp">
+<head>
+<title> {% block head_title %} Cafe- Trek List {% endblock head_title %} </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+	 <script src="{% static 'files/angular.js' %}"></script>
+	 <script src="{% static 'files/angular-sanitize.js' %}"></script>
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104444238-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+  <style>
+  
+.myshow{display:block!important}
+.myshow1{display:block!important}
+.myshow2{display:block!important}
+.myshow3{display:block!important}
+
+.mydisplay{display:block}
+.mydisplay1{display:none}
+.mydisplay2{display:block}
+.mydisplay3{display:none}
+.mydisplay4{display:block}
+.mydisplay5{display:none}
+      body    
+           {
+            font-family: "Roboto",sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            background: :#fff;
+               text-align: justify;
+
+
+  }
+    .text-muted {
+                color: #767676; 
+  }
+      
+              h1      {
+            font-size: 112sp;
+            color: #484848;
+            font-weight: 300;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+  }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        p      {
+            font-size: 16sp;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+            margin: 0;
+                line-height: 1.43;
+            -webkit-font-smoothing: antialiased;
+  }
+      
+        hr     {
+                margin-top: 1%;
+                margin-bottom: 2%;
+                border: 0;
+                border-top: 1px solid #eee;         
+  }
+  
+    .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+  }  
+    .tabpanel{
+            background-color:#212121;
+            color: #fafafa;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+  }
+     
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Halvetica","Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+        .tab-text-format {
+            padding: 5px 5px;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin: 0 0 8px;
+            text-align: left;
+  }
+         .tab-text-format-mobile {
+            padding: 1% 1%;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin: 0 0 0px;
+            text-align: left;
+  }
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+        .panel {
+            border: 1px solid #2D4A64 !important;
+            border-radius:0 !important;
+            transition: box-shadow 0.5s;
+  }
+  
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 2px;
+  }
+      
+ 
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: justify;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+
+      .remove-paddinglr{
+          padding-left: 0px;
+          padding-right: 0px;
+          
+      }
+      
+      .remove-marginlr{
+          margin-left: 0px;
+          margin-right: 0px;
+      }
+      
+      .remove-margintd{
+          margin-top: 0px;
+          margin-bottom: 0px;
+      }
+ 
+           .searchbar-masthead {
+            padding: 2px 6px;
+            width: 100%;
+            border-color: #FFF;
+            padding-top: 1px;
+            font-size: 16px;
+  }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;}
+      
+
+   
+      
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Roboto","Arial", sans-serif;
+            text-align: center;
+        
+  }
+
+        .info-text {
+            padding-left: 12px;
+            padding-right: 8px;
+        }
+
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 40px 40px;
+            margin-top: 5px;
+          
+  }
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+  }
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+  }
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+  }
+  
+        .navbar {
+            margin-bottom:auto;
+            background-color: #FFF;
+            font-style: bold;
+            border: 1px;
+            font-size: 15px !important;
+            letter-spacing: 4px;
+            border-radius: 0px;
+            border: 1px solid #F5F5F5;
+            font-family: "Roboto","Arial", sans-serif;
+            box-shadow: 0 0px 0px 0 ;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+
+  }
+        .card1{
+            height: 500px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+  }
+
+          .card1 img{
+            position:absolute; 
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-color: #f5f5f5;
+            height: 100%;
+            margin: auto;
+
+  }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fafafa !important;
+  }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #607D8B !important;
+            background-color: #fff !important;
+  }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+  }
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+        100% { opacity: 1; transform: translateY(0%);} }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+  }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+  }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+      
+      .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+      .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+           .map-position {
+            width: 100%;
+
+            max-height: 600px;
+            z-index: 0;
+  }
+          .post-pic{
+            width: 100%;
+            max-height: 500px;
+            margin-bottom: 0px;
+            background-size: cover;
+  }
+
+        .topstories-pic{
+            max-height: relative;
+            max-width: relative;
+  }
+        
+        .top-stories{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 40px;
+            padding-bottom: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 10px;     
+  }
+        .card{
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 1;
+            position: relative;
+            background: #E0E0E0;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 5px;
+   }
+        .map-style{
+            padding: 5px 5px;
+   }
+   
+        .image-link{
+            padding: 5px 5px;
+   }
+.fa {
+  padding: 5px;
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #E0F2F1;
+}
+
+.message-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+    margin-top: 5%;
+
+}
+     .header-large-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 35px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+        .header-small-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+      .header-medium-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+}
+     .footer-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+           .button-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 0px;
+
+}
+    .post-icon {
+  color: #008489;
+
+}
+      .card-mobile {
+          margin-left: 0px;
+          margin-right: 0px;
+          margin-top: 4%;
+          margin-bottom: 4%;
+          box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+          z-index: .5;
+          padding-left: 5px;
+          padding-right: 5px;
+      }
+      
+      .questionpost {
+    background-color: beige; 
+          
+}
+      
+  </style>
+<body class="w3-theme-l5" ng-controller="myCtrl" ng-cloak>
+
+<!-- Header for Large Screens -->
+    <header class="w3-hide-small w3-hide-medium">
+      <ul class="w3-navbar navbar navbar-fixed  w3-navitem w3-center" style="border-bottom: 1px solid #efefef; ">
+        <li class="w3-padding" style="width:6%;"><i class="material-icons header-large-icon">home</i></li>
+          
+          <form method='GET' action='' style="margin-bottom: 0px;">
+          <li style="width:66%; padding-left: -0.88%; padding-right: 0px; padding-top: 8px; padding-bottom: 8px;"> <input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black w3-border-right" name='q' placeholder='Enter a place ..' style="">
+          </li>
+          <li style="padding-left: 0px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;">
+          <button type='submit' value='Search' class="w3-light-grey w3-button" style="background-color:#BDBDBD; color: #EEEEEE;"><B> Search </B>
+          </button>
+          </li>
+          </form>
+          <li class="w3-center w3-padding" style="width:6%;"><i class="material-icons header-large-icon" style="color: #009688;">explore</i></li>
+          {% if not pic %}
+           <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-padding w3-center w3-left" style="width:6%;"><i class="material-icons header-large-icon">person</i></li></a>
+          {% endif %}
+
+           {% if pic %}
+           <li class="w3-center w3-padding w3-left" style="width:6%; color: #b5b5b5;"><a href="/chatting/messagehtml"><i class="material-icons header-large-icon">mail</i></a>></li>
+
+           <a href="/socialnetwork/profilehtml/" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-padding w3-center w3-left" style="width:6%;"><img src="{{pic}}" class="w3-circle" style="height:40px;width:40px; padding: 0px, 0px;" alt="Avatar"> </li></a>
+          {% endif %}
+          </i>
+          </li>
+      </ul>
+    </header>
+        
+<!-- Header for Medium Screens -->
+    <header class="w3-hide-small w3-hide-large">
+          <div class="w3-row w3-navbar navbar navbar-fixed  w3-navitem w3-center" style="border-bottom: 1px solid #efefef; ">
+          <li class="w3-center" style="width:5%; margin-top: 1.3%;"><i class="material-icons header-medium-icon">home</i></li>
+          <form method='GET' action='' style="margin-bottom: 0px;">
+          <li style="width:65%; padding-left: 16px; padding-right: 0px; padding-top: 8px; padding-bottom: 8px;"> <input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black w3-border-right" name='q' placeholder='Enter a place ..' style=""></li>
+          <li style="padding-left: 0px; padding-top: 8px; padding-bottom: 8px;">
+          <button type='submit' value='Search' class="w3-light-grey w3-button" style="background-color:#BDBDBD; color: #EEEEEE;"><B> Search </B>
+          </button></li>
+          </form>
+          <li class="w3-center" style="width:5%; margin-top: 1.3%; margin-left: 1%;"><i class="material-icons header-medium-icon" style="color: #009688;">explore</i></li>
+          <li class="w3-center" style="width:5%; margin-top: 1.3%; margin-left: 1%; color: #b5b5b5;"><i class="material-icons header-medium-icon">mail</i>
+          <li class="w3-center" style="width:5%; margin-top: 1.3%; margin-left: 1%;"><i class="w3-hide-small w3-center" title="My Account" style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin: 0px;"><img src="devsena.jpg" class="w3-circle" style="height:30px;width:30px; padding: 0px, 0px;" alt="Avatar"> 
+          </i></li>
+          </div>
+    </header>
+    
+<!-- Header for Small Screens -->
+    <header class="w3-hide-large w3-hide-medium ">
+            <div class="w3-row" style="background-color: #008489;">
+                <div class="w3-sidebar w3-animate-left w3-bar-block w3-collapse" style="width:85%; z-index: 2;" id="mySidebar">
+
+                    <div class="w3-container" style="padding-top: 0px; padding-left: 0px; padding-right: 0px;">
+
+                            <div class="w3-row w3-display-container" style="padding-top: 0px; padding-left: 0px; padding-right: 0px; margin-bottom: 5%;">
+
+                            <img  src='arya.jpg' style="width: 100%; height: 250px; margin: auto; overflow: hidden; position: relative; object-fit: cover; " alt="">
+                                <span class="w3-display-topright w3-bar-item" style=""><button class="w3-button w3-right-align" onclick="w3_close()" style=" background-color: transparent; color: white; font-size: 20px;">&times;</button></span>
+                                <span class="w3-display-bottomleft w3-padding" style="color: white"><h4 style="color: white">Arya Stark</h4></span>
+
+                            </div>
+                        <h5 class="text-muted" style="margin-left: 6%;"><b>Bear Islands</b></h5>
+                            <hr>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">folder_open</span>
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Info </b> </span></button>
+
+                            </div>
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">photo</span>
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Photos </b> </span></button>
+
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">import_contacts</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Articles</b> </span></button>
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">question_answer</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Q & A</b> </span></button>
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">card_travel</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Trips</b> </span></button>
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">videocam</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Videos</b> </span></button>
+                            </div>
+                        <br>
+                        <h5 class="text-muted" style="margin-left: 6%;"><b>Share with people</b></h5>
+                        <hr>
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Add Photos </b> </span></button>
+
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">create</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Post Blog</b> </span></button>
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">near_me</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share A Plan</b> </span></button>
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">insert_link</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share a link</b> </span></button>
+                            </div>
+
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Suggest a Location</b> </span></button>
+                            </div>
+                    </div>
+
+                        </div>
+
+
+
+            <div class=" w3-col s2 w3-center" style="">
+                <button class="w3-button w3-center" style="background-color: #008489" onclick="w3_open()"><i class="material-icons heading-icon" style="color: #EEEEEE; width: 100%; margin-top: 3%; font-size: 25px;">dehaze</i></button>
+                </div>
+                <form method='GET' action='' style="margin-bottom: 0px;">
+                <div class="w3-col s8">
+                <span style="width:100%;"> <input type='text' class="searchbar-masthead w3-input w3-white w3-text-black" name='q' placeholder='Enter a place ..' style="margin-top: 3%; height: 30px; padding-top: 2px;">
+                </span>
+                </div>
+                <div class="w3-col s2 w3-center">
+                <span style="">
+                <button type='submit' value='Search' class="w3-button" style="background-color:#008489; color: #EEEEEE; "><i class="material-icons heading-icon" style="color: #EEEEEE; margin-top: 3%; font-size: 25px;">search</i></button></span>
+                </div>
+                </form>
+        </div>
+    </header>
+    
+<!-- Place Profile For Large Screens -->
+    <div   class="w3-container w3-hide-small w3-hide-medium" style="background-color: #FFF; margin-left: 4%; margin-right: 4%;" >
+        <div class="w3-row" style="padding: 0px 0px; margin-top:100px;top: 50px;">
+        <div class="w3-col l4 w3-left w3-padding" style="margin-left: 6%;">
+                <img  src='mahishmati.jpg' style="width: 280px; height: 280px;  margin-bottom: 16px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+            </div>
+                    
+            <div class="w3-col l7" >
+                <div class="w3-container">
+                    <div class="w3-row">
+                        <div class="w3-col l4 w3-left-align" style="margin-top: 3%;margin-left: 1%;">
+                            <h1 style=""> <b>Mahishmati</b> </h1>
+                        </div>
+                    <div class="w3-col l2 text-muted info-text w3-left-align" style="margin-top: 6%;">
+                        <h5 style="margin-bottom: 0px; margin-top: 6%; color: #008489" class="text-muted"><b>5000</b> </h5> <p style="margin-top: 0px; margin-bottom: 0px;" class="text-muted"> <b> followers </b> </p>
+                    </div>
+                     <div class="w3-col l2 text-muted info-text w3-left-align" style="margin-top: 6%;">
+                        <h5 style="margin-bottom: 0px; margin-top: 6%; color: #008489" class="text-muted"><b>5000</b> </h5> <p style="margin-top: 0px; margin-bottom: 0px;" class="text-muted"> <b> been here </b> </p>
+                    </div>
+                    
+                    <div class="w3-col l2 text-muted w3-left-align" style="margin-top: 6%;">
+                        <button class="w3-button w3-white w3-border w3-round-large w3-center" style=" width: 90%;"><span style=""><p><b>Follow</b></p></span></button>
+                    </div>
+                    
+                           </div>
+                            <div class="w3-row" style="margin-top: 1%; margin-left: .5%;">
+                                <div class="w3-col l12 w3-left-align text-muted">
+                                    <span><p class="text-muted" style="margin-bottom: .5%; margin-left: .5%;"><b>Go Here For :</b> </p></span>
+                                    <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                                    <span class="mdl-chip"><span class="mdl-chip__text">Mountaineering</span></span>
+                                    <span class="mdl-chip"><span class="mdl-chip__text">Camping</span></span>
+                                    <span class="mdl-chip"><span class="mdl-chip__text">Long Treks</span></span>
+                                    <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                                </div>
+                            </div>
+                            <div class="w3-row" style="margin-top: 4%;  margin-left: .5%;">
+                                <span> <p class="text-muted" style="margin-bottom: .5%; margin-left: .5%;"><b>Add and Share..</b></p></span>
+                         
+                          <div class="w3-col l2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">card_travel</i><p><b>Trips</b></p> </button>
+                          </div>
+                          <div class="w3-col l2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">vpn_key</i><p><b>Tips</b></p> </button>
+                          </div>
+                          <div class="w3-col l2 w3-center" >
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">add_a_photo</i><p><b>Photos</b></p></button>
+                          </div>
+                          <div class="w3-col l2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large" style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">import_contacts</i><p> <b>Articles</b></p></button>
+                          </div>
+                          <div class="w3-col l2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">video_call</i><p><b>Videos</b></p> </button>
+                          </div>
+                           <div class="w3-col l2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">add_location</i><p><b>Locations</b></p> </button>
+                          </div>
+                          
+                    
+                         
+                </div> 
+                </div>
+                 </div> 
+        </div>
+         
+    <div class="w3-row" style="margin-top: 5px; margin-left: 2%;">
+        <div class="w3-col l12">
+            <ul class="w3-navbar tabpanel" style="background-color: #efefef; padding-left: 0px; padding-right: 0px;">
+                <li style="margin-left: 6.8%"><a href="#" onclick="openTab('Feeds')" style=""><h4 style="margin: 0px; color:#008489"><b>Info</b></h4></a></li>
+                <li><a href="#" ng-click="openTab('QA')" style="color: #008489"><h4 style="margin: 0px;"><b>Q & A</b></h4></a></li>
+                <li><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b>Photos</b></h4></a></li>
+                <li><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b>Articles</b></h4></a></li>
+                <li><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b>Tips</b></h4></a></li>
+                <li><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b>Trips</b></h4></a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    
+<!-- Place Profile For Medium Screens -->
+   <div class="w3-container w3-hide-large w3-hide-small" style="margin-left: 4%; margin-right: 4%; padding-left: 0px; padding-right: 0px;">
+        <div class="w3-row" style="padding: 0px 0px; margin-top:30px;top: 10px;">
+            <div class="w3-col m12 w3-center" style="margin-top: 8.33%;">
+            <img  src='bearislands.jpg' style="width: 250px; height: 250px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+            </div>
+        </div>   
+        <div class="w3-row" style="padding: 0px 0px;">
+            <div class="w3-container">
+                <div class="w3-row">
+                    <div class="w3-col m12 w3-center">
+                            <h2> <b>Bear Islands</b> </h2>
+                    </div>
+                </div>
+                    
+                <div class="w3-row" style="pading-left:0px;">
+                    <div class="w3-col m2 text-muted info-text w3-left-align" style="margin-top: 6%; padding-left:1%;">
+                        <span><p style="margin-bottom: 0px; margin-top: 6%; color: #008489" class="text-muted"><b>90</b> </p></span> <span><p style="margin-top: 0px; margin-bottom: 0px;" class="text-muted"> <b> following </b></p></span>
+                    </div>
+                    
+                    <div class="w3-col m2 text-muted info-text w3-left-align" style="margin-top: 6%; padding-left:1%;">
+                        <span><p style="margin-bottom: 0px; margin-top: 6%; color: #008489" class="text-muted"><b>90</b> </p></span> <span><p style="margin-top: 0px; margin-bottom: 0px;" class="text-muted"> <b> been here </b></p></span>
+                    </div>
+                    
+                    <div class="w3-col m4 text-muted info-text w3-left-align" style="margin-top: 8%;">
+                        <button class="w3-button w3-white w3-border w3-round-large w3-right w3-cell-middle" style=" width: 90%;"><span style=""><p><b>Follow</b></p></span></button>
+                    </div>
+                    
+                    <div class="w3-col m4 text-muted info-text w3-left-align" style="margin-top: 8%;">
+                        <button class="w3-button w3-white w3-border w3-round-large w3-right w3-cell-middle" style=" width: 90%;"><span style=""><p><b>Been Here</b></p></span></button>
+                    </div>
+                </div>
+                
+                <div class="w3-row" style="margin-top: 4%;">
+                    <div class="w3-col m12 w3-left-align">
+                        <span><p class="text-muted" style="margin-bottom: .5%; margin-left: 1%;"><b>Go Here For :</b> </p></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                    </div>
+                </div>
+                
+                <div class="w3-row" style="margin-top: 4%;">
+                                <span> <p class="text-muted" style="margin-bottom: .5%; margin-left: 1%;"><b>Add and Share..</b></p></span>
+                         
+                          <div class="w3-col m2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">card_travel</i><p><b>Trips</b></p> </button>
+                          </div>
+                          <div class="w3-col m2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">vpn_key</i><p><b>Tips</b></p> </button>
+                          </div>
+                          <div class="w3-col m2 w3-center" >
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">add_a_photo</i><p><b>Photos</b></p></button>
+                          </div>
+                          <div class="w3-col m2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large" style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">import_contacts</i><p> <b>Articles</b></p></button>
+                          </div>
+                          <div class="w3-col m2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">video_call</i><p><b>Videos</b></p> </button>
+                          </div>
+                           <div class="w3-col m2 w3-center">
+                          <button class="w3-button w3-white w3-border w3-center-align w3-round-large " style="width: 90%; padding-left: 2px; padding-right: 2px;"><i class="material-icons button-icon" style="color: #008489;">add_location</i><p><b>Locations</b></p> </button>
+                          </div>
+                          
+                    
+                         
+                </div> 
+            </div> 
+        </div>
+         
+    <div class="w3-row" style="margin-top: 4%;">
+        <div class="w3-col m12">
+            <ul class="w3-navbar tabpanel" style="background-color: #efefef; padding-left: 0px; padding-right: 0px;">
+                <li style="margin-left: 1%"><a href="#" onclick="openTab('Feeds')" style=""><h4 style="margin: 0px; color:#008489"><b>Info</b></h4></a></li>
+                <li><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b>Photos</b></h4></a></li>
+                <li><a href="#" ng-click="openTab('QA')" style="color: #008489"><h4 style="margin: 0px;"><b>Q & A</b></h4></a></li>
+                <li><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b>Articles</b></h4></a></li>
+                <li><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b>Plans</b></h4></a></li>
+                <li class="w3-right"><a href="#" onclick="openTab('Info')" style="color: #008489"><h4 style="margin: 0px;"><b></b></h4></a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    
+<!-- Place Profile For Small Container -->
+    <div class="w3-container w3-hide-large w3-hide-medium" style="margin-left: 4%; margin-right: 4%; padding-left: 0px; padding-right: 0px;">
+        <div class="w3-row" style="padding: 0px 0px; margin-top:30px;top: 10px;">
+            <div class="w3-col s12 w3-center" style="">
+            <img  src='arya.jpg' style="width: 100px; height: 100px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+            </div>
+        </div>   
+        <div class="w3-row" style="padding: 0px 0px;">
+            <div class="w3-container">
+                <div class="w3-row">
+                    <div class="w3-col s12 w3-center">
+                            <h2> <b>Mohit Nagaria</b> </h2>
+                    </div>
+                </div>
+                    
+                <div class="w3-row">
+                    <div class="w3-col s6 text-muted info-text w3-left-align" style="margin-top: 6%;">
+                        <span><p style="margin-bottom: 0px; margin-top: 6%; color: #008489" class="text-muted"><b>90</b> </p></span> <span><p style="margin-top: 0px; margin-bottom: 0px;" class="text-muted"> <b> following </b></p></span>
+                    </div>
+                    
+                    <div class="w3-col s6 text-muted info-text w3-left-align" style="margin-top: 6%;">
+                        <span><p style="margin-bottom: 0px; margin-top: 6%; color: #008489" class="text-muted"><b>90</b> </p></span> <span><p style="margin-top: 0px; margin-bottom: 0px;" class="text-muted"> <b> been here </b></p></span>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col s6 text-muted w3-left" style="margin-top: 8%;">
+                        <button class="w3-button w3-white w3-border w3-round-large w3-center w3-cell-middle" style=" width: 90%;"><span style=""><p><b>Follow</b></p></span></button>
+                    </div>
+                    
+                    <div class="w3-col s6 text-muted w3-right-align" style="margin-top: 8%;">
+                        <button class="w3-button w3-white w3-border w3-round-large w3-center w3-cell-middle" style=" width: 90%;"><span style=""><p><b>Been Here</b></p></span></button>
+                    </div>
+                </div>
+                
+                <div class="w3-row" style="margin-top: 4%">
+                    <div class="w3-col l12 w3-left-align">
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                        <span class="mdl-chip"><span class="mdl-chip__text">High Altitude Trek</span></span>
+                    </div>
+                </div>
+                
+                <div class="w3-row w3-hide-small" style="margin-top: 4%">
+                    <div class="w3-col s3 w3-center" >
+                        <button class="w3-button w3-white w3-border w3-center w3-round-large " style="width: 90%;"><i class="material-icons button-icon" style="color: #008489;">add_a_photo</i><p><b>Add Photos</b></p></button>
+                    </div>
+                    <div class="w3-col s3 w3-center">
+                        <button class="w3-button w3-white w3-border w3-center w3-round-large" style="width: 90%; "><i class="material-icons button-icon" style="color: #008489; margin-left: 5%;">create</i><p> <b>Post Blog </b></p></button>
+                    </div>
+                    <div class="w3-col s3 w3-center">
+                        <button class="w3-button w3-white w3-border w3-center w3-round-large " style="width: 90%"><i class="material-icons button-icon" style="color: #008489; margin-left: 5%;">near_me</i><p><b>Share A Plan</b></p> </button>
+                    </div>
+                    <div class="w3-col s3 w3-center">
+                        <button class="w3-button w3-white w3-border w3-center w3-round-large " style="width: 90%"><i class="material-icons button-icon" style="color: #008489; margin-left: 5%;">add_location</i><p><b>Add Location</b></p> </button>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+<!-- Info Page for Large Screens -->
+    <div id="info" class="w3-container w3-hide-small w3-hide-medium tabs" style="background-color: #FFF; margin-left: 4%; margin-right: 4%;" >
+    <div class="w3-row">
+        <div class="w3-col l12">
+            <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                  <div class="w3-row" style="">
+                  
+                     <div class="w3-col l1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">bookmark_border</i>
+                          </div>
+                          <div class="w3-col l5 info-text">
+                            <h5 class="text-muted"> <b>GENERAL INFORMATION </b> </h5>
+                          </div>
+                          <div class="w3-col l1">
+                            <a href class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px; margin-right: 10%;">add_circle</a>
+                          </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l7">
+                    <hr>
+
+                      <div class="w3-container">                             
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b> About Trek</b></p>
+                          </div>
+                          <div class="w3-col l9 info-text">
+                              <p> {{ instance.about_the_trek|linebreaksbr }}</p>
+                         </div>
+                         <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+
+                          <div id="id01" class="w3-modal">
+                              <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+                                  <header class="w3-container w3-blue"> 
+                                   <span onclick="document.getElementById('id01').style.display='none'" 
+                                   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+                                   <h2>Header</h2>
+                                  </header>
+
+                                  <div class="w3-bar w3-border-bottom">
+                                   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">London</button>
+                                  </div>
+
+                                  <div id="London" class="w3-container city">
+                                   <h1>London</h1>
+                                   <p>London is the most populous city in the United Kingdom, with a metropolitan area of over 9 million inhabitants.</p>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                  </div>
+
+                                  <div class="w3-container w3-light-grey w3-padding">
+                                   <button class="w3-btn w3-right w3-white w3-border" 
+                                   onclick="document.getElementById('id01').style.display='none'">Close</button>
+                                  </div>
+                                 </div>
+                          </div>
+                        </div>
+            
+                          <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                            <p class="text-muted"><b>Highest Altitude</b></p>
+                          </div>
+                          <div class="w3-col l9 info-text">
+                              <p><b>{{instance.highest_altitude}}</b></p>
+                         </div>
+                         <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+                          
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col l2 info-text">
+                            <p class="text-muted"><b>State</b></p>
+                          </div>
+                          <div class="w3-col l9 info-text">
+                         <p>{{ instance.region }}, India</p>
+                         </div>
+                         <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+
+                         <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Wildlife Reserve</b></p>
+                             </div>
+                                      <div class="w3-col l9 info-text">
+                             <p>{{ instance.wildlife_reserve|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                          </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                                <p class="text-muted"><b>Best Time</b></p>
+                           </div>
+                                  <div class="w3-col l9 info-text">
+                                      <p>{{ instance.best_time|linebreaksbr  }}</p>
+                                   </div>
+                                   <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                                <p class="text-muted"><b>What To Explore</b></p>
+                           </div>
+                                    <div class="w3-col l9 info-text">
+                           <p>{{ instance.Exploration_Spots|linebreaksbr }}</p>
+                           </div>
+                           <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+                        </div>
+                  </div>
+
+                  <div class="w3-col l5">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                        <br>
+                        
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/TlKrWw7ZNC4?autoplay=0" frameborder="0"allowfullscreen></iframe>
+                  <a  href="https://www.youtube.com/embed/YKRRWjOPwaU"> <p>Credits </p> </a>
+                        </div>
+                      </div>
+                   
+
+                      
+                      <br>
+                      <div class="w3-row">
+                        <div class="w3-col l12">
+                        <h3>Let there be Light:</h3>
+                          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"> <span class="fa fa-facebook"></span></a>
+                          <a href="https://twitter.com/home?status={{ share_string }}http:{{ request.build_absolute_uri }}" class="fa fa-twitter"> </a>
+                          <a href="{{ request.build_absolute_uri }}" data-pin-do="buttonBookmark" data-pin-custom="true"><span class="fa fa-pinterest"></span></a>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+            <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                  <div class="w3-row">
+                    <div class="w3-col l7">
+                      <div class="w3-container">
+                        <div class="w3-row">
+                          <div class="w3-col l1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">vpn_key</i>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                            <h3 class="text-muted"> <b>TIPS</b> </h3>
+                          </div>
+                          <div class="w3-col l1">
+                            <a href class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</a>
+                          </div>
+
+                        </div>
+                        <hr>
+                        <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>For Stay</b></p>
+                             </div>
+                                  <div class="w3-col l9 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+                            <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>For Food</b></p>
+                             </div>
+                                  <div class="w3-col l9 info-text">
+                                      <p></p>
+                             </div>
+                             <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+                          </div>
+
+                          
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>For Water</b></p>
+                             </div>
+                                  <div class="w3-col l9 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+
+                        <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>For Fitness</b></p>
+                             </div>
+                                  <div class="w3-col l9 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+
+                          
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Equipments to carry</b></p>
+                             </div>
+                                  <div class="w3-col l9 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+                        </div>
+         
+                  </div>
+                  <div class="w3-col l5">
+                        <div class= "w3-container">
+                          <div class="w3-row">
+                            <div class="w3-col l12" style="">
+                            <h3></h3>
+                            <img src='/media/trishul.jpg' style="width: 100%; height: 350px; padding-top: 40px; padding-bottom: 10px;" alt="">
+                              </div>
+                              </div>
+                            <div class="w3-row">
+                              <div class="w3-col l4">
+                              <img src='/media/sandhan.jpg' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                              <div class="w3-col l4">
+                              <img src='/media/Picture2.png' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                              <div class="w3-col l4">
+                              <img src='/media/Picture2.png' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                              
+
+                              </div>
+                        </div>
+                      </div>
+                  
+                  </div>
+
+                </div>
+                <br>
+
+                <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                  <div class="w3-row">
+                  <div class="w3-col l7">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                            <div class="w3-col l12" style="padding-top: 40px;">
+                            <h3></h3>
+                              <div id="map" style="width: 100%; height: 400px; "></div>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                       <div class="w3-col l5">
+                          <div class="w3-container">
+
+                          <div class="w3-row">
+                          <div class="w3-col l2 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">terrain</i>
+                          </div>
+                          <div class="w3-col l9 info-text">
+                            <h3 class="text-muted"> <b>TRAIL DETAILS</b> </h3>
+                          </div>
+
+                         <div class="w3-col l1">
+                            <i class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                          </div>
+                           <hr>
+
+                        <div class="w3-row tab-text-format">
+
+                          <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b>Trail Route</b></p>
+                             </div>
+                            <div class="w3-col l9 info-text">
+                              <p> <b>Trail 1 </b></p> <br>
+                              <p>{{ instance.trek_route|linebreaks }}</p><br>
+                              
+                                </div>
+                            <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"> edit </a>
+                         </div>
+                        </div>
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col l2 info-text">
+                                  <p class="text-muted"><b>Trail Highlights</b></p>
+                             </div>
+                            
+                                  <div class="w3-col l9 info-text">
+                                      <p>{{ instance.trail_highlights|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                          </div>
+
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+          <div class="w3-container">
+              <div class="w3-row">
+                  <div class="w3-col l7">
+                      <div class="w3-container">
+                          <div class="w3-row">
+                          <div class="w3-col l1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">directions</i>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                            <h3 class="text-muted"> <b>WAY TO BASE CAMP</b> </h3>
+                          </div>
+                          <div class="w3-col l1">
+                            <i class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                            
+                          </div>
+                                                                                      <hr>
+                        <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b>Onwards</b></p>
+                            </div>
+                            <div class="w3-col l9 info-text">
+                              <p>{{ instance.route_to_base_camp |linebreaksbr }}</p>
+                            </div>
+                            <div class="w3-col l1">
+                              <i class="material-icons w3-right">edit</i>
+                            </div>
+                        </div>
+
+                        <div class="w3-row tab-text-format">
+                            <div class="w3-col l2 info-text">
+                              <p class="text-muted"><b>Route Details </b></p>
+                            </div>
+                            <div class="w3-col l9 info-text">
+                              <p>{{ instance.route_details|linebreaksbr }}</p>
+                            </div>
+                            <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                             </div>
+                        </div>
+                      </div>
+                  </div>
+              
+
+                  <div class="w3-col l5">
+                      <div class="w3-container">
+                         <div class="w3-row">
+                         <div class="w3-row">
+                          <div class="w3-col l1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #E65100; margin-top: 12px;">flag</i>
+                          </div>
+                          <div class="w3-col l10 info-text">
+                            <h3 class="text-muted"> <b>EMERGENCY LOCATIONS</b> </h3>
+                          </div>
+                          
+                          <div class="w3-col l1">
+                            <i class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                          </div>
+                          <hr>
+                              
+
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Police Station</b></p>
+                                 </div>
+                                      <div class="w3-col l9 info-text">
+                                          <p>{{ instance.police_station|linebreaksbr }}</p>
+                                 </div>
+                                 <div class="w3-col l1">
+                              <i class="material-icons w3-right">edit</i>
+                         </div>
+                              </div>
+                              
+                               <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Last ATM</b></p>
+                                 </div>
+                                      <div class="w3-col l9 info-text">
+                                          <p>Kangan</p>
+                                 </div>
+                                 <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Mobile Signals</b></p>
+                                 </div>
+                                      <div class="w3-col l9 info-text">
+                                          <p>Srinagar</p>
+                                 </div>
+                                 <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col l2 info-text">
+                                      <p class="text-muted"><b>Hospital</b></p>
+                                 </div>
+                                      <div class="w3-col l9 info-text">
+                                          <p>Srinagar</p>
+                                 </div>
+                                 <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format">
+                    <div class="w3-col l2 ">
+                      <p class="text-muted info-text"><b>Railway Station</b></p>
+                    </div>
+                    <div class="w3-col l9 info-text">
+                      <p>{{ instance.railway_station|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+                
+
+                   <div class="w3-row tab-text-format">
+                    <div class="w3-col l2 info-text">
+                      <p class="text-muted"><b>Airport </b></p>
+                    </div>
+                    <div class="w3-col l9 info-text">
+                      <p>{{ instance.airport|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col l1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+
+                 <div class="w3-row tab-text-format">
+                    <div class="w3-col l2 info-text">
+                      <p class="text-muted"><b>Bus/Taxi Station</b></p>
+                    </div>
+                    <div class="w3-col l9 info-text">
+                      <p>{{ instance.bus_stand|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col l1">
+                             <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+                </div>
+
+                
+                </div>
+              </div>
+          </div>
+       
+        </div>
+
+        </div>
+        </div>
+</div>
+    
+<!-- Info Page for Medium Screens -->
+    <div id="Info" class="w3-container w3-hide-small w3-hide-large tabs" style="background-color: #FFF; margin-left: 4%; margin-right: 4%;" >
+    <div class="w3-row">
+        <div class="w3-col m12">
+            <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                    <div class="w3-row" style="">
+                      <iframe width="500" height="315" src="https://www.youtube.com/embed/ToOIvD5mlow?autoplay=0" frameborder="0" allowfullscreen></iframe>
+                        <br>
+                    </div>
+                
+                    <div class="w3-row" style="">
+                     <div class="w3-col m1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">bookmark_border</i>
+                          </div>
+                          <div class="w3-col m9 info-text">
+                            <h3 class="text-muted"> <b>GENERAL INFORMATION </b> </h3>
+                          </div>
+                          <div class="w3-col m1 w3-right" style="margin-right: 2%;">
+                            <a href class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</a>
+                          </div>
+                    </div>
+                    <div class="w3-row" style="">
+                        <div class="w3-col m12">
+                        <hr>
+                        <div class="w3-container">                             
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col m2 info-text">
+                              <p class="text-muted"><b> About Trek</b></p>
+                          </div>
+                          <div class="w3-col m9 info-text">
+                              <p> {{ instance.about_the_trek|linebreaksbr }}</p>
+                         </div>
+                         <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+
+                          <div id="id01" class="w3-modal">
+                              <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+                                  <header class="w3-container w3-blue"> 
+                                   <span onclick="document.getElementById('id01').style.display='none'" 
+                                   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+                                   <h2>Header</h2>
+                                  </header>
+
+                                  <div class="w3-bar w3-border-bottom">
+                                   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">London</button>
+                                  </div>
+
+                                  <div id="London" class="w3-container city">
+                                   <h1>London</h1>
+                                   <p>London is the most populous city in the United Kingdom, with a metropolitan area of over 9 million inhabitants.</p>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                  </div>
+
+                                  <div class="w3-container w3-light-grey w3-padding">
+                                   <button class="w3-btn w3-right w3-white w3-border" 
+                                   onclick="document.getElementById('id01').style.display='none'">Close</button>
+                                  </div>
+                                 </div>
+                          </div>
+                        </div>
+            
+                          <div class="w3-row tab-text-format">
+                          <div class="w3-col m2 info-text">
+                            <p class="text-muted"><b>Highest Altitude</b></p>
+                          </div>
+                          <div class="w3-col m9 info-text">
+                              <p><b>{{instance.highest_altitude}}</b></p>
+                         </div>
+                         <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+                          
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col m2 info-text">
+                            <p class="text-muted"><b>State</b></p>
+                          </div>
+                          <div class="w3-col m9 info-text">
+                         <p>{{ instance.region }}, India</p>
+                         </div>
+                         <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+
+                         <div class="w3-row tab-text-format">
+                              <div class="w3-col m2 info-text">
+                                  <p class="text-muted"><b>Wildlife Reserve</b></p>
+                             </div>
+                                      <div class="w3-col m9 info-text">
+                             <p>{{ instance.wildlife_reserve|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                          </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col m2 info-text">
+                                <p class="text-muted"><b>Best Time</b></p>
+                           </div>
+                                  <div class="w3-col m9 info-text">
+                                      <p>{{ instance.best_time|linebreaksbr  }}</p>
+                                   </div>
+                                   <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+            
+                         <div class="w3-row tab-text-format">
+                            <div class="w3-col m2 info-text">
+                                <p class="text-muted"><b>What To Explore</b></p>
+                           </div>
+                                    <div class="w3-col m9 info-text">
+                           <p>{{ instance.Exploration_Spots|linebreaksbr }}</p>
+                           </div>
+                           <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+                        </div>
+                  </div>
+
+                  
+                  </div>
+                  </div>
+            <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                  <div class="w3-row">
+                    <div class="w3-col m12">
+                      <div class="w3-container">
+                        <div class="w3-row">
+                          <div class="w3-col m1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">vpn_key</i>
+                          </div>
+                          <div class="w3-col m10 info-text">
+                            <h3 class="text-muted"> <b>TIPS</b> </h3>
+                          </div>
+                          <div class="w3-col m1">
+                            <a href class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</a>
+                          </div>
+
+                        </div>
+                        <hr>
+                        <div class="w3-row tab-text-format">
+                              <div class="w3-col m2 info-text">
+                                  <p class="text-muted"><b>For Stay</b></p>
+                             </div>
+                                  <div class="w3-col m9 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+                            <div class="w3-row tab-text-format">
+                              <div class="w3-col m2 info-text">
+                                  <p class="text-muted"><b>For Food</b></p>
+                             </div>
+                                  <div class="w3-col m9 info-text">
+                                      <p></p>
+                             </div>
+                             <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+                          </div>
+
+                          
+
+                          <div class="w3-row tab-text-format">
+                            <div class="w3-col m2 info-text">
+                                <p class="text-muted"><b>For Water</b></p>
+                            </div>
+                            <div class="w3-col m9 info-text">
+                                <p>{{ instance.food_availability|linebreaksbr }}</p>
+                            </div>
+                             <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+
+                        <div class="w3-row tab-text-format">
+                              <div class="w3-col m2 info-text">
+                                  <p class="text-muted"><b>For Fitness</b></p>
+                             </div>
+                                  <div class="w3-col m9 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+
+                          
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col m2 info-text">
+                                  <p class="text-muted"><b>Equipments to carry</b></p>
+                             </div>
+                                  <div class="w3-col m9 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+                        </div>
+         
+                  </div>
+                </div>
+                    <div class="w3-row">
+                        <div class="w3-col m12">
+                        <div class= "w3-container">
+                          <div class="w3-row">
+                            <div class="w3-col m12" style="">
+                            <h3></h3>
+                            <img src='/media/trishul.jpg' style="width: 100%; height: 350px; padding-top: 40px; padding-bottom: 10px;" alt="">
+                              </div>
+                              </div>
+                            <div class="w3-row">
+                              <div class="w3-col m4">
+                              <img src='/media/sandhan.jpg' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                              <div class="w3-col m4">
+                              <img src='/media/Picture2.png' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                              <div class="w3-col m4">
+                              <img src='/media/Picture2.png' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                  
+                    <div class="w3-row">
+                       <div class="w3-col m12">
+                          <div class="w3-container">
+
+                          <div class="w3-row">
+                          <div class="w3-col m1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">terrain</i>
+                          </div>
+                          <div class="w3-col m10 info-text">
+                            <h3 class="text-muted"> <b>TRAIL DETAILS</b> </h3>
+                          </div>
+
+                         <div class="w3-col m1">
+                            <i class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                          </div>
+                           <hr>
+                              
+                        <div class="w3-row tab-text-format">
+                          <div class="w3-col m2 info-text">
+                              <p class="text-muted"><b>Trail Route</b></p>
+                             </div>
+                            <div class="w3-col m9 info-text">
+                              <p> <b>Trail 1 </b></p> <br>
+                              <p>{{ instance.trek_route|linebreaks }}</p><br>
+                              
+                                </div>
+                            <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"> edit </a>
+                         </div>
+                        </div>
+
+                          <div class="w3-row tab-text-format">
+                              <div class="w3-col m2 info-text">
+                                  <p class="text-muted"><b>Trail Highlights</b></p>
+                             </div>
+                            
+                                  <div class="w3-col m9 info-text">
+                                      <p>{{ instance.trail_highlights|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                          </div>
+
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row">
+                  `<div class="w3-col m12">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                            <div class="w3-col m12" style="padding-top: 40px;">
+                            <h3></h3>
+                              <div id="map" style="width: 100%; height: 400px; "></div>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+                <br>
+
+          <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+              <div class="w3-row" style="">
+                  <div class="w3-col m12">
+                      <div class="w3-container">
+                          <div class="w3-row">
+                          <div class="w3-col m1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #008489; margin-top: 12px;">directions</i>
+                          </div>
+                          <div class="w3-col m10 info-text">
+                            <h3 class="text-muted"> <b>WAY TO BASE CAMP</b> </h3>
+                          </div>
+                          <div class="w3-col m1">
+                            <i class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                            
+                          </div>
+                                                                                      <hr>
+                        <div class="w3-row tab-text-format">
+                            <div class="w3-col m2 info-text">
+                              <p class="text-muted"><b>Onwards</b></p>
+                            </div>
+                            <div class="w3-col m9 info-text">
+                              <p>{{ instance.route_to_base_camp |linebreaksbr }}</p>
+                            </div>
+                            <div class="w3-col m1">
+                              <i class="material-icons w3-right">edit</i>
+                            </div>
+                        </div>
+
+                        <div class="w3-row tab-text-format">
+                            <div class="w3-col m2 info-text">
+                              <p class="text-muted"><b>Route Details </b></p>
+                            </div>
+                            <div class="w3-col m9 info-text">
+                              <p>{{ instance.route_details|linebreaksbr }}</p>
+                            </div>
+                            <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                             </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+                    
+                    <div class="w3-row">
+                  <div class="w3-col m12">
+                      <div class="w3-container">
+                         <div class="w3-row">
+                         <div class="w3-row">
+                          <div class="w3-col m1 info-text w3-center">
+                            <i class="material-icons header-large-icon" style="color: #E65100; margin-top: 12px;">flag</i>
+                          </div>
+                          <div class="w3-col m10 info-text">
+                            <h3 class="text-muted"> <b>EMERGENCY LOCATIONS</b> </h3>
+                          </div>
+                          
+                          <div class="w3-col m1">
+                            <i class="material-icons header-large-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                          </div>
+                          <hr>
+                              
+
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col m2 info-text">
+                                      <p class="text-muted"><b>Police Station</b></p>
+                                 </div>
+                                      <div class="w3-col m9 info-text">
+                                          <p>{{ instance.police_station|linebreaksbr }}</p>
+                                 </div>
+                                 <div class="w3-col m1">
+                              <i class="material-icons w3-right">edit</i>
+                         </div>
+                              </div>
+                              
+                               <div class="w3-row tab-text-format">
+                                  <div class="w3-col m2 info-text">
+                                      <p class="text-muted"><b>Last ATM</b></p>
+                                 </div>
+                                      <div class="w3-col m9 info-text">
+                                          <p>Kangan</p>
+                                 </div>
+                                 <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col m2 info-text">
+                                      <p class="text-muted"><b>Mobile Signals</b></p>
+                                 </div>
+                                      <div class="w3-col m9 info-text">
+                                          <p>Srinagar</p>
+                                 </div>
+                                 <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+                              <div class="w3-row tab-text-format">
+                                  <div class="w3-col m2 info-text">
+                                      <p class="text-muted"><b>Hospital</b></p>
+                                 </div>
+                                      <div class="w3-col m9 info-text">
+                                          <p>Srinagar</p>
+                                 </div>
+                                 <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format">
+                    <div class="w3-col m2">
+                      <p class="text-muted info-text"><b>Railway Station</b></p>
+                    </div>
+                    <div class="w3-col m9 info-text">
+                      <p>{{ instance.railway_station|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+                
+
+                   <div class="w3-row tab-text-format">
+                    <div class="w3-col m2 info-text">
+                      <p class="text-muted"><b>Airport </b></p>
+                    </div>
+                    <div class="w3-col m9 info-text">
+                      <p>{{ instance.airport|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col m1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+
+                 <div class="w3-row tab-text-format">
+                    <div class="w3-col m2 info-text">
+                      <p class="text-muted"><b>Bus/Taxi Station</b></p>
+                    </div>
+                    <div class="w3-col m9 info-text">
+                      <p>{{ instance.bus_stand|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col m1">
+                             <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+                </div>
+
+                
+                </div>
+              </div>
+          </div>
+      
+        </div>
+
+        </div>
+        </div>
+</div>
+
+<!-- Info for Small Screens-->
+    <div id="Info" class="w3-container w3-hide-medium w3-hide-large tabs" style="margin-top:15px; padding-left: 0px; padding-right: 0px;" >
+    <div class="w3-row">
+        <div class="w3-col s12">
+            <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                    <div class="w3-row" style="">
+                      <iframe width="300" height="300" src="https://www.youtube.com/embed/ToOIvD5mlow?autoplay=0" frameborder="0" allowfullscreen></iframe>
+                        <br>
+                    </div>
+                
+                    <div class="w3-row" style="">
+                     <div class="w3-col s1 info-text w3-center">
+                            <i class="material-icons header-small-icon" style="color: #008489; margin-top: 12px;">bookmark_border</i>
+                          </div>
+                          <div class="w3-col s9 info-text" style="">
+                            <h4 class="text-muted"> <b>GENERAL INFORMATION </b> </h4>
+                          </div>
+                          <div class="w3-col s1 w3-right" style="margin-right: 2%;">
+                            <a href class="material-icons header-small-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</a>
+                          </div>
+                    </div>
+                    <div class="w3-row" style="">
+                        <div class="w3-col s12">
+                        <hr>
+                        <div class="w3-container remove-paddinglr">                             
+                        <div class="w3-row tab-text-format-mobile">
+                          <div class="w3-col s12 info-text">
+                              <p class="text-muted"><b> About Trek</b></p>
+                          </div>
+                            </div>
+                            <div class="w3-row  tab-text-format">
+                          <div class="w3-col s11 info-text">
+                              <p> {{ instance.about_the_trek|linebreaksbr }}</p>
+                         </div>
+                         <div class="w3-col s1">
+                              <a  href class="material-icons w3-top-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+
+                          <div id="id01" class="w3-modal">
+                              <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+                                  <header class="w3-container w3-blue"> 
+                                   <span onclick="document.getElementById('id01').style.display='none'" 
+                                   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+                                   <h2>Header</h2>
+                                  </header>
+
+                                  <div class="w3-bar w3-border-bottom">
+                                   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">London</button>
+                                  </div>
+
+                                  <div id="London" class="w3-container city">
+                                   <h1>London</h1>
+                                   <p>London is the most populous city in the United Kingdom, with a metropolitan area of over 9 million inhabitants.</p>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                  </div>
+
+                                  <div class="w3-container w3-light-grey w3-padding">
+                                   <button class="w3-btn w3-right w3-white w3-border" 
+                                   onclick="document.getElementById('id01').style.display='none'">Close</button>
+                                  </div>
+                                 </div>
+                          </div>
+                        </div>
+                            </div>
+            
+                          <div class="w3-row tab-text-format-mobile">
+                          <div class="w3-col s12 info-text">
+                            <p class="text-muted"><b>Highest Altitude</b></p>
+                          </div>
+                            </div>
+                            <div class="w3-row tab-text-format">
+                          <div class="w3-col s11 info-text">
+                              <p><b>{{instance.highest_altitude}}</b></p>
+                         </div>
+                         <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+                          
+                        <div class="w3-row tab-text-format-mobile">
+                          <div class="w3-col s6 info-text">
+                            <p class="text-muted"><b>State</b></p>
+                          </div>
+                            </div>
+                            <div class="w3-row tab-text-format">
+                          <div class="w3-col s11 info-text">
+                         <p>{{ instance.region }}, India</p>
+                         </div>
+                         <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+
+                         <div class="w3-row tab-text-format-mobile">
+                              <div class="w3-col s6 info-text">
+                                  <p class="text-muted"><b>Wildlife Reserve</b></p>
+                             </div>
+                            </div>
+                            <div>
+                                 <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                             <p>{{ instance.wildlife_reserve|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                          </div>
+            
+                         <div class="w3-row tab-text-format-mobile">
+                            <div class="w3-col s6 info-text">
+                                <p class="text-muted"><b>Best Time</b></p>
+                           </div>
+                                </div>
+                                  <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                      <p>{{ instance.best_time|linebreaksbr  }}</p>
+                                   </div>
+                                   <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+            
+                         <div class="w3-row tab-text-format-mobile">
+                            <div class="w3-col m2 info-text">
+                                <p class="text-muted"><b>What To Explore</b></p>
+                             </div></div>
+                                    <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                           <p>{{ instance.Exploration_Spots|linebreaksbr }}</p>
+                           </div>
+                           <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                        </div>
+                        </div>
+                  </div>
+
+                  
+                  </div>
+                  </div>
+            <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                  <div class="w3-row">
+                    <div class="w3-col s12">
+                      <div class="w3-container remove-paddinglr">
+                        <div class="w3-row">
+                          <div class="w3-col s1 info-text w3-center">
+                            <i class="material-icons header-small-icon" style="color: #008489; margin-top: 12px;">vpn_key</i>
+                          </div>
+                          <div class="w3-col s10 info-text">
+                            <h4 class="text-muted"> <b>TIPS</b> </h4>
+                          </div>
+                          <div class="w3-col s1">
+                            <a href class="material-icons header-small-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</a>
+                          </div>
+
+                        </div>
+                        <hr>
+                        <div class="w3-row tab-text-format-mobile">
+                              <div class="w3-col s6 info-text">
+                                  <p class="text-muted"><b>For Stay</b></p>
+                            </div></div>
+                                  <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+                            <div class="w3-row tab-text-format-mobile">
+                              <div class="w3-col s6 info-text">
+                                  <p class="text-muted"><b>For Food</b></p>
+                                </div></div>
+                                  <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                      <p></p>
+                             </div>
+                             <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+                          </div>
+
+                          
+
+                          <div class="w3-row tab-text-format-mobile">
+                            <div class="w3-col s6 info-text">
+                                <p class="text-muted"><b>For Water</b></p>
+                              </div></div>
+                            <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                <p>{{ instance.food_availability|linebreaksbr }}</p>
+                            </div>
+                             <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+
+                        <div class="w3-row tab-text-format-mobile">
+                              <div class="w3-col s6 info-text">
+                                  <p class="text-muted"><b>For Fitness</b></p>
+                            </div></div>
+                                  <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+
+                          
+
+                          <div class="w3-row tab-text-format-mobile">
+                              <div class="w3-col s6 info-text">
+                                  <p class="text-muted"><b>Equipments to carry</b></p>
+                              </div></div>
+                                  <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                      <p>{{ instance.food_availability|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                         </div>
+
+                          </div>
+                        </div>
+         
+                  </div>
+                </div>
+                    <div class="w3-row">
+                        <div class="w3-col s12">
+                        <div class= "w3-container">
+                          <div class="w3-row">
+                            <div class="w3-col s12" style="">
+                            <h3></h3>
+                            <img src='/media/trishul.jpg' style="width: 100%; height: 350px; padding-top: 40px; padding-bottom: 10px;" alt="">
+                              </div>
+                              </div>
+                            <div class="w3-row">
+                              <div class="w3-col s4">
+                              <img src='/media/sandhan.jpg' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                              <div class="w3-col s4">
+                              <img src='/media/Picture2.png' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                              <div class="w3-col s4">
+                              <img src='/media/Picture2.png' style="width: 100%; padding: 2px;" alt="">
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                  
+                    <div class="w3-row">
+                       <div class="w3-col s12">
+                          <div class="w3-container remove-paddinglr">
+
+                          <div class="w3-row">
+                          <div class="w3-col s1 info-text w3-center">
+                            <i class="material-icons header-small-icon" style="color: #008489; margin-top: 12px;">terrain</i>
+                          </div>
+                          <div class="w3-col s10 info-text">
+                            <h4 class="text-muted"> <b>TRAIL DETAILS</b> </h4>
+                          </div>
+
+                         <div class="w3-col s1">
+                            <i class="material-icons header-small-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                          </div>
+                           <hr>
+                              
+                        <div class="w3-row tab-text-format-mobile">
+                          <div class="w3-col s6 info-text">
+                              <p class="text-muted"><b>Trail Route</b></p>
+                            </div></div>
+                            <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                              <p> <b>Trail 1 </b></p> <br>
+                              <p>{{ instance.trek_route|linebreaks }}</p><br>
+                              
+                                </div>
+                            <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"> edit </a>
+                         </div>
+                        </div>
+
+                          <div class="w3-row tab-text-format-mobile">
+                              <div class="w3-col s6 info-text">
+                                  <p class="text-muted"><b>Trail Highlights</b></p>
+                              </div></div>
+                            
+                                  <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                      <p>{{ instance.trail_highlights|linebreaksbr }}</p>
+                             </div>
+                             <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                          </div>
+
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row">
+                  `<div class="w3-col s12">
+                    <div class="w3-container">
+                      <div class="w3-row">
+                            <div class="w3-col s12" style="padding-top: 40px;">
+                            <h3></h3>
+                              <div id="map" style="width: 100%; height: 400px; "></div>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+                <br>
+
+          <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+              <div class="w3-row" style="">
+                  <div class="w3-col s12">
+                      <div class="w3-container remove-paddinglr">
+                          <div class="w3-row">
+                          <div class="w3-col s1 info-text w3-center">
+                            <i class="material-icons header-small-icon" style="color: #008489; margin-top: 12px;">directions</i>
+                          </div>
+                          <div class="w3-col s10 info-text">
+                            <h4 class="text-muted"> <b>WAY TO BASE CAMP</b> </h4>
+                          </div>
+                          <div class="w3-col s1">
+                            <i class="material-icons header-small-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                            
+                          </div>
+                                                                                      <hr>
+                        <div class="w3-row tab-text-format-mobile">
+                            <div class="w3-col s6 info-text">
+                              <p class="text-muted"><b>Onwards</b></p>
+                            </div></div>
+                            <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                              <p>{{ instance.route_to_base_camp |linebreaksbr }}</p>
+                            </div>
+                            <div class="w3-col s1">
+                              <i class="material-icons w3-right">edit</i>
+                            </div>
+                        </div>
+
+                        <div class="w3-row tab-text-format-mobile">
+                            <div class="w3-col s6 info-text">
+                              <p class="text-muted"><b>Route Details </b></p>
+                            </div></div>
+                            <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                              <p>{{ instance.route_details|linebreaksbr }}</p>
+                            </div>
+                            <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')">edit</a>
+                             </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+                    
+                    <div class="w3-row">
+                  <div class="w3-col s12">
+                      <div class="w3-container remove-paddinglr">
+                         <div class="w3-row">
+                          <div class="w3-col s1 info-text w3-center">
+                            <i class="material-icons header-small-icon" style="color: #E65100; margin-top: 12px;">flag</i>
+                          </div>
+                          <div class="w3-col s10 info-text">
+                            <h4 class="text-muted"> <b>EMERGENCY LOCATIONS</b> </h4>
+                          </div>
+                          
+                          <div class="w3-col s1">
+                            <i class="material-icons header-small-icon w3-right" onclick="myfunction('id01')" style="margin-top: 12px;">add_circle</i>
+                          </div>
+                          </div>
+                          <hr>
+                              
+
+                              <div class="w3-row tab-text-format-mobile">
+                                  <div class="w3-col s6 info-text">
+                                      <p class="text-muted"><b>Police Station</b></p>
+                                  </div></div>
+                                      <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                          <p>{{ instance.police_station|linebreaksbr }}</p>
+                                 </div>
+                                 <div class="w3-col s1">
+                              <i class="material-icons w3-right">edit</i>
+                         </div>
+                              </div>
+                              
+                               <div class="w3-row tab-text-format-mobile">
+                                  <div class="w3-col s6 info-text">
+                                      <p class="text-muted"><b>Last ATM</b></p>
+                                   </div></div>
+                                      <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                          <p>Kangan</p>
+                                 </div>
+                                 <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format-mobile">
+                                  <div class="w3-col s6 info-text">
+                                      <p class="text-muted"><b>Mobile Signals</b></p>
+                                  </div></div>
+                                      <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                          <p>Srinagar</p>
+                                 </div>
+                                 <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+                              <div class="w3-row tab-text-format-mobile">
+                                  <div class="w3-col s6 info-text">
+                                      <p class="text-muted"><b>Hospital</b></p>
+                                  </div></div>
+                                      <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                                          <p>Srinagar</p>
+                                 </div>
+                                 <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                              </div>
+
+                              <div class="w3-row tab-text-format-mobile">
+                    <div class="w3-col s6">
+                      <p class="text-muted info-text"><b>Railway Station</b></p>
+                                  </div></div>
+                    <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                      <p>{{ instance.railway_station|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+                
+
+                   <div class="w3-row tab-text-format-mobile">
+                    <div class="w3-col s6 info-text">
+                      <p class="text-muted"><b>Airport </b></p>
+                       </div></div>
+                    <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                      <p>{{ instance.airport|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col s1">
+                              <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+
+                 <div class="w3-row tab-text-format-mobile">
+                    <div class="w3-col s6 info-text">
+                      <p class="text-muted"><b>Bus/Taxi Station</b></p>
+                     </div></div>
+                    <div class="w3-row tab-text-format">
+                             <div class="w3-col s11 info-text">
+                      <p>{{ instance.bus_stand|linebreaksbr }}</p>
+                    </div>
+                    <div class="w3-col s1">
+                             <a  href class="material-icons w3-right" onclick="myfunction('id01')"  >edit</a>
+                         </div>
+                </div>
+                </div>
+
+                
+                </div>
+              </div>
+          </div>
+      
+        </div>
+
+        </div>
+        </div>
+
+
+<!-- Q/A For Large Screens -->
+    <div id="QA" class="w3-container w3-hide-small w3-hide-medium city" style="margin-left: 4%; margin-right: 4%;">
+        <div  class="w3-container questionpost" style="margin-left: 8.33%; margin-right: 8.33%; padding-bottom: 16px;">
+        <div class="w3-row">
+            
+                <div class="w3-col l12">
+                    <h2> Ask the community...</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="w3-col l12">
+                    <form class="w3-container"  ng-submit="postquestion(ques)">
+                        <h3 class="w3-text-teal">Post your question here..</h3>
+                       
+						 <input class="w3-input w3-border w3-light-grey" type="text" ng-model="ques.newquestion" style="min-height: 30px;">
+
+
+                        <br>
+                        <button type='submit' value='Search' class="w3-button w3-border w3-white w3-round-large" style="background-color: #008489;"> Submit </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    <div class="w3-container" style="margin-left: 8.33%; margin-right: 8.33%; margin-top: 15px">
+        <h2> <b> Recent Questions </b></h2>
+        <br>
+        <hr>
+        <div class="w3-row">
+            <div class="w3-col l12">
+                <div class="w3-container" style="" ng-init="loadquestions()">
+                    <div class="w3-row"  ng-repeat="question in questions |orderBy :'-quesid' track by question.quesid">
+                       <div class="w3-col l2 w3-center qestiondiv"  style="margin-top:1%;">
+                            <img src="{$ question.questionpic $}" alt="Avatar" class="w3-center w3-circle" style="width: 55px; height: 55px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+                            <p>{$ question.username $}</p>
+                        </div>
+                        <div class="w3-col l7 qestiondiv" style="margin-top: 1%; padding-left: 1%;" >
+                           <a ng-click="myFunction('Answers'+question.quesid )"><h4>{$ question.questiontxt $}</h4></a>
+                        </div>
+                        <div class="w3-col l2 w3-center" style="margin-top:0px;">
+                            <div class="w3-row">
+                                <div class="w3-col l6">
+                                    <span><p>{$ question.noofanswers $}</p>
+									<a href="" ng-click="myFunction('Answers'+question.quesid)">
+									<i class="material-icons" style="color:#009688">question_answer</i></a></span>
+                                </div>
+                                <div class="w3-col l6" ng-if="!question.status">
+                                    <span><p>{$ question.nooflikes $}</p>
+									<input type="text" style="display:none;" ng-model="question.quesid">
+									<a href="" ng-click="voting(question)">
+									<i class="material-icons" style="color:#BDBDBD">thumb_up</i></a></span>
+                                </div>
+                             <div class="w3-col l6" ng-if="question.status">
+							 <input type="text" style="display:none;" ng-model="question.quesid">
+							 <span>
+                                 <a href="" ng-click="voting(question)">
+                                    <p>{$ question.nooflikes $}</p><i class="material-icons" style="color:#009688">thumb_up</i></a></span>
+                                </div>
+							 <!--button ng-click="myFunction('Answers'+question.quesid)" class="w3-button w3-block w3-white w3-round-large w3-border w3-center-align"> Show Answers</button-->
+                           
+							
+							</div>
+                             </div>
+                            <div ng-if="question.sessionid==question.userid" class="w3-col l1 w3-dropdown-hover w3-center" style="margin-top:2%;">
+                                    <span><i class="material-icons" style="color:#009688; font-size:20px;">expand_more</i></span>
+                                    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="width: 10px;">
+
+                                        <input type="text" style="display:none" ng-model="question.quesid">
+                                    <a href="#" class="w3-bar-item w3-button" ng-click="deletequestion(question)">Delete</a>
+
+                                    </div>
+                            </div>
+                        <div ng-if="question.sessionid!=question.userid" class="w3-col l1 w3-dropdown-hover w3-center" style="margin-top:2%;">
+                                    <span><i class="material-icons" style="color:#009688; font-size:20px;">expand_more</i></span>
+                                    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="width: 10px;">
+
+
+                                    <a href="" ng-click="myModal('ques'+question.quesid)" class="w3-bar-item w3-button">Report</a>
+
+              <div id="ques{$ question.quesid $}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top" style="width: 350px; margin-top: 1%;">
+
+      <div class="w3-container text-muted option">
+          <div class="w3-row text-muted">
+              <a href="" ng-click="myModal('ques'+question.quesid)" ><span  class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span></a>
+              <!--<div class="w3-col l6 w3-center" style="margin-top: 10%;">
+                  <span style="font-size:50px;line-height:0.6em;opacity:0.2">?</span>
+                  <h3> <i>We believe that the world out there is full of beautiful places and experiences and people should know about them.</i></h3>
+              </div> -->
+
+              <div class="w3-col l12">
+                <div class="w3-container w3-center" style="margin-top: 14%; margin-bottom: 5%;">
+                    <h4> Thanks for reporting! Please select your concern.</h4>
+                  <div class="w3-row" style="width: 100%;">
+
+                      <div class="w3-col l12 w3-center w3-padding" style="width: 100%;">
+                      <form ng-submit="questionreport(question,1)" method="POST" >
+                          <input type="text" style="display: none;" ng-model="question.quesid">
+                      <button type="submit" class="w3-bar-item w3-white w3-border w3-button w3-round-large w3-center" value="content irrelevant"  style="width: 100%;" ><p style="color: #4DB6AC;" ><b>Content not relevent</b></p></button>
+
+
+                       </form>
+                      </div>
+                    </div>
+
+                    </div>
+                    <div class="w3-row" style="width: 100%;">
+                      <div class="w3-col l12 w3-center w3-padding" >
+                      <form ng-submit="questionreport(question,2)">
+                    <input type="text" style="display:none" ng-model="question.quesid">
+                      <button type="submit "class="w3-bar-item w3-button w3-border w3-white w3-round-large"  style="width: 90%;"><p style="color: #4DB6AC;"><b>Abusive and Explicit content</b></p></button>
+
+                         </form>
+                      </div>
+                  </div>
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <form ng-submit="questionreport(question,3)">
+                    <input type="text" style="display:none" ng-model="question.quesid">
+                      <button  type="submit" class="w3-bar-item w3-button w3-border w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Hateful content
+                      </b></p></button>
+
+                     </form>
+                      </div>
+                    </div>
+
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <Label class="w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Other Reason</b></p></Label>
+                      </div>
+                    </div>
+                </div>
+              </div>
+                    <div  class="w3-container city">
+
+                        <form   ng-submit="questionreport(question,4)" >
+                        <div class="w3-row">
+                        <input type="text" name="reason" class="w3-input w3-light-grey w3-round" style="margin-bottom: 8px; border: 0px #FAFAFA" ng-model="question.newreport"  >
+
+                        </div>
+
+                        <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button   class="w3-button w3-white w3-round-large w3-border"  > <p style="color: #4DB6AC;"><b>Submit</b></p> </button>
+                          <input type="text" style="display:none" ng-model="review.reviewid">
+                           </div>
+                     </form>
+
+             </div>
+              </div> </div> </div>
+                                    </div>
+                            </div>
+							 <div id="Answers{$ question.quesid $}" class="w3-container mydisplay3">
+                    <hr>
+                    <div class="w3-row" style="margin-top: 2%; margin-left: 6%;">
+                        <div class="w3-col l2 w3-center">
+                            <img src="sandhan.jpg" class="w3-circle" style="height:35px; width:35px; margin-top: 5px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover;" alt="Avatar">
+                            
+                        </div>
+                        <form ng-submit="postanswer(question)">
+                        <div class="w3-col l8">
+
+							<input type="text" style="display:none;" ng-model="question.quesid">
+							<input class="w3-input w3-light-grey w3-border" type="text" placeholder="Give your answer here..." ng-model="question.newanswer">
+							 </div>
+                                <div class="w3-col s1" style="margin-top:1%;">
+                            <button type="submit" class="w3-button material-icons" style="background-color: white; color:#009688;">send</button>
+                        </div>
+
+							</form>
+
+                        <!--div class="w3-col l1 w3-dropdown-hover w3-center" style="margin-top: 1%;">
+                            <a class="material-icons post-icon w3-center">expand_more</a>
+                            <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="width: 10px;">
+                            <a href="#" class="w3-bar-item w3-button">Edit</a>
+                            <a href="#" class="w3-bar-item w3-button">Delete</a>
+                        </div>
+                        </div-->
+                    </div>
+                    <hr>
+                    <div class="w3-row" ng-repeat="answer in answers  | orderBy:'-answerid' track by answer.answerid">
+                        <div class="w3-col l2 w3-center" style="margin-left: 6%;; margin-top: 1%;">
+                            <img src="sandhan.jpg" class="w3-circle" style="height:35px; width:35px; margin-top: 5px;" alt="Avatar">
+                            <h5>{$ answer.username $}</h5>
+                        </div>
+                        
+                        <div class="w3-col l6" style="margin-top: 2%;">
+                             <p id="ans{$ answer.answerid $}" contenteditable="false" ng-model="answer.answertxt" ng-bind-html="answer.answertxt"></p>
+                        <div ng-if="answer.iseditable">
+                            <input type="text" style="display:none;" ng-model="answer.answerid">
+                            <input type="text" style="display: none" ng-model="answer.answerqid">
+                           <a href="" ng-click="editanswer(answer)"> <i class="w3-button material-icons" style="background-color: white; color:#009688;">send</i>
+                           </a>
+                        </div>
+                        </div>
+                        <div class="w3-col l1" style="margin-top: 2%;" ng-if="!answer.answerstatus">
+                            <span>
+							<p>{$ answer.noofanswerlikes $}</p>
+							 <input type="text" style="display: none;" ng-model="answer.answerqid">
+                                <input type="text" style="display: none;" ng-model="answer.answerid">
+								<a href="" ng-click="answervoting(answer)">
+							<i class="material-icons" style="color:#BDBDBD; font-size: 20px;">thumb_up</i>
+							</a>
+							</span>
+                                </div>
+								<div class="w3-col l1" style="margin-top: 2%;" ng-if="answer.answerstatus">
+                            <span>
+							<p>{$ answer.noofanswerlikes $}</p>
+							 <input type="text" style="display: none;" ng-model="answer.answerqid">
+                                <input type="text" style="display: none;" ng-model="answer.answerid">
+								<a href="" ng-click="answervoting(answer)">
+							<i class="material-icons" style="color:#009680; font-size: 20px;">thumb_up</i>
+							</a>
+							</span>
+                                </div>
+                        <div class="w3-col l1" style="margin-top: 4%;" ng-if="answer.sessionid!=answer.userid">
+                            <a href="" ng-click="myanswerModal('answer'+answer.answerid)"><span><i class="material-icons" style="color:#BDBDBD; font-size: 20px;">report_problem</i></span></a>
+                            <div id="answer{$ answer.answerid $}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top" style="width: 350px; margin-top: 1%;">
+
+      <div class="w3-container text-muted option">
+          <div class="w3-row text-muted">
+              <a href="" ng-click="myanswerModal('answer'+answer.answerid)" ><span  class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span></a>
+              <!--<div class="w3-col l6 w3-center" style="margin-top: 10%;">
+                  <span style="font-size:50px;line-height:0.6em;opacity:0.2">?</span>
+                  <h3> <i>We believe that the world out there is full of beautiful places and experiences and people should know about them.</i></h3>
+              </div> -->
+
+              <div class="w3-col l12">
+                <div class="w3-container w3-center" style="margin-top: 14%; margin-bottom: 5%;">
+                    <h4> Thanks for reporting! Please select your concern.</h4>
+                  <div class="w3-row" style="width: 100%;">
+
+                      <div class="w3-col l12 w3-center w3-padding" style="width: 100%;">
+                      <form ng-submit="answerreport(answer,1)" method="POST" >
+                          <input type="text" style="display: none;" ng-model="answer.answerqid">
+                          <input type="text" style="display: none;" ng-model="answer.answerid">
+                      <button type="submit" class="w3-bar-item w3-white w3-border w3-button w3-round-large w3-center" value="content irrelevant"  style="width: 100%;" ><p style="color: #4DB6AC;" ><b>Content not relevent</b></p></button>
+
+
+                       </form>
+                      </div>
+                    </div>
+
+                    </div>
+                    <div class="w3-row" style="width: 100%;">
+                      <div class="w3-col l12 w3-center w3-padding" >
+                      <form ng-submit="answerreport(answer,2)">
+                    <input type="text" style="display:none" ng-model="answer.answerqid">
+                    <input type="text" style="display:none" ng-model="answer.answerid">
+                      <button type="submit "class="w3-bar-item w3-button w3-border w3-white w3-round-large"  style="width: 90%;"><p style="color: #4DB6AC;"><b>Abusive and Explicit content</b></p></button>
+
+                         </form>
+                      </div>
+                  </div>
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <form ng-submit="answerreport(answer,3)">
+                    <input type="text" style="display:none" ng-model="answer.answerqid">
+                    <input type="text" style="display:none" ng-model="answer.answerid">
+                      <button  type="submit" class="w3-bar-item w3-button w3-border w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Hateful content
+                      </b></p></button>
+
+                     </form>
+                      </div>
+                    </div>
+
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <Label class="w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Other Reason</b></p></Label>
+                      </div>
+                    </div>
+                </div>
+              </div>
+                    <div  class="w3-container city">
+
+                        <form   ng-submit="answerreport(answer,4)" >
+                        <div class="w3-row">
+                            <input type="text" style="display: none;" ng-model="answer.answerqid">
+                            <input type="text" style="display: none;" ng-model="answer.answerid">
+                        <input type="text" name="reason" class="w3-input w3-light-grey w3-round" style="margin-bottom: 8px; border: 0px #FAFAFA" ng-model="answer.newreport"  >
+
+                        </div>
+
+                        <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button   class="w3-button w3-white w3-round-large w3-border"  > <p style="color: #4DB6AC;"><b>Submit</b></p> </button>
+                          <input type="text" style="display:none" ng-model="review.reviewid">
+                           </div>
+                     </form>
+
+             </div>
+              </div> </div> </div>
+                        </div>
+						<div class="w3-col l1 w3-dropdown-hover" ng-if="answer.sessionid==answer.userid" style="margin-top: 3%;">
+                            <a class="material-icons post-icon w3-center">expand_more</a>
+                            <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="width: 10px;">
+                            <a href="#" class="w3-bar-item w3-button" ng-click="edithere('ans'+answer.answerid,answer)">Edit</a>
+                                <input type="text" style="display: none" ng-model="answer.answerid">
+                                <input type="text" style="display: none" ng-model="answer.answerqid">
+                                <a href="" ng-click="deleteanswer(answer)" class="w3-bar-item w3-button">Delete</a>
+                        </div>
+                        </div>
+                        </div>  
+                        
+                    </div>
+                      </div>
+                   
+                
+                
+                                       
+                </div> 
+                </div>
+                
+                 <hr>
+                    
+            </div>
+        </div>
+        
+        </div>
+       
+<!-- Q/A For Small Screens -->
+    <div id="QA" class="w3-container w3-hide-large w3-hide-medium city" style="margin-top:15px; padding-left: 1%; padding-right: 1%;" style="display:none">
+        <div  class="w3-container questionpost" style="padding-bottom: 16px;">
+        <div class="w3-row">
+            
+                <div class="w3-col s12">
+                    <h2> Ask the community...</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="w3-col s12">
+                    <form class="w3-container" ng-submit="postquestion(ques)">
+                        <h3 class="w3-text-teal">Post your question here..</h3>
+                        <input class="w3-input w3-border w3-light-grey" type="text" ng-model="ques.newquestion" style="min-height: 30px;">
+                        <br>
+                        <button type='submit' value='Search' class="w3-button w3-border w3-white w3-round-large" style="background-color: #008489;"> Submit </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="w3-container" style="margin-top: 15px">
+        <h2> <b> Recent Questions </b></h2>
+        <br>
+        <hr>
+        <div class="w3-row" ng-init="loadquestions()">
+            <div class="w3-col s12">
+                <div class="w3-container" style="padding-left: 0px; padding-right: 0px;" ng-repeat="question in questions |orderBy :'-quesid' track by question.quesid">
+                    <div class="w3-row">
+                       <div class="w3-col s12 w3-center">
+                            <img src="sandhan.jpg" alt="Avatar" class="w3-center w3-circle" style="width: 30px; height: 30px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+                            <h5>{$ question.username $}</h5>
+                        </div>
+                    </div>
+                    <div class="w3-row">
+                        <div class="w3-col s12 qestiondiv w3-center" style="margin-top: 1%; padding-left: 1%;" >
+                            <a ng-click="myFunction('Answers'+question.questionid)" ><p>{$ question.questiontxt $}</p></a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="w3-row">
+                        <!--div class="w3-col s6 w3-center" style="margin-top:0px;">
+                           <button onclick="myFunction('mobileanswers')" class="w3-button w3-block w3-white w3-round-large w3-border w3-center-align">Show Answer</button>
+                        </div--> 
+                        
+                        <div class="w3-col s6 w3-center" style="margin-top:0px;margin-left:50%">
+                            <div class="w3-row">
+                                <div class="w3-col s4">
+                                    <span><p>{$ question.noofanswers $}</p>
+									<a ng-click="myFunction('Answers'+question.quesid)" ><i class="material-icons" style="color:#009688">question_answer</i>
+									</a>
+									</span>
+								
+                                </div>
+                                <div class="w3-col s4" ng-if="!question.status">
+								<span><p>{$ question.nooflikes $}</p>
+									<input type="text" style="display:none;" ng-model="question.quesid">
+									<a href="" ng-click="voting(question)">
+									<i class="material-icons" style="color:#BDBDBD">thumb_up</i></a>
+									</span>
+                                   
+                                </div> 
+								<div class="w3-col s4" ng-if="question.status">
+								<span><p>{$ question.nooflikes $}</p>
+									<input type="text" style="display:none;" ng-model="question.quesid">
+									<a href="" ng-click="voting(question)">
+									<i class="material-icons" style="color:#009680">thumb_up</i></a>
+									</span>
+                                   
+                                </div> 
+								
+                           <div class="w3-col s4 w3-dropdown-hover w3-center" style="margin-top:2%;">
+                                    <span><i class="material-icons" style="color:#009688; font-size:25px;">expand_more</i></span>
+                                    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="width: 10px;">
+
+                                        <input type="text" style="display: none;" ng-model="question.quesid">
+                                    <a href="#" class="w3-bar-item w3-button" ng-click="deletequestion(question)">Delete</a>
+
+                                    <a href="#"  ng-click="myModal('ques'+question.quesid)" class="w3-bar-item w3-button">Report</a>
+                                        <div id="ques{$ question.quesid $}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top" style="width: 350px; margin-top: 1%;">
+
+      <div class="w3-container text-muted option">
+          <div class="w3-row text-muted">
+              <a href="" ng-click="myModal('ques'+question.quesid)" ><span  class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span></a>
+              <!--<div class="w3-col l6 w3-center" style="margin-top: 10%;">
+                  <span style="font-size:50px;line-height:0.6em;opacity:0.2">?</span>
+                  <h3> <i>We believe that the world out there is full of beautiful places and experiences and people should know about them.</i></h3>
+              </div> -->
+
+              <div class="w3-col l12">
+                <div class="w3-container w3-center" style="margin-top: 14%; margin-bottom: 5%;">
+                    <h4> Thanks for reporting! Please select your concern.</h4>
+                  <div class="w3-row" style="width: 100%;">
+
+                      <div class="w3-col l12 w3-center w3-padding" style="width: 100%;">
+                      <form ng-submit="questionreport(question,1)" method="POST" >
+                          <input type="text" style="display: none;" ng-model="question.quesid">
+                      <button type="submit" class="w3-bar-item w3-white w3-border w3-button w3-round-large w3-center" value="content irrelevant"  style="width: 100%;" ><p style="color: #4DB6AC;" ><b>Content not relevent</b></p></button>
+
+
+                       </form>
+                      </div>
+                    </div>
+
+                    </div>
+                    <div class="w3-row" style="width: 100%;">
+                      <div class="w3-col l12 w3-center w3-padding" >
+                      <form ng-submit="questionreport(question,2)">
+                    <input type="text" style="display:none" ng-model="question.quesid">
+                      <button type="submit "class="w3-bar-item w3-button w3-border w3-white w3-round-large"  style="width: 90%;"><p style="color: #4DB6AC;"><b>Abusive and Explicit content</b></p></button>
+
+                         </form>
+                      </div>
+                  </div>
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <form ng-submit="questionreport(question,3)">
+                    <input type="text" style="display:none" ng-model="question.quesid">
+                      <button  type="submit" class="w3-bar-item w3-button w3-border w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Hateful content
+                      </b></p></button>
+
+                     </form>
+                      </div>
+                    </div>
+
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <Label class="w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Other Reason</b></p></Label>
+                      </div>
+                    </div>
+                </div>
+              </div>
+                    <div  class="w3-container city">
+
+                        <form   ng-submit="questionreport(question,4)" >
+                        <div class="w3-row">
+                        <input type="text" name="reason" class="w3-input w3-light-grey w3-round" style="margin-bottom: 8px; border: 0px #FAFAFA" ng-model="question.newreport"  >
+
+                        </div>
+
+                        <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button   class="w3-button w3-white w3-round-large w3-border"  > <p style="color: #4DB6AC;"><b>Submit</b></p> </button>
+                          <input type="text" style="display:none" ng-model="review.reviewid">
+                           </div>
+                     </form>
+
+             </div>
+              </div> </div> </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                   </div>
+                <div id="Answers{$ question.quesid $}" class="w3-container mydisplay3">
+                    <div class="w3-row" style="margin-top: 10px;">
+                        <div class="w3-col s12 w3-center">
+                            <img src="sandhan.jpg" class="w3-circle" style="height:35px; width:35px; margin-top: 5px;" alt="Avatar">
+                           
+                        </div>
+                        <div class="w3-row">
+						<form ng-submit="postanswer(question)">
+                        <div class="w3-col s11" style="width: 90%;">
+                            <input type="text" style="display: none" ng-model="question.quesid">
+							<input class="w3-input w3-light-grey w3-border" type="text" ng-model="question.newanswer">
+                            </div>
+                        <div class="w3-col s1" style="margin-top:1%;">
+                            <button type="submit" class="w3-button material-icons" style="background-color: white; color:#009688;">send</button>
+                        </div>
+                        </form>
+						</div>
+                    </div>
+                    
+                    <hr>
+                    
+                     <div class="w3-row" style="margin-top: 10px;" ng-repeat="answer in answers  | orderBy:'-answerid' track by answer.answerid" >
+                        <div class="w3-col s12 w3-center">
+                            <img src="sandhan.jpg" class="w3-circle" style="height:35px; width:35px; margin-top: 5px;" alt="Avatar">
+                            <h5>{$ answer.username $}</h5>
+                        </div>
+                        <div class="w3-row">
+                        <div class="w3-col s12" style="width: 90%;">
+                            <p id="ans{$ answer.answerid $}" contenteditable="false" ng-model="answer.answertxt" ng-bind-html="answer.answertxt"></p>
+                        <div ng-if="answer.iseditable">
+                            <input type="text" style="display:none;" ng-model="answer.answerid">
+                            <input type="text" style="display: none" ng-model="answer.answerqid">
+                           <a href="" ng-click="editanswer(answer)"> <i class="w3-button material-icons" style="background-color: white; color:#009688;">send</i>
+                           </a>
+                        </div>
+                        </div>
+                         </div>
+                            <div class="w3-row">
+                        <div class="w3-col s6" style="margin-top:1%;"ng-if="!answer.answerstatus">
+							<span>
+							<p>{$ answer.noofanswerlikes $}</p>
+							 <input type="text" style="display: none;" ng-model="answer.answerqid">
+                                <input type="text" style="display: none;" ng-model="answer.answerid">
+								<a href="" ng-click="answervoting(answer)">
+							<i class="material-icons" style="color:#BDBDBD; font-size: 20px;">thumb_up</i>
+							</a>
+							</span>
+                            
+                        </div>
+						<div class="w3-col s6" style="margin-top:1%;"ng-if="answer.answerstatus">
+							<span>
+							<p>{$ answer.noofanswerlikes $}</p>
+							 <input type="text" style="display: none;" ng-model="answer.answerqid">
+                                <input type="text" style="display: none;" ng-model="answer.answerid">
+								<a href="" ng-click="answervoting(answer)">
+							<i class="material-icons" style="color:#009680; font-size: 20px;">thumb_up</i>
+							</a>
+							</span>
+                            
+                        </div>
+                          <div class="w3-col s6 w3-dropdown-click w3-center" style="margin-top:2%;">
+                                    <button class="w3-button material-icons" style="color:#009688;">expand_more</button>
+                                    <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="width: 10px;">
+                                    <a href="#" class="w3-bar-item w3-button" ng-click="edithere('ans'+answer.answerid,answer)">Edit</a>
+                                        <input type="text" style="display: none" ng-model="answer.answerid">
+                                        <input type="text" style="display: none" ng-model="answer.answerqid">
+                                    <a href="#" class="w3-bar-item w3-button" ng-click="deleteanswer(answer)">Delete</a>
+                                    <a href="" ng-click="myanswerModal('answer'+answer.answerid)" class="w3-bar-item w3-button">Report</a>
+                                        <div id="answer{$ answer.answerid $}" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top" style="width: 350px; margin-top: 1%;">
+
+      <div class="w3-container text-muted option">
+          <div class="w3-row text-muted">
+              <a href="" ng-click="myanswerModal('answer'+answer.answerid)" ><span  class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span></a>
+              <!--<div class="w3-col l6 w3-center" style="margin-top: 10%;">
+                  <span style="font-size:50px;line-height:0.6em;opacity:0.2">?</span>
+                  <h3> <i>We believe that the world out there is full of beautiful places and experiences and people should know about them.</i></h3>
+              </div> -->
+
+              <div class="w3-col l12">
+                <div class="w3-container w3-center" style="margin-top: 14%; margin-bottom: 5%;">
+                    <h4> Thanks for reporting! Please select your concern.</h4>
+                  <div class="w3-row" style="width: 100%;">
+
+                      <div class="w3-col l12 w3-center w3-padding" style="width: 100%;">
+                      <form ng-submit="answerreport(answer,1)" method="POST" >
+                          <input type="text" style="display: none;" ng-model="answer.answerqid">
+                          <input type="text" style="display: none;" ng-model="answer.answerid">
+                      <button type="submit" class="w3-bar-item w3-white w3-border w3-button w3-round-large w3-center" value="content irrelevant"  style="width: 100%;" ><p style="color: #4DB6AC;" ><b>Content not relevent</b></p></button>
+
+
+                       </form>
+                      </div>
+                    </div>
+
+                    </div>
+                    <div class="w3-row" style="width: 100%;">
+                      <div class="w3-col l12 w3-center w3-padding" >
+                      <form ng-submit="answerreport(answer,2)">
+                    <input type="text" style="display:none" ng-model="answer.answerqid">
+                    <input type="text" style="display:none" ng-model="answer.answerid">
+                      <button type="submit "class="w3-bar-item w3-button w3-border w3-white w3-round-large"  style="width: 90%;"><p style="color: #4DB6AC;"><b>Abusive and Explicit content</b></p></button>
+
+                         </form>
+                      </div>
+                  </div>
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <form ng-submit="answerreport(answer,3)">
+                    <input type="text" style="display:none" ng-model="answer.answerqid">
+                    <input type="text" style="display:none" ng-model="answer.answerid">
+                      <button  type="submit" class="w3-bar-item w3-button w3-border w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Hateful content
+                      </b></p></button>
+
+                     </form>
+                      </div>
+                    </div>
+
+                    <div class="w3-row">
+                      <div class="w3-col l12 w3-center w3-padding">
+                      <Label class="w3-white w3-round-large" style="width: 100%;"><p style="color: #4DB6AC;"><b>Other Reason</b></p></Label>
+                      </div>
+                    </div>
+                </div>
+              </div>
+                    <div  class="w3-container city">
+
+                        <form   ng-submit="answerreport(answer,4)" >
+                        <div class="w3-row">
+                            <input type="text" style="display: none;" ng-model="answer.answerqid">
+                            <input type="text" style="display: none;" ng-model="answer.answerid">
+                        <input type="text" name="reason" class="w3-input w3-light-grey w3-round" style="margin-bottom: 8px; border: 0px #FAFAFA" ng-model="answer.newreport"  >
+
+                        </div>
+
+                        <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button   class="w3-button w3-white w3-round-large w3-border"  > <p style="color: #4DB6AC;"><b>Submit</b></p> </button>
+                          <input type="text" style="display:none" ng-model="review.reviewid">
+                           </div>
+                     </form>
+
+             </div>
+              </div> </div> </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                                       
+                </div> 
+                </div>
+                
+                 <hr>
+                    
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+<!-- Footer for Small Screens -->
+    <div class="w3-bottom w3-hide-large w3-hide-medium" style="border-top: 1px solid #efefef;">
+            <div class="w3-bar w3-row" style="background-color:#FFFFFF;">
+                <a href="#" class="w3-col s3 w3-bar-item w3-button" style="padding: 0px, 0px;"><img src="arya.jpg" style="width: 30px; height: 30px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover;" alt="Avatar"></a>
+                <a href="#" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding: 0px, 0px;"><i class="material-icons footer-icon">home</i></a>
+                <a href="#" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding: 0px, 0px;"><i class="material-icons footer-icon">mail</i></a>
+                <a href="#" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding: 0px, 0px;"><i class="material-icons footer-icon" style="color: #009688;">explore</i></a>
+            </div>
+        </div>
+    
+    <script>
+    function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+    </script>
+          <script>
+  /*  function openTab(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";}*/
+    </script>
+    
+    <script>
+    function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    }
+    function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    }
+    </script>
+       <script>
+        function myMap() {
+            var SummitPoint = new google.maps.LatLng(19.512677,73.686376);
+            var BaseVillage = new google.maps.LatLng(19.525884,73.68334);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: SummitPoint,center: BaseVillage, zoom: 10};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var MarkerSummit = new google.maps.Marker({position:SummitPoint});
+            MarkerSummit.setMap(map);
+            var MarkerBase = new google.maps.Marker({position:BaseVillage});
+            BaseVillage.setMap(map);
+            var infoBase = new google.maps.InfoWindow({content: "Base Village : Samrad"});
+            infoBase.open(map,MarkerBase);
+            var infoSummit = new google.maps.InfoWindow({content: "Sandhan Valley"});
+            infoSummit.open(map,MarkerSummit);
+        }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    
+<script>
+
+
+	var app = angular.module('myApp', ['ngSanitize']);
+	app.config(function($httpProvider,$interpolateProvider) {
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $interpolateProvider.startSymbol('{$');
+    $interpolateProvider.endSymbol('$}');
+});
+	app.directive('contenteditable', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, element, attrs, ctrl) {
+      // view -> model
+      element.bind('blur', function() {
+        scope.$apply(function() {
+          ctrl.$setViewValue(element.html());
+        });
+      });
+
+
+      // model -> view
+      ctrl.$render = function() {
+        element.html(ctrl.$viewValue);
+      };
+
+      // load init value from DOM
+     ctrl.$render();
+    }
+  };
+});
+
+	app.controller('myCtrl', function ($scope,$http) {
+
+		alert("The controller is working fine");
+		
+		
+		$scope.openTab=function(id){
+
+    var infoid=angular.element(document.getElementById("info"));
+    infoid.addClass("mydisplay1");
+		//alert("The particular tab is opened"+id);
+		divid=angular.element(document.getElementById(id));
+				divid.removeAttr("style");
+		if (!divid.hasClass("mydisplay") || divid.hasClass("mydisplay1"))
+		{	
+			divid.addClass("mydisplay");
+			divid.removeAttr("style");
+			divid.removeClass("mydisplay1");
+		}
+		else if (divid.hasClass("mydisplay")||!divid.hasClass("mydisplay1"))
+		{
+			divid.removeClass("mydisplay");
+			
+			divid.addClass("mydisplay1");
+			divid.removeAttr("style");
+		}
+		
+		
+		
+		},
+    
+$scope.loadquestions=function(){
+
+    alert("The load question is getting called");
+var obj={'id':1};
+
+
+
+
+      $http({
+
+	  method: "POST",
+      url: "/questionanswer/qa/"+obj.id+"/",
+	  data:obj,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response){
+
+
+
+
+			alert("The questions are"+response.data);
+
+			$scope.questions=response.data;
+
+
+
+	});
+
+},
+
+
+        $scope.myFunction=function(id) {
+           // alert(id);
+            var divid = angular.element(document.getElementById(id));
+            //alert(x);
+           divid.removeAttr("style");
+    if (!divid.hasClass("mydisplay2") || divid.hasClass("mydisplay3"))
+    { 
+      divid.addClass("mydisplay2");
+      divid.removeAttr("style");
+      divid.removeClass("mydisplay3");
+    }
+    else if (divid.hasClass("mydisplay2")||!divid.hasClass("mydisplay3"))
+    {
+      divid.removeClass("mydisplay2");
+      
+      divid.addClass("mydisplay3");
+      divid.removeAttr("style");
+    }
+            var quesid = id.substring(7);
+            //alert("The question id is"+quesid);
+            $scope.loadanswers(quesid);
+        },
+
+        $scope.loadanswers=function(quesid){
+
+         // alert("In the load answers section"+quesid);
+            var obj={'placeid':1,'quesid':quesid};
+          // alert("The values of answer obj are"+obj.placeid+" "+obj.quesid);
+            $http({
+
+	  method: "POST",
+      url: "/questionanswer/aa/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+
+
+
+		//	alert("The answers are"+response.data);
+
+			$scope.answers=response.data;
+
+
+	});
+
+},
+
+    $scope.postquestion=function(ques){
+
+         //   alert("In the post question box");
+           var newquestion=ques.newquestion;
+           var placeid=1;
+           var obj={'newquestion':newquestion,'placeid':placeid};
+           // alert("the objs are"+obj.newquestion+" "+obj.placeid);
+           $http({
+
+	  method: "POST",
+      url: "/questionanswer/pq/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+       // alert(response.data);
+        $scope.loadquestions();
+        ques.newquestion=null;
+			//alert("The answers are"+response.data);
+
+			//$scope.answers=response.data;
+
+
+	});
+
+    },
+
+            $scope.voting=function(question){
+
+        //alert("In the voting function");
+        var questionid=question.quesid;
+        var placeid=1;
+        var obj={'quesid':questionid,'placeid':placeid};
+        //alert("The  question id is"+obj.quesid);
+
+        $http({
+
+	  method: "POST",
+      url: "/questionanswer/up/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+        //alert(response.data);
+        var newresponsedata=response.data;
+        //alert(newresponsedata.status+" "+newresponsedata.nooflike)
+        question.status=newresponsedata.status;
+        question.nooflikes=newresponsedata.nooflike;
+
+
+	});
+
+
+    },
+                $scope.answervoting=function(answer){
+
+        //alert("In the answervoting function");
+        var questionid=answer.answerqid;
+        var answerid=answer.answerid;
+        var placeid=1;
+        var obj={'quesid':questionid,'placeid':placeid,'answerid':answerid};
+        //alert("The  question id is"+obj.quesid+" "+obj.answerid );
+
+        $http({
+
+	  method: "POST",
+      url: "/questionanswer/aup/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+        //alert(response.data);
+        var newresponsedata=response.data;
+        //alert(newresponsedata.answerstatus+" "+newresponsedata.noofanswerlike)
+        answer.answerstatus=newresponsedata.answerstatus;
+        answer.noofanswerlikes=newresponsedata.noofanswerlike;
+
+
+	});
+
+
+    },
+
+    $scope.postanswer=function(question){
+
+       // alert("In the post answer block");
+        var answer=question.newanswer;
+        var quesid=question.quesid;
+        var placeid=1;
+
+        var obj={'answertxt':answer,'answerqid':quesid,'placeid':placeid};
+
+        //alert("In the post answer block"+obj.answertxt+" "+obj.answerqid+" "+obj.placeid);
+
+       $http({
+
+	  method: "POST",
+      url: "/questionanswer/pa/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+        //alert(response.data);
+        var newresponsedata=response.data;
+        var quesid=newresponsedata.quesid;
+        question.noofanswers=newresponsedata.noofanswers;
+        //alert("The new question is "+quesid);
+        $scope.loadanswers(quesid);
+        question.newanswer=null
+			//alert("The answers are"+response.data);
+
+			//$scope.answers=response.data;
+
+
+	});
+
+
+
+    },
+
+            $scope.deletequestion=function(question){
+        //alert("In the delete question section");
+        var quesid=question.quesid;
+         var obj={'placeid':1,'qid':quesid};
+
+         $http({
+
+	  method: "POST",
+      url: "/questionanswer/dq/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+       // alert(response.data);
+       $scope.loadquestions();
+			//alert("The answers are"+response.data);
+
+			//$scope.answers=response.data;
+
+
+	});
+
+
+            },
+
+            $scope.deleteanswer=function(answer){
+
+               // alert("In the delete answer section"+answer.answerqid+" "+answer.answerid);
+
+                var qid=answer.answerqid;
+                var answerid=answer.answerid;
+
+               var obj={'placeid':1,'qid':qid,'answerid':answerid};
+
+             //  alert("The request parameters are "+obj.qid+" "+obj.answerid);
+               $http({
+
+	  method: "POST",
+      url: "/questionanswer/da/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+     //   alert(response.data);
+       $scope.loadanswers(qid);
+			//alert("The answers are"+response.data);
+
+			//$scope.answers=response.data;
+
+
+	});
+
+        },
+
+$scope.edithere=function(divid,answer){
+
+		//alert("In the edit here function");
+
+		var element=angular.element(document.getElementById(divid));
+		//alert("The divid is "+divid.substring(3));
+		var newdivid=divid.substring(3);
+
+		var answerid=answer.answerid;
+		//alert("The answerid is "+answerid);
+		if (newdivid==answerid)
+
+		    answer.iseditable=true;
+
+
+		element.attr('contenteditable',"true");
+		element[0].focus();
+		},
+
+		$scope.editanswer=function(answer){
+
+		alert("In the edit answer box"+answer.answertxt);
+		var answerid=answer.answerid;
+		var questionid=answer.answerqid;
+		var answertxt=answer.answertxt;
+		if (answertxt!=null && answertxt!='')
+		{
+
+		//var sessionuserid=sessionid;
+
+		var obj={'answerid':answerid,'placeid':1,'qid':questionid,'answertxt':answertxt};
+
+		alert("The answer is"+obj.answerid+" "+obj.placeid+" "+obj.qid+" "+obj.answertxt);
+		$http({
+	  method: "POST",
+      url: "/questionanswer/ea/"+obj.placeid+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+
+		alert("The response from the service is"+response.data);
+		answer.iseditable=false;
+		var element=angular.element(document.getElementById('ans'+answer.answerid));
+		//alert(element);
+
+		element.attr('contenteditable',"false");
+
+
+		});
+		}
+		},
+
+            $scope.myModal=function(id){
+
+		    //alert("In the report model"+id);
+		    divid=angular.element(document.getElementById(id));
+		    divid.removeAttr("style");
+		    if (!divid.hasClass("w3-show") || divid.hasClass("w3-hide"))
+            {
+                divid.removeAttr("style");
+                divid.addClass("w3-show");
+                divid.removeClass("w3-hide");
+            }
+		   else if (divid.hasClass("w3-show") || !divid.hasClass("w3-hide"))
+            {
+
+                divid.removeClass("w3-show");
+                divid.addClass("w3-hide");
+                divid.removeAttr("style");
+
+            }
+
+
+            },
+
+            $scope.questionreport=function(question,reporttype){
+
+               // alert("In the question report section"+reporttype)
+
+                var quesid=question.quesid;
+                var placeid=1;
+
+                if (reporttype==1) {
+                    var report = "irrelevant";
+                }
+           else if (reporttype==2){
+                    var report="abusive";
+
+                }
+                else if (reporttype==3)
+                {
+                    var report="hateful";
+                }
+
+                else if (reporttype==4)
+                {
+                    var report=question.newreport;
+                }
+                var obj={'id':placeid,'quesid':quesid,'report':report};
+
+         //  alert("The requested object is "+obj.id+" "+obj.quesid+" "+obj.report);
+
+           $http({
+	  method: "POST",
+      url: "/questionanswer/rq/"+obj.id+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+
+		//alert("The response from the service is"+response.data);
+
+        question.newreport=null;
+
+		});
+
+            },
+            $scope.myanswerModal=function(id){
+
+		  //  alert("In the answer report model"+id);
+		    divid=angular.element(document.getElementById(id));
+		    divid.removeAttr("style");
+		    if (!divid.hasClass("w3-show") || divid.hasClass("w3-hide"))
+            {
+                //alert("in the if block");
+                divid.removeAttr("style");
+                divid.addClass("w3-show");
+                divid.removeClass("w3-hide");
+            }
+		   else if (divid.hasClass("w3-show") || !divid.hasClass("w3-hide"))
+            {
+                //alert("In the else block");
+                divid.removeClass("w3-show");
+                divid.addClass("w3-hide");
+                divid.removeAttr("style");
+
+            }
+
+
+            },
+            $scope.answerreport=function(answer,reporttype){
+
+                //alert("In the answer report section"+reporttype)
+
+                var quesid=answer.answerqid;
+                var answerid=answer.answerid;
+                var placeid=1;
+
+                if (reporttype==1) {
+                    var report = "irrelevant";
+                }
+           else if (reporttype==2){
+                    var report="abusive";
+
+                }
+                else if (reporttype==3)
+                {
+                    var report="hateful";
+                }
+
+                else if (reporttype==4)
+                {
+                    var report=answer.newreport;
+                }
+                var obj={'id':placeid,'quesid':quesid,'answerid':answerid,'answerreport':report};
+
+        // alert("The requested object is "+obj.id+" "+obj.quesid+" "+obj.answerid+" "+obj.answerreport);
+
+           $http({
+	  method: "POST",
+      url: "/questionanswer/ra/"+obj.id+"/",
+	  data:obj,
+
+      headers: {'Content-Type': 'application/json'}
+    }).then(function(response){
+
+
+		//alert("The response from the service is"+response.data);
+
+        answer.newreport=null;
+
+		});
+
+            }
+
+
+	});
+	</script>
+ 
+    </body>
+</html> 

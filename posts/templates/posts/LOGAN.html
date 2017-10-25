@@ -1,0 +1,3403 @@
+{% load staticfiles %}
+{% load ctemp %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Discover Places</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104444238-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel='stylesheet' href='{% static "files/ngProgress.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="{% static 'files/angular.js' %}"></script>
+    <script src="{% static 'files/ngprogress.min.js' %}"></script>
+    <script src="{% static 'files/scrollglue.js' %}"></script>
+	 <script src="{% static 'files/angular-file-upload.js' %}"></script>
+	 <script src="{% static 'files/angular-sanitize.js' %}"></script>
+	 <script src="{% static 'files/angular-froala.js' %}"></script>
+	 <script src="{% static 'files/froala-sanitize.js' %}"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+	 <script src="{% static 'files/ng-file-upload.js' %}"></script>
+	 <script src="{% static 'files/ng-file-upload-shim.js' %}"></script>
+	 <script src="{% static 'files/jquery-ui.min.js' %}"></script>
+	 <script src="{% static 'files/jquery.min.js' %}"></script>
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+
+	  
+  
+
+<link rel="stylesheet" href="{% static 'css/awesomplete.css' %}" type="text/css" media="all"/>
+
+<script src="{% static 'js/awesomplete.js' %}" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+
+ <link rel="stylesheet" href="{% static 'css/awesomplete.css' %}" type="text/css" media="all"/>
+
+
+
+     <link rel="shortcut icon" href="{$ static 'favicon.ico' $}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+
+<meta name="p:domain_verify" content="83cb25de7b4f4c1aac07c92e04987d1c"/> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+  
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+
+
+  
+
+
+
+<link rel="stylesheet" href="{% static 'css/awesomplete.css' %}" type="text/css" media="all"/>
+
+<script src="{% static 'js/awesomplete.js' %}" type="text/javascript"></script>
+
+
+
+
+
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+       <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <meta name="p:domain_verify" content="83cb25de7b4f4c1aac07c92e04987d1c"/> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    
+    <script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue_grey-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='{% static "/static/style.css" %}' />
+ 
+	  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+       <script src="{% static 'files/angular.js' %}"></script>
+    <script src="{% static 'files/ngprogress.min.js' %}"></script>
+    <script src="{% static 'files/scrollglue.js' %}"></script>
+	 <script src="{% static 'files/angular-file-upload.js' %}"></script>
+	 <script src="{% static 'files/angular-sanitize.js' %}"></script>
+	 <script src="{% static 'files/angular-froala.js' %}"></script>
+	 <script src="{% static 'files/froala-sanitize.js' %}"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+	 <script src="{% static 'files/ng-file-upload.js' %}"></script>
+	 <script src="{% static 'files/ng-file-upload-shim.js' %}"></script>
+	 <script src="{% static 'files/jquery-ui.min.js' %}"></script>
+	 <script src="{% static 'files/jquery.min.js' %}"></script>
+
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdU_KsgaJdnlLhDepXnX2_6JCwBidaU5w"></script>
+	
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyDYqysliBHZ6-2NeFDPcCQvDpi0wmW9myU"></script>
+
+<link rel="stylesheet" href="{% static 'css/awesomplete.css' %}" type="text/css" media="all"/>
+
+<script src="{% static 'js/awesomplete.js' %}" type="text/javascript"></script>
+
+        <script>
+                        function openCity(cityName) {
+                            var i;
+                            var x = document.getElementsByClassName("city");
+                            for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";  
+                                }
+                            document.getElementById(cityName).style.display = "block";  
+                            }
+                </script>
+
+		
+	 <style>
+        .crumbs {
+            font-size: 10px;
+            margin: 2px;
+            font-family:  "Halvetica","roboto","Arial" sans-serif;
+            opacity: 38%;
+        }   
+      
+        card  {
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+            min-height: 280px;
+            max-width: 360px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-left: 2px;
+            margin-right: 2px;
+            max-height: 50px;
+            margin: 2px;
+            text-align: justify;
+            
+        }
+        
+        hr     {
+            margin: 5px;
+            
+        }
+        
+        .map-position {
+            position: absolute;
+            right: 0px;
+            top: 28%;
+            overflow: hidden;
+            width: 33.333%;
+            height: 72.1%;
+            z-index: 0;
+        }
+        
+        .nav-position {
+            position:relative;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        } 
+        
+        .filter-position {
+            position: fixed;
+            top: 35%;
+            left: 0;
+            bottom: 0;
+            width: 66.666%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+           
+        }
+         
+          .filter-position-tablet {
+            position: fixed;
+            top: 54%;
+            left: 0;
+            bottom: 0; 
+            bottom: 0;
+            width: 100%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+           
+        }
+
+         .filter-position-tablet {
+            position: fixed;
+            top: 54%;
+            left: 0;
+            bottom: 0; 
+            bottom: 0;
+            width: 100%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+           
+        }
+
+	
+         .hobbytags-position-large {
+             position: fixed;
+            z-index : 0;
+            top: 10.8%;
+	background-color: #fff; 
+		height: 108px;
+	border-bottom: 1px solid #f1f1f1;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+             margin-top: 0%;
+            
+            -webkit-overflow-scrolling: touch;
+               transition: -ms-transform 0.5s,-webkit-transform 0.5s,transform 0.5s !important;
+   		 white-space: nowrap !important;
+		overflow-x: scroll !important; 
+		-webkit-overflow-scrolling: touch;
+    		overflow-y: hidden !important;
+    		padding: 0 0px;
+   		 margin-bottom: -30px !important;
+        } 
+         
+         ::-webkit-scrollbar:horizontal { 
+    height: 7px;
+
+}
+
+	    .hobbytags-position-small {           
+            z-index : 2;
+            top: 10%;
+		height: 90px;
+	border-bottom : 1px solid #f1f1f1;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            
+            -webkit-overflow-scrolling: touch;
+               transition: -ms-transform 0.5s,-webkit-transform 0.5s,transform 0.5s !important;
+   		 white-space: nowrap !important;
+		overflow-x: scroll !important; 
+		-webkit-overflow-scrolling: touch;
+    		overflow-y: hidden !important;
+    		padding: 0 18px;
+   		 margin-bottom: -30px !important;
+        }
+         
+	    .hobbytags-position {
+             
+            z-index : 2;
+            top: 10%;
+		height: 16px;
+	border-bottom : 1px solid #f1f1f1;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            
+            -webkit-overflow-scrolling: touch;
+               transition: -ms-transform 0.5s,-webkit-transform 0.5s,transform 0.5s !important;
+   		 white-space: nowrap !important;
+		overflow-x: scroll !important; 
+		-webkit-overflow-scrolling: touch;
+    		overflow-y: hidden !important;
+    		padding: 0 18px;
+   		 margin-bottom: -30px !important;
+        }
+	
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+
+
+}
+
+
+::-webkit-scrollbar:horizontal {
+    height: 7px; 
+
+}
+
+::-webkit-scrollbar:vertical {
+    width: 18px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 18px;
+    border: 1px solid #ffffff;
+
+
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 18px;  
+    background-color: #ffffff; 
+
+
+}
+
+ .filtertags-position-small {
+	position: relative;
+            z-index : 2;
+            top: 15%;
+            height: 75px;
+            border-bottom : 1px solid #f1f1f1;
+            left: 0;
+            bottom: 0; 
+            width: 100%;
+           padding: 0px;
+           margin-bottom : 2%;
+           margin-top: 1%; 
+            -webkit-overflow-scrolling: touch;
+               transition: -ms-transform 0.5s,-webkit-transform 0.5s,transform 0.5s !important;
+   		 white-space: nowrap !important;
+		overflow-x: scroll !important; 
+		-webkit-overflow-scrolling: touch;
+    		overflow-y: hidden !important;
+    		padding: 0 18px;
+   		 margin-bottom: -30px !important;
+        }
+
+         
+         	    .filtertags-position {
+            z-index : 2;
+            top: 10%;
+		height: 64px;
+            left: 0;
+            bottom: 0;
+            width: 65%;
+            
+            -webkit-overflow-scrolling: touch;
+               transition: -ms-transform 0.5s,-webkit-transform 0.5s,transform 0.5s !important;
+   		 white-space: nowrap !important;
+		overflow-x: scroll !important; 
+		-webkit-overflow-scrolling: touch;
+    		overflow-y: hidden !important;
+    		padding: 0 18px;
+   		 margin-bottom: -30px !important;
+        }
+	
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+
+
+}
+
+
+::-webkit-scrollbar:horizontal {
+    height: 7px;
+
+}
+
+::-webkit-scrollbar:vertical {
+    width: 18px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 18px;
+    border: 1px solid #ffffff;
+
+
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 18px;  
+    background-color: #ffffff; 
+
+
+}
+                  	    .filtertags-position-large {
+	position: fixed;
+            z-index : 2;
+            top: 27.5%;
+            height: 47px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+	border-bottom:  1px solid #f1f1f1;
+            
+            -webkit-overflow-scrolling: touch;
+               transition: -ms-transform 0.5s,-webkit-transform 0.5s,transform 0.5s !important;
+   		 white-space: nowrap !important;
+		overflow-x: scroll !important; 
+		-webkit-overflow-scrolling: touch;
+    		overflow-y: hidden !important;
+    		padding: 0 18px;
+   		 margin-bottom: -30px !important;
+        }
+	
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+
+
+}
+
+
+::-webkit-scrollbar:horizontal {
+    height: 7px;
+
+}
+
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 18px;
+    border: 1px solid #ffffff;
+
+
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 18px;  
+    background-color: #ffffff; 
+
+
+}
+        
+        .full-container{
+            position: absolute;
+            top: 62px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            
+        }
+        
+        .navbar {
+            margin-bottom:auto;
+            background-color: #FFF;
+            font-style: bold;
+            border: 1px;
+            font-size: 15px !important;
+            letter-spacing: 4px;
+            border-radius: 0px;
+            border: 1px solid #F5F5F5;
+            font-family: "Roboto","Arial", sans-serif;
+            box-shadow: 0 0px 0px 0 ;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+
+  }
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+      
+ 
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+            100% { opacity: 1; transform: translateY(0%);} }
+            @-webkit-keyframes slide {
+            0% {
+            opacity: 0;
+            -webkit-transform: translateY(70%);
+    }
+            100% {
+            opacity: 1;
+            -webkit-transform: translateY(0%);
+    }
+  }
+            @media screen and (max-width: 768px) {
+    
+        .col-sm-4 {
+            text-align: center;
+            margin: 25px 0;
+    }
+    
+        .btn-lg {
+            width: 100%;
+            margin-bottom: 35px;
+    }
+  }
+            @media screen and (max-width: 480px) {
+    
+        .logo {
+            font-size: 150px;
+    }
+  }
+
+       body    
+           {
+            font-family: "Roboto",sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            background: :#fff;
+            text-align: justify; 
+        }
+
+    .text-muted {
+                color: #767676;   }
+      
+    h1      {
+            font-size: 112sp;
+            color: #484848;
+            font-weight: 300;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h2      {
+            font-size: 56sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h3      {
+            font-size: 45sp;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+  }
+      
+        h4      {
+            font-size: 34sp;
+            line-height: 1.375em;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+            margin : 0px;
+  }
+      
+        h5      {
+            font-size: 24sp;
+            color: #484848;
+            font-weight: 400;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+        h6      {
+            font-size: 20sp;
+            color: #484848;
+            font-weight: 500;
+            font-family: "Roboto","Arial" sans-serif;
+  }
+      
+         p      {
+            font-size: 16sp;
+            font-family: "Roboto","Arial" sans-serif;
+            color: #484848;
+            margin: 0;
+                line-height: 1.43;
+            -webkit-font-smoothing: antialiased;
+  }
+      
+        hr     {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+            
+    }
+
+        .post-pic{
+            max-width: 100%;
+            max-height: 300px;
+            background-size: 100% 100%;
+		background-image: linear-gradient(180deg,rgba(0,0,0,.2) 0,transparent 40%,transparent 60%,rgba(0,0,0,.3));
+    	    opacity: 1;
+    	    transition: all .15s ease-in-out;
+            
+    }
+
+	
+        .topstories-pic{
+            max-height: relative;
+            max-width: relative;
+    }
+        
+        .top-stories{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding-top: 40px;
+            padding-bottom: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 10px;     
+    }
+
+        .card{
+            box-shadow: 0 .1px .1px 0 rgba(0,0,0,0.1),0 .1px 0 rgba(0,0,0,0.10)!important;
+            font-size: 16px;
+            font-weight: 400;
+	padding-left: .5%;
+	padding-right: .5%;
+            min-height: 200px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FAFAFA;
+            border-radius: 1%;
+            box-sizing: border-box;
+	    border: 1px #767676!important;
+            max-height: 50px;
+            margin: 1%;
+	    
+    }
+
+      .cardmobile{
+            font-size: 16px;
+            font-weight: 400;
+	padding-left: 1%;
+	padding-right: 1%;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FAFAFA;
+            border-radius: 1%;
+            box-sizing: border-box;
+	    border: 1px #767676!important;
+	    
+    }
+
+      .cardtabs{
+            font-size: 16px;
+            font-weight: 400;
+	padding-left: 1%;
+	padding-right: 1%;
+            min-height: 250px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FAFAFA;
+            border-radius: 1%;
+            box-sizing: border-box;
+	    border: 1px #767676!important;
+            max-height: 50px;
+            margin: 1%;
+	    
+    }
+
+        .pad{
+            padding: 10px 10px;
+        } 
+
+
+        .crumbs {
+            font-size: 12px;
+            margin: 2px;
+            background: #fafafa;
+            font-family:  "Roboto","Arial" sans-serif;
+            color: #0000;
+            opacity: 38%;
+    }
+
+        .tabpanel{
+            background-color:#4DB6AC;
+            color: #fff;
+            font-family:  "Roboto","Arial" sans-serif;
+            margin-bottom: 40px;
+    }
+     
+        
+        .cover-image{
+            padding: 0px 0px;
+            min-height: 100px;
+            max-height: 150px;
+            font-family: "Roboto","Arial" sans-serif;
+            text-align: center;
+        
+    }
+
+        .tab-text-format {
+            padding: 5px 5px;
+            color: #0000;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            text-align: left;
+            padding-right: 5px;
+            padding-left: 5px;
+    }
+
+        .related-search{
+            text-align: left; 
+            background-color: #F5F5F5;
+            padding: 100px 40px;
+            margin-top: 5px;
+          
+    }
+
+        .starlogo {
+            font-size: 120px;
+            color: #FBC02D;
+    }
+    
+        .logorating {
+           font-size: 12px;
+            color: #FBC02D;
+    }
+    
+        .ratingbars{
+            margin-bottom: 5px;
+            margin-top: 5px;
+            height: 10px;
+    }
+    
+        .panel {
+            border: 1px solid #536E7B;
+            border-radius:0 !important;
+            transition: box-shadow 0.5s;
+    }
+	
+    
+  
+        card1{
+            max-height: 280px;
+            overflow: hidden;
+            z-index: 0;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 1px;
+            border: .5px;
+            box-sizing: border-box;
+  }
+      
+        .navbar li a, .navbar .navbar-brand {
+            color: #fafafa !important;
+  }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #607D8B !important;
+            background-color: #fff !important;
+  }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+  }
+    
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+  }
+            @keyframes slide {0% { opacity: 0; transform: translateY(70%);}
+            100% { opacity: 1; transform: translateY(0%);} }
+            @-webkit-keyframes slide {
+            0% {
+            opacity: 0;
+            -webkit-transform: translateY(70%);
+    }
+            100% {
+            opacity: 1;
+            -webkit-transform: translateY(0%);
+    }
+  }
+            @media screen and (max-width: 768px) {
+    
+        .col-sm-4 {
+            text-align: center;
+            margin: 25px 0;
+    }
+    
+        .btn-lg {
+            width: 100%;
+            margin-bottom: 35px;
+    }
+  }
+            @media screen and (max-width: 480px) {
+    
+        .logo {
+            font-size: 150px;
+    }
+  }
+      
+        .booking-card{
+            text-align: center; 
+            background-color: #F5F5F5;
+            padding: 40px 10px;
+            margin: 10px;
+            background-color: #FFFFFF;
+            border: .5px #e2e2e2;
+          
+  }
+        .vendor-logos{
+            max-height: 75px;
+            max-width: 75px;
+          
+  }
+
+     .footer-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #008489;
+
+} 
+
+.overlay {
+    background-color: rgba(55, 155, 55, 0.5);
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    right:0;
+    top:0;
+    z-index: 1;
+}
+
+.image{position: relative;}
+
+ 
+         .searchbar-masthead {
+            padding: 2px 6px;
+            width: 100%;
+            border-color: #FFF;
+            padding-top: 1px;
+            font-size: 16px;
+	    border-radius: 5px 0px 0px 5px;
+  }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #transparent;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #transparent;
+  color: white;
+}
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+.tooltip {
+    width: 150px;
+	height:22px;
+    background-color: #EEEEEE;
+	font-family: "Roboto","Arial" sans-serif;
+	margin-bottom: 6%;
+	margin-top: 6%;
+	color: #484848
+    color: #000;
+	z-index:1;
+	text-style:bold;
+    text-align: center;
+	border: 0px solid #008489;
+	margin-left: -77px;
+	margin-top: -65px;
+    position: absolute;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 5;
+    
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+	height:0;
+	width:0;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+	
+}   
+.tooltipn {
+    width: 90px;
+	height:24px;
+    background-color: #555;
+    color: #000;
+	z-index:2;
+	text-style:bold;
+    text-align: center;
+	border: 1px solid #ff8;
+	margin-left: -50px;
+	margin-top: -60px;
+    position: absolute;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 5;
+    
+}  
+.tooltipn::after {
+    content: "";
+    position: absolute;
+	height:0;
+	width:0;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+	
+}
+
+img{
+max-width:95%;
+max-height: 80%;
+margin-bottom: 5px;
+
+}
+  .myshow{display:block!important}
+.myshow1{display:block!important}
+.myshow2{display:block!important}
+.myshow3{display:block!important}
+.myhide{display:none!important}
+.myhide1{display:none!important}
+.myhide2{display:none!important}
+.myhide3{display:none!important}
+.mydisplay{display:block}
+.mydisplay1{display:none}
+.mydisplay2{display:block}
+.mydisplay3{display:none}
+.mydisplay4{display:block}
+.mydisplay5{display:none}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.message-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+}
+     .heading-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 35px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+
+} 
+
+        .header-small-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+      .header-medium-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+}
+
+     .header-large-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none; 
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: #BDBDBD;
+
+} 
+     .button-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+
+}
+
+#mylist{
+	font-size: 14px;
+	color: #767676;
+	background-color: #fafafa;
+
+} 
+         .hovr:hover{
+box-shadow: 0 0 0 2px #fff, 0 0 0 4px #b5b5b5 !important;
+background-color: #fff!important;
+color: #484848;
+}
+
+        .hovrtags:hover{
+box-shadow: 0 0 0 1px #fff, 0 0 0 3.2px #b5b5b5 !important;
+background-color: #f1f1f1!important;
+color: #484848;
+}
+
+  .hovefilter:hover{
+box-shadow: 0 0 0 2px #fff, 0 0 0 4px #b5b5b5 !important;
+background-color: #fafafa!important;
+color: #484848;
+}
+
+        .hovrtags:visited{
+background-color: #f1f1f1!important;
+color: #484848;
+}
+        
+    </style>    
+    
+	
+    </head>
+    
+   
+    <body  ng-app="myApp" ng-controller="myCtrl" ng-init="myMap();initmap()" >
+        
+<!-- Header for Large Screens -->
+    <header class="w3-hide-small  w3-hide-medium" style="position: absolute;">
+      <ul class="w3-navbar navbar navbar-fixed  w3-navitem w3-center" style="padding-top: 0px; padding-bottom: 0px; border-bottom: 1px solid #efefef; ">
+       <a href="/"> <li class="" style="padding-top: .61%; padding-right: .61%; width:6%; margin-top: .3%;"><i class="material-icons header-large-icon">home</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">logout.world</p></li>     </a>     
+          <form method='GET' action='/logan/' style="margin-bottom: 0px;">
+          <li style="width:66%; padding-left: -0.88%; padding-right: 0px; margin-top: 1%; margin-bottom: 1%;"> 
+                    
+	<input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black w3-border-right " id="text_search"   name='q' placeholder='Enter a destination ..' list="mylist" ng-model="myValue"  ng-change="search()">
+	<datalist id="mylist"> 
+            <option ng-repeat="place in results ">{$ place.title $} </option>
+          </datalist>
+	<!-- <div class="w3-row dropdown" id="mylist">
+	<ol style="font-size: 16px; color: #484848; background-color: #FAFAFA;"><option ng-repeat="place in results " style="margin: 0px; padding: 0px;">{$ place.title $} </option></ol>
+	</div> -->
+
+          </li>
+          <li style="padding-left: 0px; padding-right: 16px; margin-top: 1%; margin-bottom: 1%;"> 
+          <button type='submit' value='Search' class="w3-button"  style="color: #555; border-radius: 0px 5px 5px 0px;"><B> Search </B></button> 
+          </li>
+          </form>
+          <a href="/discover"><li class="w3-center w3-padding" style="width:6%; margin-top:.3%;"><i class="material-icons header-large-icon" style="color: #008489;">explore</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Discover</p></li></a>
+          <li class="w3-center w3-dropdown-hover hovrdrop w3-padding w3-left" style="width:6%; margin-top:.3%; color: #b5b5b5;"><i class="material-icons header-large-icon">loupe</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Create</p>
+            <div class="w3-dropdown-content w3-bar-block w3-animate-opacity " style="position: fixed; right: 4%; top: 9.5%; width: 250px;">
+                {% if not pic %}
+
+		<a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Photos</b> </p></span></a>
+                <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">vpn_key</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Tips</b> </p></span></a>
+                <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Suggest a Location</b> </p></span></a>
+		{% endif %}
+		
+		 {% if pic %}
+
+		<a href="javascript:;" onclick="document.getElementById('photos').style.display='block'" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Travel Photos</b> </p></span></a>
+                <a href="javascript:;" onclick="document.getElementById('tips').style.display='block'" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">vpn_key</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Travel Tips</b> </p></span></a>
+                <a href="javascript:;" onclick="showaddmodel();" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Suggest a Location</b> </p></span></a>
+		{% endif %}
+            </div></li>
+          
+          {% if not pic %}
+          <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-padding w3-center w3-left" style="width:6%; margin-top:.2%;"><i class="material-icons header-large-icon"><b>timeline</b></i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Feeds</p> </li></a>
+          {% endif %}
+
+           {% if pic %}
+          <!-- <a href="/chatting/messagehtml"><li class="w3-center w3-padding w3-left" style="width:6%; margin-top:.3%; color: #b5b5b5;"><i class="material-icons header-large-icon">loupe</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Create</p></li></a> -->
+
+           <a href="/profile/{{username}}" ><li class="w3-padding w3-center w3-left" style="width:6%;margin-top:.2%;"><img src="{{pic}}" class="w3-circle" style="height:30px;width:30px; padding: 0px, 0px;" alt="Avatar"><p class="text-muted" style="font-size: 10px; margin-top: -10%;">My Feeds</p> </li></a>
+          {% endif %}
+          <!--<li class="w3-padding w3-center w3-left" style="width:6%; margin-top:.3%;"><i class="w3-center" title="My Account" style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin: 0px;"><img src="devsena.jpg" class="w3-circle" style="height:40px;width:40px; padding: 0px, 0px;" alt="Avatar"> 
+          </i> 
+          </li>-->
+      </ul>
+    </header>
+
+<div id="basicExample" class="w3-modal" style="z-index: 100">
+    <div class="w3-modal-content w3-animate-top" style="width: 550px; margin-top: 4%;">
+        
+      <div class="w3-container text-muted option" style="padding: 6%;">
+          <div class="w3-row text-muted">
+              <span onclick="document.getElementById('basicExample').style.display='none'" class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span>
+              <!--<div class="w3-col l6 w3-center" style="margin-top: 10%;">
+                  <span style="font-size:50px;line-height:0.6em;opacity:0.2">❝</span>
+                  <h3> <i>We believe that the world out there is full of beautiful places and experiences and people should know about them.</i></h3>
+              </div> -->
+              
+            <!--  <div class="w3-col l12">
+                <div class="w3-container" style="margin-top: 14%; margin-bottom: 5%;">
+                  <div class="w3-row">
+                      <div class="w3-col l6 w3-center">
+                      <button class="w3-bar-item w3-white w3-border w3-button w3-round-large w3-center" onclick="openCity2('London')" style="width: 90%;"><p style="color: #4DB6AC;"><b>Login</b></p></button>
+                      </div>
+                      <div class="w3-col l6 w3-center">
+                      <button class="w3-bar-item w3-button w3-border w3-white w3-round-large w3-left" onclick="openCity2('Paris')" style="width: 90%;"><p style="color: #4DB6AC;"><b>New User</b></p></button>
+                      </div>
+                  </div>
+                </div>
+                    
+                  <div id="London" class="w3-container city">
+                      
+                    <div class="w3-row">
+                      <form>
+                          {% csrf_token %}
+                          <label ><p class="text-muted"><b>Email Address</b></p></label>
+                          {{loginForm.email}}
+                       
+                          <label><p class="text-muted"><b>Password</b></p></label>
+                          {{loginForm.password}}
+                        
+                        </form>
+                      </div>
+                      <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button type='submit' value='Search' class="w3-button w3-border w3-white  w3-round-large" > <p style="color: #4DB6AC;"><b>Sign In</b></p> </button>
+                      </div>
+                      
+                      <hr>
+                      <div class="w3-row w3-center" style="padding-top: 8px; padding-bottom: 8px;">
+                          <button type='submit' value='Search' class="w3-button w3-round" style="background-color:#3b5998;color: white; width: 100%;"> <p style="color: #FAFAFA;" onclick="window.location='/login/flogin/?q={{instance.place_id}}'" >Login with Facebook</p> </button>
+                      </div>
+                      <div class="w3-row w3-center" style="padding-top: 8px; margin-bottom: 14%;">
+                          <button type='submit' value='Search' onclick="window.location='/login/glogin/?q={{instance.place_id}}'" class="w3-button w3-round" style="background-color:#dd4b39;color: white; width: 100%;"><p style="color: #FAFAFA;">Login with Google </p></button>
+              </div>
+        
+        
+          </div>
+                     <div id="Paris" class="w3-container city"  style="display: block;" >
+                      
+                      <span onclick="document.getElementById('basicExample').style.display='none'" class="w3-button w3-display-topright" style="background-color: #fafafa;">&times;</span>
+                    <div class="w3-row">
+                      <form>
+                          {% csrf_token %}
+                          <label ><p class="text-muted"><b>Name</b></p></label>
+                          {{registerForm.username}}
+                      
+                          <label ><p class="text-muted"><b>Email Address</b></p></label>
+                           {{loginForm.email}}
+                      
+                          <label ><p class="text-muted"><b>Password</b></p></label>
+                          {{registerForm.password}}
+                     
+                          <label><p class="text-muted"><b>Confirm Password</b></p></label>
+                          {{registerForm.confirm_password}}
+                        
+                        </form>
+                      </div>
+                      <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button type='submit' value='Search' class="w3-button w3-white w3-round-large w3-border" > <p style="color: #4DB6AC;"><b>Sign Up</b></p> </button>
+                      </div>
+                    
+                         <hr>
+                    <div class="w3-row w3-center" style="padding-top: 8px; padding-bottom: 8px;">
+                        <button type='submit' value='Search' class="w3-button w3-round" onclick="window.location='/login/flogin/'" style="background-color:#3b5998;color: white; width: 100%;"> <p style="color: #FAFAFA;"><b>Login with Facebook</b></p> </button>
+                      </div>
+                      <div class="w3-row w3-center" style="padding-top: 8px; margin-bottom: 14%;">
+                          <button type='submit' onclick="window.location='/login/glogin/'" value='Search' class="w3-button w3-round" style="background-color:#dd4b39;color: white; width: 100%;"><p style="color: #FAFAFA;">Login with Google </p></button>
+              </div>
+        
+        
+          </div>
+                  
+                  
+              </div> -->
+              
+              <div class="w3-col l12 w3-center">
+		 
+              <h2 class="" style="color: #008489;"><b>Login to logout.world</b></h2>
+			<hr style="color: #767676;">
+                  <div class="w3-row">
+                  <div class="w3-col l12 w3-center"  style="">
+                      <button type='submit' value='Search' onclick="window.location='/login/flogin/'" class="w3-border w3-round w3-button" style="border: 1.5px solid #767676!important; background-color: white; margin-top: 2%; width: 100%;"> <h4 class="text-muted" style="margin-top: 0px; margin-bottom: 0px;"> <b>Login with Facebook <i class="fa fa-facebook" style="color: #3B5998; font-size: 22px; margin-top: 0%; margin-bottom: -4%;padding-top: 0px; padding-bottom: 0px;" aria-hidden="true"></i></b></h4></button>
+   
+                      </div> </div>
+               <!--   <div class="w3-row">
+		<div class="w3-col l12 w3-center"  style="">
+			<button type='submit' onclick="window.location='/login/glogin/'" class="w3-border w3-round w3-button" style="border: 1.5px solid #767676!important; background-color: white; color: #FAFAFA;  margin-top: 2%; width: 100%;"><h4 class="text-muted" style="margin-top: 0px; margin-bottom: 0px;"><b> Login with Gmail <i class="fa fa-google" style=" color: #dd4b39; font-size: 22px; margin-top: 0%; margin-bottom: -4%;padding-top: 0px; padding-bottom: 0px;" aria-hidden="true"></i></b></h4></button>
+                      
+		</div> </div> -->
+                  </div>
+              
+              </div>
+              </div>
+          </div>
+    </div>
+<!-- Header for Medium Screens -->
+  <header class="w3-hide-small w3-hide-large">
+      <ul class="w3-navbar navbar navbar-fixed  w3-navitem w3-center" style="padding-top: 0px; padding-bottom: 0px; border-bottom: 1px solid #efefef; ">
+       <a href="/"> <li class="w3-center w3-center-align " style="width:10%; margin-top: 1%;"><i class="material-icons header-large-icon">home</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">logout.world</p></li>     </a>     
+          <form method='GET' action='/logan/' style="margin-bottom: 0px;">
+          <li style="width:50%; padding-left: 1.5%; padding-right: 0%; margin-top: 1%; margin-bottom: 1%;"> 
+                    
+	<input type='text' class="searchbar-masthead w3-input w3-light-grey w3-text-black w3-border-right " id="text_search"   name='q' placeholder='Enter a destination ..' list="mylist" ng-model="myValue"  ng-change="search()">
+	<datalist id="mylist"> 
+            <option ng-repeat="place in results ">{$ place.title $} </option>
+          </datalist>
+	<!-- <div class="w3-row dropdown" id="mylist">
+	<ol style="font-size: 16px; color: #484848; background-color: #FAFAFA;"><option ng-repeat="place in results " style="margin: 0px; padding: 0px;">{$ place.title $} </option></ol>
+	</div> -->
+
+          </li>
+          <li style="padding-left: 0px; padding-right: 1.5%; margin-top: 1%; margin-bottom: 1%;"> 
+          <button type='submit' value='Search' class="w3-button"  style="color: #555; border-radius: 0px 5px 5px 0px;"><B> Search </B></button> 
+          </li>
+          </form>
+          <a href="/discover"><li class="w3-center " style="width:8%; margin-top:1%;"><i class="material-icons header-large-icon" style="color: #008489;">explore</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Discover</p></li></a>
+          <li class="w3-center w3-dropdown-hover hovrdrop" style="width:8%; margin-top:1%; color: #b5b5b5;"><i class="material-icons header-large-icon">loupe</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Create</p>
+            <div class="w3-dropdown-content w3-bar-block w3-animate-opacity " style="position: fixed; right: 4%; top: 9.5%; width: 250px;">
+                {% if not pic %}
+
+		<a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Photos</b> </p></span></a>
+                <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">vpn_key</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Tips</b> </p></span></a>
+                <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Suggest a Location</b> </p></span></a>
+		{% endif %}
+		
+		 {% if pic %}
+
+		<a href="javascript:;" onclick="document.getElementById('photos').style.display='block'" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Travel Photos</b> </p></span></a>
+                <a href="javascript:;" onclick="document.getElementById('tips').style.display='block'" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">vpn_key</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Add Travel Tips</b> </p></span></a>
+                <a href="javascript:;" onclick="showaddmodel();" class="w3-bar-item w3-button"><span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <p><b>Suggest a Location</b> </p></span></a>
+		{% endif %}
+            </div></li>
+          
+          {% if not pic %}
+          <a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';"><li class="w3-center" style="width:8%; margin-top:1%;"><i class="material-icons header-large-icon"><b>timeline</b></i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Feeds</p> </li></a>
+          {% endif %}
+
+           {% if pic %}
+          <!-- <a href="/chatting/messagehtml"><li class="w3-center w3-padding w3-left" style="width:6%; margin-top:.3%; color: #b5b5b5;"><i class="material-icons header-large-icon">loupe</i><p class="text-muted" style="font-size: 10px; margin-top: -12%;">Create</p></li></a> -->
+
+           <a href="/profile/{{username}}" ><li class=" w3-center " style="width:10%;margin-top:1%;"><img src="{{pic}}" class="w3-circle" style="height:30px;width:30px; padding: 0px, 0px;" alt="Avatar"><p class="text-muted" style="font-size: 10px; margin-top: -8%;">Feeds</p> </li></a>
+          {% endif %}
+          <!--<li class="w3-padding w3-center w3-left" style="width:6%; margin-top:.3%;"><i class="w3-center" title="My Account" style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; margin: 0px;"><img src="devsena.jpg" class="w3-circle" style="height:40px;width:40px; padding: 0px, 0px;" alt="Avatar"> 
+          </i> 
+          </li>-->
+      </ul>
+    </header>
+  
+
+
+<!-- Header for Small Screens -->
+    <header class="w3-hide-large w3-hide-medium ">
+            <div class="w3-row w3-top" style="background-color: white;  z-index: 5; padding-top: .5%;border-bottom: 1px solid #efefef;">
+                <div class="w3-sidebar w3-animate-left w3-border w3-bar-block w3-collapse" style="width:85%; z-index: 5;" id="mySidebar">
+                    
+                    <div class="w3-container " style="padding-top: 0px; padding-left: 0px; padding-right: 0px; padding-bottom: 12%;">
+                        
+                          <div class="w3-row w3-display-container" style="padding-top: 0px; padding-left: 0px; padding-right: 0px; margin-bottom: 5%;">
+                                       {% if not pic %}
+		<span class="w3-display-topright w3-bar-item" style=""><button class="w3-button w3-right-align" onclick="w3_close()" style=" background-color: transpatent; color: black; font-size: 28px;"><b>&times;</b></button></span>
+                              <div class="w3-col s12 w3-center" style="padding-top: 8px;margin-top: 20%; padding-bottom: 0%; padding-right: 2%; padding-left: 2%;">
+                              <h3><b>login to logout.world</b></h3>
+                              </div>
+                   <div class="w3-col s12 w3-center" style="padding-top: 8px;margin-top: 0%; padding-bottom: 0%; padding-right: 2%; padding-left: 2%;">
+                           <button type='submit' value='Search' onclick="window.location='/login/flogin/'" class="w3-border w3-round w3-button" style="border: 1.5px solid #767676!important; background-color: white; margin-top: 2%; width: 100%;"> <h4 class="text-muted" style="margin-top: 0px; margin-bottom: 0px;"> <b>Login with Facebook <i class="fa fa-facebook" style="color: #3B5998; font-size: 22px; margin-top: 0%; margin-bottom: -4%;padding-top: 0px; padding-bottom: 0px;" aria-hidden="true"></i></b></h4></button>
+                      </div>
+                     <!-- <div class="w3-col s12 w3-center" style="padding-top: 2%; margin-bottom: 2%; padding-right: 2%; padding-left: 2%;">
+                          <button type='submit' onclick="window.location='/login/glogin/'" class="w3-border w3-round w3-button" style="border: 1.5px solid #767676!important; background-color: white; color: #FAFAFA;  margin-top: 2%; width: 100%;"><h4 class="text-muted" style="margin-top: 0px; margin-bottom: 0px;"><b> Login with Gmail <i class="fa fa-google" style=" color: #dd4b39; font-size: 22px; margin-top: 0%; margin-bottom: -4%;padding-top: 0px; padding-bottom: 0px;" aria-hidden="true"></i></b></h4></button>
+              </div> -->            
+		{% endif %}
+		
+		{% if pic %}
+               	<img  src="{{pic}}" style="width: 100%; height: 250px; margin: auto; overflow: hidden; position: relative; object-fit: cover; " alt="">
+		<span class="w3-display-topright w3-bar-item" style=""><button class="w3-button w3-right-align" onclick="w3_close()" style=" background-color: transparent; color: white; font-size: 25px;"><b>&times;</b></button></span>
+                    <span class="w3-display-bottomleft w3-padding" style="color: white"><h4 style="color: white">{{username}}</h4></span>
+        
+		{% endif %}
+                            
+                                 
+                         
+
+                            </div>
+                     <!--   <h5 class="text-muted" style="margin-left: 6%;"><b>Travel Log</b></h5>
+                            <hr>
+                            
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+				<span class=" w3-left text-muted"style="width:70%; margin-top: 0%; margin-left:1%;">
+                                <b>Bucketlisted Places</b> </span>
+                                <span class="material-icons button-icon w3-left" style="color: #F50057; margin-right: 4%; margin-left:1%;">favorite</span><span><p>{$ count $}</p></span>                                
+                                </button>
+                                
+                            </div>
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 0%; margin-left:1%;">
+                                <b>Visited Places</b> </span>                                
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;"><b>check</b></span><span><p>{$ count1 $}</p></span>                                
+                                </button>
+                                 
+                            </div>
+                        
+                             <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 0%; margin-left:1%;">
+                                <b>Recommended Places</b> </span> 
+                                <span class="material-icons button-icon w3-left" style="color: #00ACC1; margin-right: 4%; margin-left:1%;"><b>thumb_up</b></span><span><p>{$ count2 $}</p></span>                                
+                                </button>                            
+				</div>
+                           <div class="w3-row" style="margin-top: 1%; padding-top: 8px; padding-bottom: 8px;">
+                                <div class="w3-col s9">
+
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:12%;">
+                                <b>Following</b> </span> </div>
+				<div class="w3-col s1">
+				<span><p class="text-muted" style="font-size: 16px;"><b>34</b></p></div>
+                            </div>
+			
+				<div class="w3-row" style="margin-top: 1%; padding-top: 8px; padding-bottom: 8px;">
+                                 <div class="w3-col s9">
+
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:12%;">
+                                <b>Followers</b> </span> </div>
+				<div class="w3-col s1">
+				<span><p class="text-muted" style="font-size: 16px;"><b>{{follower}}</b></p></div>
+                            </div>
+                          
+                            <div class="w3-row" style="margin-top: 1%; padding-top: 8px; padding-bottom: 8px;">
+                                
+                                <div class="w3-col s9">
+
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:12%;">
+                                <b>Credibility Points</b> </span> </div>
+				<div class="w3-col s1">
+				<span><p class="text-muted" style="font-size: 16px;"><b>{$ point $}</b></p></div>
+                            </div> -->
+                            
+                          <!-- <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">videocam</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Videos</b> </span></button>
+                            </div> -->
+                        <br>
+                        <h5 class="text-muted" style="margin-left: 6%;"><b>Share with people</b></h5>
+                        <hr>
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" onclick="document.getElementById('photoss').style.display='block'" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_a_photo</span>                                
+                                <span class=" w3-left text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Add Photos</b> </span></button>
+                                
+                            </div> 
+                        
+                         <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" onclick="document.getElementById('tips').style.display='block'" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">vpn_key</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Post Tips</b> </span></button>
+                            </div>                            
+                          <!--   <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">near_me</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share A Plan</b> </span></button>
+                            </div> -->
+                        
+                            <!-- <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">insert_link</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Share a link</b> </span></button>
+                            </div> -->
+                            
+                            <div class="w3-row" style="margin-top: 1%;">
+                                <button class="w3-button w3-white w3-padding w3-left-align" {% if pic %}onclick="showaddmodel();"{% endif %} {% if not pic %}onclick="document.getElementById('basicExample').style.display='block';"{% endif%}  style=" width: 100%;">
+                                <span class="material-icons button-icon w3-left" style="color: #008489; margin-right: 4%; margin-left:1%;">add_location</span>
+                                <span class=" w3-left-align text-muted"style="width:70%; margin-top: 1%; margin-left:4%;">
+                                <b>Suggest a Location</b> </span></button>
+                            </div>                    </div>
+                            
+                        </div> 
+                    
+              
+
+
+                <!-- <div class=" w3-col s2 w3-center" style="">
+                <button onclick="/" class="w3-button w3-center" style="background-color: white"><i class="text-muted material-icons heading-icon" style="color: #008489; width: 100%; margin-top: 3%; font-size: 25px;">home</i></button> 
+                </div> -->
+                <form method='GET' action='/logan/' style="margin-bottom: 0px;">
+                <div class="w3-col s10" style="padding-left: 6%;">
+                <span style="width:100%;"> <input type='text' class="searchbar-masthead w3-input w3-white w3-text-black" name='q' placeholder='Enter a place ..' style="margin-top: 3%; height: 30px; padding-top: 2px;" list="mylist" ng-model="myValue"  ng-change="search()">
+                </span>
+			 <datalist id="mylist"> 
+            <option ng-repeat="place in results ">{$ place.title $} </option>
+          </datalist>
+                </div>
+                <div class="w3-col s2 w3-center">
+                <span style="">
+                <button type='submit' value='Search' class="w3-button" style="background-color: white; color: #EEEEEE; "><i class="material-icons heading-icon" style="color: #008489; margin-top: 3%; font-size: 25px;"><b>search</b></i></button></span>
+                </div>
+                </form>
+        </div>
+
+  </header>
+
+
+   
+          <div id="id012" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top" style="width: 350px; margin-top: -6%;">
+        
+      <div class="w3-container text-muted option">
+          <div class="w3-row text-muted">
+              <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span>
+              <!--<div class="w3-col l6 w3-center" style="margin-top: 10%;">
+                  <span style="font-size:50px;line-height:0.6em;opacity:0.2">❝</span>
+                  <h3> <i>We believe that the world out there is full of beautiful places and experiences and people should know about them.</i></h3>
+              </div> -->
+              
+              <div class="w3-col l12">
+                <div class="w3-container" style="margin-top: 14%; margin-bottom: 5%;">
+                  <div class="w3-row">
+                      <div class="w3-col l6 w3-center">
+                      <button class="w3-bar-item w3-white w3-border w3-button w3-round-large w3-center" onclick="openCity('London')" style="width: 90%;"><p style="color: #4DB6AC;"><b>Login</b></p></button>
+                      </div>
+                      <div class="w3-col l6 w3-center">
+                      <button class="w3-bar-item w3-button w3-border w3-white w3-round-large w3-left" onclick="openCity('Paris')" style="width: 90%;"><p style="color: #4DB6AC;"><b>New User</b></p></button>
+                      </div>
+                  </div>
+                </div>
+                    
+                  <div id="London" class="w3-container city">
+                      
+                    <div class="w3-row">
+                      <form>
+                          {% csrf_token %}
+                          <label ><p class="text-muted"><b>Email Address</b></p></label>
+                          {{loginForm.email}}
+                        <input class="w3-input w3-light-grey w3-round" type="text" style="margin-bottom: 8px; border: 0px #FAFAFA">
+                          <label><p class="text-muted"><b>Password</b></p></label>
+                          {{loginForm.password}}
+                        <input class="w3-input w3-light-grey w3-large-round" type="text" style="border: 0px #FAFAFA">
+                        </form>
+                      </div>
+                      <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button type='submit' value='Search' class="w3-button w3-border w3-white  w3-round-large" > <p style="color: #4DB6AC;"><b>Sign In</b></p> </button>
+                      </div>
+                      
+                      <hr>
+                      <div class="w3-row w3-center" style="padding-top: 8px; padding-bottom: 8px;">
+                          <button type='submit' value='Search' class="w3-button w3-round" style="background-color:#3b5998;color: white; width: 100%;"> <p style="color: #FAFAFA;" onclick="window.location='/login/flogin/'" >Login with Facebook</p> </button>
+                      </div>
+                      <div class="w3-row w3-center" style="padding-top: 8px; margin-bottom: 14%;">
+                          <button type='submit' value='Search' onclick="window.location='/login/glogin/'" class="w3-button w3-round" style="background-color:#dd4b39;color: white; width: 100%;"><p style="color: #FAFAFA;">Login with Google </p></button>
+              </div>
+        
+        
+          </div>
+                     <div id="Paris" style="display: none;"class="w3-container city">
+                      
+                      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" style="background-color: #fafafa;">&times;</span>
+                    <div class="w3-row">
+                      <form>
+                          {% csrf_token %}
+                          <label ><p class="text-muted"><b>First Name</b></p></label>
+                          {{registerForm.username}}
+                        <input class="w3-input w3-light-grey" type="text" style="margin-bottom: 8px; border: 0px #FAFAFA">
+                          <label ><p class="text-muted"><b>Last Name</b></p></label>
+                        <input class="w3-input w3-light-grey" type="text" style="margin-bottom: 8px; border: 0px #FAFAFA">
+                          {% csrf_token %}
+                          <label ><p class="text-muted"><b>Email Address</b></p></label>
+                           {{loginForm.email}}
+                        <input class="w3-input w3-light-grey" type="text" style="margin-bottom: 8px; border: 0px #FAFAFA">
+                          <label ><p class="text-muted"><b>Password</b></p></label>
+                          {{registerForm.password}}
+                        <input class="w3-input w3-light-grey" type="text" style="margin-bottom: 8px; border: 0px #FAFAFA">
+                          <label><p class="text-muted"><b>Confirm Password</b></p></label>
+                          {{registerForm.confirm_password}}
+                        <input class="w3-input w3-light-grey" type="text" style="border: 0px #FAFAFA">
+                        </form>
+                      </div>
+                      <div class="w3-row" style="padding-top: 10px; padding-bottom: 8px;">
+                          <button type='submit' value='Search' class="w3-button w3-white w3-round-large w3-border" > <p style="color: #4DB6AC;"><b>Sign Up</b></p> </button>
+                      </div>
+                    
+                         <hr>
+                    <div class="w3-row w3-center" style="padding-top: 8px; padding-bottom: 8px;">
+                        <button type='submit' value='Search' class="w3-button w3-round" onclick="window.location='/login/flogin/'" style="background-color:#3b5998;color: white; width: 100%;"> <p style="color: #FAFAFA;"><b>Login with Facebook</b></p> </button>
+                      </div>
+                      <div class="w3-row w3-center" style="padding-top: 8px; margin-bottom: 14%;">
+                          <button type='submit' onclick="window.location='/login/glogin/'" value='Search' class="w3-button w3-round" style="background-color:#dd4b39;color: white; width: 100%;"><p style="color: #FAFAFA;">Login with Google </p></button>
+              </div>
+        
+        
+          </div>
+                  
+                  
+              </div>
+              </div>
+          </div>
+    </div>
+  </div>
+
+
+
+<!-- Search for Medium Screens -->
+        <div class="w3-container w3-hide-small w3-hide-large full-container" style="padding: 0px;" >
+            <div class="w3-row " style="margin-top: 0px"> 
+                <div class="w3-col m12">
+                    <div class="w3-container" style="margin-top: 0%; padding: 0px; background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 90%);">
+                       
+                       <div class="w3-row " style="z-index: 2; background-color: white; margin-bottom: 4.5%;">
+                         
+                            <div class="w3-col m12 w3-content  hobbytags-position  w3-left" style=" margin-top: -1%; margin-bottom: 2%; margin-right: 0%; margin-left: 0%; background-color: white; z-index: 2; height: 90px; overflow-x:scroll;-webkit-overflow-scrolling: touch; z-index: 0; display: inline;">
+                				
+					{%for hobbytag in hobby_tag_list%}
+                                <span class="w3-button w3-white w3-round-large" ng-click="hobbytag('{{hobbytag.name}}')" style="background-color: #00af87; padding-left: 2.5%; padding-right: 2.5%;"><img src="/media//{{hobbytag.photo}}" style="width: 42px; height: 42px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; "><h5 style="font-size: 14px; margin-bottom: 3%;" class="text-muted"><b>{{hobbytag.name}}</b></h5></span>
+                                {%endfor%}
+                                <!-- <span class="w3-button w3-light-grey w3-round"> <i class="material-icons" style="margin-top:2%;">arrow_drop_down</i></span> -->  
+                                
+                            </div> 
+                        </div>
+                        <hr style="margin-top: .5%; margin-bottom: .5%">
+                               <div class="w3-row">
+                         
+                            <div class="w3-col m12 filtertags-position w3-left" style="overflow-x:scroll;-webkit-overflow-scrolling: touch; z-index: 0; display: inline;">
+                		<div ng-repeat="extratag in extratags" style="display: inline;">
+                          <span class="w3-button w3-round" ng-click="extratagfun(extratag.name)" style="background-color: #008489; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style=" font-size: 15px; margin-top: 0%; margin-bottom: .5%; color: white;"><b>{$ extratag.name $}</b></h5></span>
+                          </div>
+                          <!--
+                          <span class="w3-button w3-round" style="background-color: #795548; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek</b></h5></span>
+                                <span class="w3-button w3-round" style="background-color: #0097A7; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek</b></h5></span>
+                                <span class="w3-button w3-round" style="background-color: #F50057; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek </b></h5></span>
+                                <span class="w3-button w3-round" style="background-color: #008489; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek</b></h5></span>
+                               -->
+                         
+                            </div>
+                        </div>
+                        
+                        <hr style="margin-top: .5%; margin-bottom: .5%">
+                        
+                    </div>
+                    
+                      
+                    <div class="w3-container" style="padding: 0px; z-index: 100; ">
+                        <div class="w3-row" style="height: 250px;" >
+                            <div class="w3-col m12 ">
+                                <div id="maptab" style="width: 100%; height: 250px; "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                <div class="w3-container " style="position: relative; max-height: 250px; overflow-y:auto;">
+                          <div class="w3-row ">
+                            <div class="w3-col m12 ">
+                             <div class="w3-container text-center">
+                            
+                               		<div ng-repeat="places in data">
+                                    
+                                    <div ng-if="places.place_no%2==0">
+                                    	
+                                        <div class="w3-col m6" style="align: center;" id="div{$ places.place_no $}" >
+                                            <a href="/place/{$places.placename $}">
+					                       <div class="w3-card w3-hover-shadow cardmobile image">
+						
+                                            <img src= '{$ places.photo $}' class="post-pic" alt="" ng-mouseenter="funfocus( places.place_no );" ng-mouseleave="funblur( places.place_no );"  style=" object-fit: cover; position: relative; height: 220px;  width: 100%" > 
+                                                    
+                                                    <span class="w3-display-bottomleft w3-padding" style="color: white"><h4 style="color: white;">
+                                                    {$ places.placename $}</h4></span>
+                                                    
+                                            </div><div class=""></div></a>
+                                        </div>
+                                        </div>
+                                    <div ng-if="places.place_no%2!=0">
+                                        <div class="w3-col m6" id="div{$ places.place_no $}"  >
+                                            <a href="/place/{$places.placename $}"> 
+						<div class="w3-card w3-hover-shadow cardmobile">
+                                                <img src='{$ places.photo $}' class="post-pic" alt="" ng-mouseenter="funfocus( places.place_no )" ng-mouseleave="funblur( places.place_no );" style=" object-fit: cover; position: relative; height: 220px; width: 100%">
+                                                    <div class="w3-container w3-center">
+                                                  
+                                                   
+                                                    <span class="w3-display-bottomleft w3-padding" style="color: white"><h4 style="color: white;">{$ places.placename $}</h4></span>
+                                                    
+
+                                                    </div>
+                                            </div></a>
+                                        </div>
+                                   </div> 
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+              
+            
+            </div>    
+        </div> 
+
+<!-- Search for Small Screens -->
+        <div class="w3-container w3-hide-medium w3-hide-large remove-paddinglr" style="margin-left: 1%; margin-right: 1%; padding-left: 0px; padding-right: 0px;" >
+        
+            <div class="w3-row " style="margin-top: 6%;"> 
+                <div class="w3-col s12">
+                    <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                       
+                         <div class="w3-row  hobbytags-position-small" style="z-index: 2; background-color: white; margin-top: 8%;">
+                         
+                            <div class="w3-col s12   w3-left" style="background-color: white; z-index: 2;">
+                				
+					{%for hobbytag in hobby_tag_list%}
+                                <span class="w3-button w3-white w3-round-large" ng-click="hobbytag('{{hobbytag.name}}')" style="background-color: #00af87; padding-left: 2.5%; padding-right: 2.5%;"><img src="/media//{{hobbytag.photo}}" style="width: 61.18px; height: 38px; margin: auto; overflow:  hidden; border-radius: 2%; position: relative; object-fit: cover; "><h5 style="font-size: 13px; margin-bottom: 2%;" class=""><b>{{hobbytag.name}}</b></h5></span>
+                                {%endfor%}
+                                <!-- <span class="w3-button w3-light-grey w3-round"> <i class="material-icons" style="margin-top:2%;">arrow_drop_down</i></span> --> 
+                            </div> 
+                        </div>
+                   
+                               <div class="w3-row filtertags-position-small" style="padding-left: 0px; padding-top: 4%;">
+                         
+                            <div class="w3-col s12 " style="padding: 0px; padding-top: 6%"> 
+                		<div ng-repeat="extratag in extratags" style="display: inline; ">
+                          <span class="w3-button w3-round" ng-click="extratagfun(extratag.name)" style="background-color: #008489;  margin-top: 0%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style=" font-size: 15px; margin-top: 0%; margin-bottom: .5%; color: white;"><b>{$ extratag.name $}</b></h5></span>
+                          </div>
+                          <!--
+                          <span class="w3-button w3-round" style="background-color: #795548; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek</b></h5></span>
+                                <span class="w3-button w3-round" style="background-color: #0097A7; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek</b></h5></span>
+                                <span class="w3-button w3-round" style="background-color: #F50057; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek </b></h5></span>
+                                <span class="w3-button w3-round" style="background-color: #008489; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><h5 class="" style="margin-top: .5%; margin-bottom: .5%; color: white;"><b>Himalayan Trek</b></h5></span>
+                               -->
+                         
+                            </div>
+                        </div>
+               
+                        
+                       <!-- <div class="w3-row" style="margin-bottom: 6%;">
+                        {%if piclist%}
+                         {% for u in piclist %}
+                            <div class="w3-col s12">
+                                
+                                      <div class="w3-row" style="margin-bottom: 2%;">
+                                        <img src='/media//{{u.piclink}}' class="post-pic image-fit" alt="">
+                                        </div>
+                                          <div class="w3-row" ng-repeat="places in data">
+                                          {%if forloop.counter0 < 19 %}          
+                                                <h4 style="margin-top: .2%;"> <b>{{placename|get_at_index:forloop.counter0 }}</b></h4>
+                                                {%endif%}
+                                          </div>
+                                            <div class="w3-row">          
+                                                <span class="w3-tab" style="background-color: #F50057; color: #FAFAFA; padding-top: 1%; padding-bottom: 1%; padding-right: 2%; padding-left: 2%; "><b>High Altitude Trek</b></span></span>
+
+                                                 {%if forloop.counter0 < 19 %} 
+                                                <span class="mdl-chip"><span class="mdl-chip__text">{{noofdays|get_at_index:forloop.counter0 }} days</span></span>
+                                                 {%endif%}
+                                               
+                                                
+                                          </div>
+                                        </div> 
+                                         <hr>
+
+                                        {%endfor%}
+                                        {%endif%}
+                                    </div> -->
+					
+				   <div class="w3-row filter-position-small" style="padding-top: 10%;padding-left: 0px; padding-right: 0px;">
+                            <div class="w3-col s12 " style="padding-left: 0px; padding-right: 0px;">
+                             <div class="w3-container" style="padding-left: 0px; padding-right: 0px;">
+                            <div class="w3-row">
+				<div class="w3-col s12">
+					<div class="w3-container" style="padding: 0px;">
+                               		<div ng-repeat="places in data">
+                                    
+                                    <div ng-if="places.place_no%2==0">
+                                    					
+                                        <div class="w3-col s6" style="align: left; height: 320px; padding-left: 1%; padding-right: 1%; margin-bottom: 0%;" id="div{$ places.place_no $}" >
+                                            <a href="/place/{$ places.placename $}">
+						<div class="w3-row">
+                            <div class="w3-card cardmobile">
+						<img src= '{$ places.photo $}' class="post-pic" alt="" style="width: 100%; height: 250px; margin: auto; overflow:  hidden; position: relative; border-radius: 1%; object-fit: cover;" ng-mouseenter="funfocus( places.place_no );" ng-mouseleave="funblur( places.place_no );">
+                                                    </div></div>
+						<div class="w3-row w3-left-align">
+                                                 <!-- <span class="w3-display-bottomleft w3-left-align" style="width: 90%; padding-left: 3%; padding-bottom: 1%; color: white"><p style="width: 100%; color: #FAFAFA; font-size: 14px; margin-left: 2%; margin-bottom: 2%;"><b>{$ places.placename $}</b></p>
+                                                   </span> -->
+							<h4 style="margin-bottom: 0px; font-size: 17px; font-family: Roboto !important"><b>{$ places.placename $}</b></h4>
+						 </div>
+                                             </a>
+                                        </div>
+                                        </div>
+                                   <div ng-if="places.place_no%2!=0">
+                                        <div class="w3-col s6" id="div{$ places.place_no $}" style="align: left; padding-left: 1%; padding-right: 1%; height: 320px; margin-bottom: 0%;" >
+                                            <a href="/place/{$places.placename $}">
+                                                <div class="w3-row">
+						                          <div class="w3-card cardmobile">
+                                                <img src='{$ places.photo $}' class="post-pic" alt="" style="width: 100%; height: 250px; margin: auto; overflow:hidden; border-radius: 1%;  hidden; position: relative; object-fit: cover;" ng-mouseenter="funfocus( places.place_no )" ng-mouseleave="funblur( places.place_no );">
+                                                    </div></div>
+							<div class="w3-row w3-left-align">
+							<!-- <span class="w3-display-bottomleft w3-left-align" style=" width: 90%; padding-left: 3%; padding-bottom: 1%; color: #FAFAFA"><p style="width: 100%; color: #FAFAFA; font-size: 14px; margin-left: 2%; margin-bottom: 2%;"><b>{$ places.placename $}</b></p>                                                    
+							</span> -->
+							<h4 style="margin-bottom: 0px; font-size: 17px; font-family: Roboto !important"><b>{$ places.placename $}</b></h4>
+							 </div>
+                                                    </a>
+                                            </div>
+                                        </div>  
+					</div>
+					</div>                         
+                                </div>
+                            </div>
+                        </div>
+                        </div> </div> </div></div></div> 
+<div class="w3-row" style="margin-bottom: 16%;"></div>
+
+</div>
+      
+<!-- Search for Large Screens -->
+       
+        <div class="w3-container full-container w3-hide-small w3-hide-medium" style="padding: 0%;">
+             	 <div class="w3-row hobbytags-position-large w3-center">
+                                                      <div class="w3-col l12  w3-center " style="margin-top: .2%;">
+							<p class="text-muted" style="font-size: 12px;"><b>Select and Filter</b> </p>
+                				{%for hobbytag in hobby_tag_list%}
+                                <span class="w3-button hovrtags  w3-round-large" ng-click="hobbytag('{{hobbytag.name}}')" style="background-color: #fff; padding-top: .5%; padding-bottom: .5%; padding-left: 1%; padding-right: 1%;"><img src="/media//{{hobbytag.photo}}" style="width: 67.62px; height: 42px; margin: auto; overflow:  hidden; border-radius: 6%; position: relative; object-fit: cover; "><p style="font-size: 13px; margin-bottom: 1%; margin-top: 2.5%" class=""><b>{{hobbytag.name}}</b></p></span>
+                                {%endfor%}
+                                <!-- <span class="w3-button w3-light-grey w3-round"> <i class="material-icons" style="margin-top:2%;">arrow_drop_down</i></span> -->     
+                             </div>
+	
+                        </div>
+	
+         <div class="w3-row filtertags-position-large" style="padding: 0px;" >  
+                         
+                            <div class="w3-col l12  w3-center  " style="padding-left: 0%; padding-right: 0%;">
+                		<div ng-repeat="extratag in extratags" class="w3-animate-opacity" style="display: inline;">
+                          <span class="w3-button  hovrtags  w3-round  " ng-click="extratagfun(extratag.name)" style="background-color: #f1f1f1; padding: 0px; margin-top:.5%; margin-bottom: .5%; margin-left: .5%; margin-right: .5%;"><p class="" style="margin-top: 0%; margin-bottom: .5%; padding-top: 6px; padding-bottom: 4px; padding-left: 8px; padding-right: 8px; color: #333; font-size: 13px;"><b>{$ extratag.name $}</b></p></span>
+                          </div>
+                       
+                         
+                            </div>
+                        </div>     
+                    
+           
+            <div class="w3-row "> 
+                <div class="w3-col l12"> 
+	
+                    <div class="w3-container " style="padding: 0%;">              
+                        <div class="w3-row ">
+                            <div class="w3-col l12 ">
+                             <div class="w3-container filter-position text-center" style="padding: 0px;">
+                            
+                               		<div ng-repeat="places in data">
+                                    
+                                    <div ng-if="places.place_no%2==0">
+                                    	<a href="/place/{$places.placename $}">
+                                        <div class="w3-col l6" style="align: center; margin-bottom: 1%; padding-left: 2%; padding-right: 1%;" id="div{$ places.place_no $}" >
+                                            <div class="w3-row">
+					                       <div class="w3-card w3-hover card " ng-mouseenter="funfocus( places.place_no );" ng-mouseleave="funblur( places.place_no );">
+						
+                                               <img src= '{$ places.photo $}' class="post-pic" alt=""  style=" object-fit: cover; position: relative; border-radius: 1%; height: 200px;  width: 100%" ></div> </div>
+                                             <div class="w3-row w3-left-align" style="padding-left: 2%;">   
+                                                 
+                                                   <h4 style="margin-top: 0px, font-size: 25px;"><b>{$ places.placename $}</b></h4>
+                                                   
+                                            </div>
+                                        </div></a>
+                                        </div>
+                                    <div ng-if="places.place_no%2!=0">
+<a href="/place/{$places.placename $}"> 
+                                        <div class="w3-col l6" style="align: center; margin-bottom: 1%; padding-right: 2%; padding-left: 1%;" id="div{$ places.place_no $}"  >
+                                            
+                                                <div class="w3-row">
+				<div class="w3-card w3-hover card" ng-mouseenter="funfocus( places.place_no )" ng-mouseleave="funblur( places.place_no );" >
+                    <img src='{$ places.photo $}' class="post-pic" alt="" style=" object-fit: cover; position: relative; height: 200px; border-radius: 1%; width: 100%"></div></div>
+                                        
+                                                  <div class="w3-row w3-left-align" style="padding-left: 2%;">
+                                                  
+                                                    <h4 style="margin-top: 0px, font-size: 25px;"><b>{$ places.placename $}</b></h4>
+                                                                         
+                                            </div>
+                                        </div></a>
+                                   </div> 
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div> 
+                <div class="w3-col l5" style="">
+                    <div class="w3-container" >
+                        <div class="w3-row">
+                            <div class="w3-col l12 ">
+                                <div id="map" class="map-position"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+        </div>    
+        </div>
+<!-- Footer for Small Screens -->
+    <div class="w3-bottom w3-hide-large w3-hide-medium" style="border-top: 1px solid #efefef; margin-top: 1%; ">
+            <div class="w3-bar w3-row" style="background-color:#fff;">
+                <a href="/" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">home</i><p class="text-muted" style="font-size: 10px;"><b>Home</b></p></a>
+                
+                <a href="/logan" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">explore</i><p class="text-muted" style="font-size: 10px;"><b> Discover</b></p></a>
+                
+                <a href="javascript:;" onclick="w3_open()" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">loupe</i><p class="text-muted" style="font-size: 10px;"><b>Create</b></p></a>
+                
+               {% if not pic %}
+		<a href="javascript:;" onclick="document.getElementById('basicExample').style.display='block';" class="w3-col s3 w3-bar-item w3-button" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">timeline</i><p class="text-muted" style="font-size: 10px;"><b> Login</b></p></a>
+               {% endif %}
+		
+		{% if pic %}
+		<a href="/profile/{{username}}" class="w3-col s3 w3-bar-item w3-button" style="padding-bottom: 0px; padding:top: 0px;"><img src="{{pic}}" class="w3-circle" style="height:28px;width:28px; margin-top: 0%; padding: 0px, 0px;" alt="Avatar"><p class="text-muted" style="font-size: 10px;"><b>Feeds</b></p></a>
+               
+		{% endif %}
+		<!-- <a href="#" class="w3-col s3 w3-bar-item w3-button" style="padding-bottom: 0px; padding:top: 0px;"><img src="arya.jpg" style="width: 30px; height: 30px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover;" alt="Avatar"></a> -->
+                
+                <!--<a href="#" class="w3-col s3 w3-bar-item w3-button w3-center" style="padding-bottom: 0px; padding:top: 0px;"><i class="material-icons footer-icon">mail</i></a> -->
+            </div> 
+        </div>
+
+
+    <!--Modals for Sharing -->
+    
+<!-- Add Location Modal -->
+
+
+<div id="add_place"  class="w3-modal" style=" padding-top: 3%;">
+                    <div class="w3-modal-content w3-animate-top" style="width: 600px; margin-top: .1%;">
+                      <div class="w3-container text-muted option">
+                          <div class="w3-row text-muted">
+                              <span onclick="document.getElementById('add_place').style.display='none'" class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span>
+
+                              <div   class="w3-col l12">
+                                  <form ng-submit="add_placeinfo(add_place);" >
+                                <div class="w3-container w3-center" style="margin-top: 3%; margin-bottom: 5%;">
+                                                                  
+                                    <div class="w3-row w3-center" style="width: 100%; margin-top: 1%;">
+                                        
+                                        <h4>Add Missing Places: </h4> 
+                                          
+                                           <div class="w3-col l6 w3-left-align">
+            <h4> Enter location name </h4>
+            
+                                                <input id="gosearch" class=" w3-dropdown-click w3-input w3-light-grey w3-round" placeholder='Enter location' type="text" style=" border: 0px #FAFAFA;" ng-init="searchgoogleplace();" ng-model="add_place.title">
+
+             </div>
+                                      <br>
+                                    
+                                       
+                                       
+                                    </div>
+
+                                     <div class="w3-row">
+                  <div class="w3-col l12">
+                    <div class="w3-container" style="padding-left: 0px;">
+                      <div class="w3-row">
+                            <div class="w3-col l12"  style="padding-top: 0%;">
+                            <h3></h3>
+                              <div id="mapadd"  style="width: 100%; height: 300px; "></div>
+                            </div>
+                            </div>
+                             </div>
+      <div class="w3-row">
+                                    <div class="w3-col l6 w3-left-align" style="margin-top: 2%;">
+                                                <input id="gosearch" class=" w3-dropdown-click w3-input w3-light-grey w3-round" placeholder='Location coordinates' type="text" style=" border: 0px #FAFAFA;" ng-model="add_place.location" editable="false">
+
+
+                                      
+</div>
+                                    </div>
+                          
+                     
+                      </div>
+                    </div>
+                     
+                                    
+                                    <div class="w3-row w3-left-align"  style="width: 100%;margin-top: 4%;">
+                                        <h4>Select Categories</h4><hr>
+                                        <div ng-repeat="tagin in add_place.hobbytag" style="">
+                                        <span class="mdl-chip" ng-if="add_place.hobbytag" style="background-color: #efefef;">
+                                          <span class="mdl-chip__text"><p>{$ tagin $}
+                                          <a href="javascript:;" ng-click="removetag(add_place,tagin)"> <b>&times;</b></a></p> </span>
+                                        </span>
+                                        </div>
+
+                                         <div class="w3-col l4 w3-left-align w3-dropdown-hover" ng-init="addtag()" style="padding-right: 0%;">
+
+                                           <div class="w3-col l4 w3-left-align" style="padding-top: 2%;">
+                                            
+
+                                        <input class="w3-button" value='add tags' type="button" style=" border: 0px #FAFAFA;" >
+
+                                           </div>
+
+                                           <div  class="w3-dropdown-content w3-bar-block w3-card-4">
+
+                                            <a href="javascript:;" ng-click="pushtag(add_place,tag)" ng-repeat="tag in hobbytags" class="w3-bar-item w3-button">{$ tag $}</a>
+                                      </div> 
+                                           </div>
+
+ 
+
+                                    </div>
+                                     
+                                    
+                                    <div class="w3-row w3-left-align" style="width: 100%;margin-top: 4%;">
+                                        <h4>People Go Here For</h4>
+                                        <hr>
+
+                                           <div class="w3-col l12 w3-left-align">
+                                        <input class="w3-input w3-light-grey w3-round" placeholder='Activities for eg. Hiking, Sight Seeing, Biking, History, etc.' type="text" style=" border: 0px #FAFAFA;" ng-model="add_place.extratag">
+                                           </div>
+
+                                    </div>
+                                    
+
+                                     <div class="w3-row w3-left-align" style="width: 100%;margin-top: 4%;">
+                                        <h4>About This Place</h4>
+                                        <hr>
+
+                                           <div class="w3-col l12 w3-left-align">
+                                        <textarea class="w3-light-grey w3-round" cols="3" placeholder='Tell us something about this place in short or detail' type="textarea" style="padding: 1.5%; width: 100%; border: 0px #FAFAFA;" ng-model="add_place.aboutplace">
+                                         </textarea>  </div>
+
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="w3-row w3-left" style="margin-top: 4%; padding-bottom: 8px;">
+                                          <button type='submit' class="w3-button w3-light-grey hovr w3-round-large" > <p style="color: #4DB6AC;"><b>Submit</b></p> </button> 
+                                      </div> 
+        <div class="w3-row w3-left-align" style="margin-top: 4%; padding-bottom: 8px;"> <hr>
+        <h5> <b>Note:</b> Once you submit, the request goes to the admin and the place is added as soon as the admin approves it. This is done to ensure that right and valid content reaches users like you </h5>
+        </div>
+                                </div>
+                                  </form>
+                              </div>
+
+                              </div>
+                              </div>
+                          </div>
+                    </div>
+
+
+<!-- Add Photos Modal -->
+<div id="photos" class="w3-modal" style=" padding-top: 3%; margin: auto;">
+                    <div class="w3-modal-content w3-animate-top" style="width: 600px; margin-top: .1%;">
+                      <div class="w3-container text-muted option">
+                          <div class="w3-row text-muted">
+                              <span onclick="document.getElementById('photos').style.display='none'" class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span>
+
+                              <div class="w3-col l12">
+                                  <form ng-submit="postphoto(photo);">
+                                <div class="w3-container w3-center" style="margin-top: 2%; margin-bottom: 5%;">
+                                  <div class="w3-row">
+                                     <!-- <div class="w3-col l2" style="">
+                                      <img src="{{pic}}" alt="Avatar" class="w3-left w3-circle" style="width: 60px; height: 60px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+                                      </div> 
+                                      <div class="w3-col l10 w3-left-align" style="margin-top: 2%;">
+                                            <h4>Gandalf the White</h4>
+                                      </div> -->
+                                    </div>
+                                    
+                                    
+                                    <div class="w3-row w3-left-align" style="width: 100%; margin-top: 2%;">
+                                        <h4>Add Photos</h4><hr>
+
+                                           <div class="w3-col l6 w3-center" style="padding-right: 1%;">
+                                               <h5>Selected Pic </h5>
+
+                                               <div class="w3-row">
+            <div class="w3-col l12">
+                                    <img id="thumbnail1" src="#" alt="Add Image" / style="width: 100%; height: auto; margin: auto; overflow:  hidden; position: relative; object-fit: cover; ">
+                                    <p style="font-size: 10px;">Dont worry about the preview, your pic is just as awesome as before.</p>    
+            </div>
+            </div>
+                                <br>
+                                <br>
+
+                    </div>
+                                           
+                                           <div class="w3-col l6 w3-center" style="padding-right: 1%;">
+            <div class="w3-row" style="margin-top: 4%;">
+               <a href="javascript:;"> <i class="material-icons btn-file" style="font-size: 50px; color: #BDBDBD">add_circle
+                    <input type="file" class="w3-btn w3-teal w3-ripple w3-round" id="" onchange="readURL(this);" name="uploadedimage" style="" placeholder="" accept="image/*" value="Upload Image" file-model="myFile1" required/>
+
+                    </i></a> </div>
+                                              <!-- <h5>From Facebook </h5>
+                                        <i class="fa fa-facebook" style="font-size: 40px; color: #3B5998"></i> -->
+                                           </div> 
+
+                                    </div>
+                                     <div class="w3-row w3-left-align" style="width: 100%; margin-top: 3%;"> 
+                                       <h4>Text </h4><hr>
+
+                                           <div class="w3-col l12 w3-left-align" style="padding-right: 1%;">
+                                              
+                                        <textarea class="w3-light-grey w3-round" placeholder='' type="text" style="width: 100%; border: 0px #FAFAFA; height: 50px;" ng-model="photo.newphototext">
+                                           </textarea></div>
+
+                                    </div>                                
+                                    
+                                    
+                                    <div class="w3-row w3-left-align">
+                                        <h4>Add Location </h4>
+                                       
+    <input  class=" w3-dropdown-click w3-input w3-light-grey w3-padding" style="border-bottom: 0px;" onclick="dropFunction('myDIV7')" type="text"  placeholder="*Required Field" ng-model="placename" id="myInput" onkeyup="filterFunction()" ng-change="searchplace()" autocomplete="off" ng-minlength='2'>
+    <span class="w3-dropdown-content w3-bar-block w3-light-grey" id="myDIV7" ng-model="photo.loacation ">
+    <ol ng-if="placename.length>0" style="padding-left: 0px;">
+        <span ng-repeat="place in places | filter:{title:placename}">
+            <a href="javascript:;" ng-click="setplacename(place)"><i class="material-icons " style="color: #008489; margin-left: 0px; margin-right: 1%;">location_on</i><b> {$ place.title $}</b></a>           
+        </span>
+  <!-- <button onclick="showaddmodel();" class="w3-button w3-light-grey"><i class="material-icons " style="color: #008489; margin-left: 0px; margin-right: 1%;"> add_location</i><b>Not found here, suggest us a new location</b></button> -->
+     
+    </ol>
+
+</span>
+    <div class="w3-dropdown-content w3-bar-block w3-card-2 w3-light-grey" id="myDIV3">
+      <a class="w3-bar-item w3-button" ng-repeat="place in placeresult" href="#about">Treks</a>
+      
+        <!--   <h5 style="margin-left: 4%;"> <b>Not here : </b></h5>
+        <button class="w3-button w3-light-grey"><i class="material-icons " style="color: #008489; margin-left: 0px; margin-right: 1%;"> add_location</i><b>Add missing location</b></button> -->
+     </div>
+               
+                                        </div>
+                                    
+                                    <div class="w3-row w3-left" style="margin-top: 4%; padding-bottom: 8px;">
+                                          <button type='submit' class="w3-button w3-white w3-round-large w3-border" > <p style="color: #4DB6AC;"><b>Post</b></p> </button>
+                                    </div>
+                                    
+                                </div>
+                              </form> 
+                              </div>
+
+                              </div>
+                              </div>
+                          </div>
+                    </div>
+
+<!--Add Tips Modal -->
+<div id="tips" class="w3-modal" style=" padding-top: 3%; margin: auto">
+                    <div class="w3-modal-content w3-animate-top" style=" width: 600px; top: 1%; margin-top: .1%; margin-bottom: 4%;">
+                      <div class="w3-container text-muted option">
+                          <div class="w3-row text-muted">
+                              <span onclick="document.getElementById('tips').style.display='none'" class="w3-button w3-white w3-display-topright" style="background-color: #fafafa;"><b>&times;</b></span>
+
+                              <div class="w3-col l12">
+                                <div class="w3-container w3-center" style="margin-top: 8%; margin-bottom: 5%;">
+                                  <div class="w3-row">
+                                      <!-- <div class="w3-col l2" style="">
+                                      <img src="{{pic}}" alt="Avatar" class="w3-left w3-circle" style="width: 60px; height: 60px; margin: auto; overflow:  hidden; border-radius: 50%; position: relative; object-fit: cover; " alt="">
+                                      </div> -->
+         <div class="w3-row w3-left-align" style="width: 100%; margin-top: 0%;">
+            <h4 style="margin-top: 0px;">Share Tips from your experiences at visited places, help others to explore better.<h4>
+                                   </div> 
+                                   <hr style="margin-top: 0px; margin-bottom: 0px;">
+        </div>
+                                    <div class="w3-row w3-left-align">
+                                        <h4>Enter Location </h4>
+                                       
+     <input  class=" w3-dropdown-click w3-input w3-light-grey w3-padding" style="border-bottom: 0px;" onclick="dropFunction('myDIV3')" type="text"  placeholder="Enter location of tip" ng-model="placename" id="myInput" onkeyup="filterFunction()" ng-change="searchplace()" autocomplete="off" ng-minlength='2'>
+    <div class="w3-dropdown-content w3-bar-block w3-card-2 w3-light-grey" id="myDIV3" ng-model="tip.loacation ">
+    <ul ng-if="placename.length>0">
+        <li ng-repeat="place in places | filter:{title:placename}">
+            <a href="javascript:;" ng-click="setplacename(place)"> {$ place.title $}</a>           
+        </li>
+    </ul>
+
+
+      <!--
+           <h5 style="margin-left: 4%;"> <b>Not here : </b></h5>
+        <button class="w3-button w3-light-grey"><i class="material-icons " style="color: #008489; margin-left: 0px; margin-right: 1%;"> add_location</i><b>Add missing location</b></button>
+        -->
+     </div>
+               
+                                        </div>
+                                    
+                                    <div class="w3-row w3-left-align" style="width: 100%; margin-top: 3%;">
+                                        <h4>Tip Title</h4><hr>
+                                       <form>
+                                           <div class="w3-col l12 w3-left-align w3-dropdown-hover" style="padding-right: 0%;">
+
+                                           
+                                           <button ng-if="tip.tiptitle" class="w3-button w3-left-align w3-light-grey" ng-model="tip.tiptitle" style="width: 100%;">{$ tip.tiptitle $}</button> 
+                                           <button ng-if="! tip.tiptitle" class="w3-button w3-left-align w3-light-grey" ng-model="tip.tiptitle" style="width: 100%;">Hover to select from the List</button>  
+                                            
+                                        <!-- <input class="w3-input w3-light-grey w3-round" placeholder='Select From List' type="text" style=" border: 0px #FAFAFA;" ng-model="tip.tiptitle"> -->
+                                    <div  class="w3-dropdown-content w3-bar-block w3-card-4" style="width: 100%;">
+                    <a href="javascript:;" ng-click="tip.tiptitle='For Food & Water Availability'" class="w3-bar-item w3-button">For Food & Water Availability</a>
+              <a href="javascript:;" ng-click="tip.tiptitle='Food & Cuisines to try'" class="w3-bar-item w3-button">Food & Cuisines to try</a>
+                    <a href="javascript:;" ng-click="tip.tiptitle='For Stay'" class="w3-bar-item w3-button">For Stay</a>
+                    <a href="javascript:;" ng-click="tip.tiptitle='For Travel and Transport'" class="w3-bar-item w3-button">For Travel and Transport</a>
+              <a href="javascript:;" ng-click="tip.tiptitle='How to Prepare'"  class="w3-bar-item w3-button">How to Prepare</a>
+              <a href="javascript:;" class="w3-bar-item w3-button" ng-click="tip.tiptitle='Must Carry'" >Must Carry</a>
+              <a href="javascript:;" ng-click="tip.tiptitle='What to Avoid'" class="w3-bar-item w3-button">What to Avoid</a>
+              <a href="javascript:;" ng-click="tip.tiptitle='Must Do and Explore'" class="w3-bar-item w3-button">Must Do and Explore</a>
+              <a href="javascript:;" ng-click="tip.tiptitle='Budget and Cost'" class="w3-bar-item w3-button">Budget and Cost</a>
+              <a href="javascript:;" ng-click="tip.tiptitle='Hardness and Endurance'"  class="w3-bar-item w3-button">Hardness and Endurance</a> 
+              <a href="javascript:;" ng-click="tip.tiptitle='About Locals'"  class="w3-bar-item w3-button">About Locals</a>
+
+
+                </div>            
+        
+          </div>
+                                        </form>
+                                    </div>
+                                     <div class="w3-row w3-left-align" style="width: 100%; margin-top: 3%;">
+                                       <h4>Tip Details </h4><hr>
+                                         <form>
+                                           <div class="w3-col l12 w3-left-align" style="padding-right: 1%;">
+                                              
+                                        <textarea class="w3-light-grey w3-round" placeholder="" style="width: 100%; border: 0px #FAFAFA; padding: 1.5%; height: 150px;" ng-model="tip.tipdetails">
+                                           </textarea></div>
+                                       </form>
+                                    </div>                                
+                                    <div class="w3-row w3-left" style="margin-top: 4%; padding-bottom: 8px;">
+                                          <button type='submit' ng-click="posttips(tip)" class="w3-button hovr w3-light-grey  w3-round-large" > <p style="color: #4DB6AC;"><b>Post</b></p> </button>
+                                    </div>
+
+                                </div>
+                              </div>
+
+                              </div>
+                              </div>
+                          </div>
+                    </div>
+
+
+
+    </body>
+    
+    <script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+
+
+<script type="text/javascript">
+	var app=angular.module('myApp', ['ngSanitize','luegg.directives','ngFileUpload','ngProgress']);
+    app.config(function($httpProvider,$interpolateProvider) {
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $interpolateProvider.startSymbol('{$');
+    $interpolateProvider.endSymbol('$}');
+});
+
+
+
+app.directive('fileModel', ['$parse', function ($parse) {
+    return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+        var model = $parse(attrs.fileModel);
+        var modelSetter = model.assign;
+
+        element.bind('change', function(){
+            scope.$apply(function(){
+                modelSetter(scope, element[0].files[0]);
+            });
+        });
+    }
+   };
+}]);
+		
+
+app.controller('myCtrl', function($scope,$http,$filter,Upload,ngProgressFactory,$interval) {
+
+var points=[];
+var info=[];
+var markers=[];
+var search_key = {};
+
+{% if hobby_tag %}
+search_key["hobbytag"]="{{hobby_tag}}";
+
+$scope.myValue="{{search_text}}";
+{% endif %}
+
+{%if extra_tag %}
+
+search_key["extratag"]="{{extra_tag}}";
+{%endif%}
+
+$scope.myMap=function()
+{
+				var points=[];
+                var mapCanvas = document.getElementById("map");
+                //var mapCanvastab = document.getElementById("maptab");
+                var mapCanvasTab = document.getElementById("maptab");
+                //var mapCanvasSmall = document.getElementById("mapsmall");
+                var mapOptions = {center: new google.maps.LatLng( 23.519708, 80.336063), 
+                				  zoom: 5,
+                				  styles: [
+											  {
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#ebe3cd"
+											      }
+											    ]
+											  },
+											  {
+											    "elementType": "labels.text.fill",
+											    "stylers": [
+											      {
+											        "color": "#523735"
+											      },
+											      {
+											        "weight": 1.5
+											      }
+											    ]
+											  },
+											  {
+											    "elementType": "labels.text.stroke",
+											    "stylers": [
+											      {
+											        "color": "#f5f1e6"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "administrative",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#987c3a"
+											      },
+											      {
+											        "weight": 2
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "administrative",
+											    "elementType": "geometry.stroke",
+											    "stylers": [
+											      {
+											        "color": "#c9b2a6"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "landscape.natural",
+											    "stylers": [
+											      {
+											        "weight": 2.5
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "landscape.natural",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#ece3ce"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "poi",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#dfd2ae"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "poi",
+											    "elementType": "labels.text.fill",
+											    "stylers": [
+											      {
+											        "color": "#93817c"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "poi.park",
+											    "elementType": "geometry.fill",
+											    "stylers": [
+											      {
+											        "color": "#a5b076"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "poi.park",
+											    "elementType": "labels.text.fill",
+											    "stylers": [
+											      {
+											        "color": "#447530"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "road",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#f5f1e6"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "road.highway",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#fbe0a8"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "road.local",
+											    "elementType": "labels.text.fill",
+											    "stylers": [
+											      {
+											        "color": "#806b63"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.line",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#dfd2ae"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.line",
+											    "elementType": "labels.text.fill",
+											    "stylers": [
+											      {
+											        "color": "#8f7d77"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.line",
+											    "elementType": "labels.text.stroke",
+											    "stylers": [
+											      {
+											        "color": "#ebe3cd"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.station",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#dfd2ae"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.station.airport",
+											    "stylers": [
+											      {
+											        "visibility": "on"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.station.airport",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "weight": 4
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.station.airport",
+											    "elementType": "labels.icon",
+											    "stylers": [
+											      {
+											        "visibility": "on"
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.station.bus",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#806b63"
+											      },
+											      {
+											        "weight": 4
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "transit.station.rail",
+											    "elementType": "geometry",
+											    "stylers": [
+											      {
+											        "color": "#806b63"
+											      },
+											      {
+											        "weight": 4
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "water",
+											    "elementType": "geometry.fill",
+											    "stylers": [
+											      {
+											        "color": "#67caeb"
+											      },
+											      {
+											        "weight": 4.5
+											      }
+											    ]
+											  },
+											  {
+											    "featureType": "water",
+											    "elementType": "labels.text.fill",
+											    "stylers": [
+											      {
+											        "color": "#92998d"
+											      }
+											    ]
+											  }
+											]
+};
+               $scope.map = new google.maps.Map(mapCanvas, mapOptions);
+               $scope.map1 = new google.maps.Map(mapCanvasTab, mapOptions);
+               //$scope.map2 = new google.maps.Map(mapCanvasSmall, mapOptions);
+               
+               $scope.serach_result();
+
+				
+
+},
+
+
+
+
+$scope.clearmarker=function()
+{
+	 for (var i = 0; i < markers.length; i++ ) {
+    	markers[i].setMap(null);
+  		}
+},
+
+
+
+ 
+
+
+
+$scope.serach_result=function()
+{
+
+
+obj={"search":search_key};
+
+      $http({
+
+    method: "POST",
+      url: "/searchresult/",
+    data:obj,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response){
+
+
+
+      $scope.data=response.data.data;
+      if("extratags" in response.data)
+      {
+      	$scope.extratags=response.data.extratags;
+      	//alert($scope.extratags[0].name);
+      }
+      
+      if (markers)
+      {
+      	$scope.clearmarker();
+      }
+
+      $scope.markermap();
+
+
+  });
+},
+
+
+$scope.search=function(){
+
+      
+            
+            if($scope.myValue=="")
+            {
+              $scope.mySwitch=false;
+            }
+            obj={"text":$scope.myValue};
+         
+              $http({
+                        method: "POST",
+                        url:"/search/",
+                        data:obj,
+                        headers: {'Content-Type': 'application/json'}
+
+                        }).then(function(response){
+                          
+                            if($scope.myValue=="")
+                              {
+                                $scope.mySwitch=false;
+                              }
+                              else
+                              {
+                                $scope.mySwitch=true;
+                              }
+                              var place=response.data;
+                             
+                              $scope.results=place.places;
+                                //alert($scope.results);
+
+                    });
+    },
+
+
+
+$scope.funfocus=function(i)
+{
+
+        info[i].open($scope.map,markers[i*2]);
+				//info[i].open($scope.map1,markers[i*2+1]);
+
+				info[i].setZIndex(5);
+				$scope.map.panTo(points[i]);
+				$scope.map1.panTo(points[i]);
+				//$scope.map2.panTo(points[i]);
+				//markers[i].setIcon('{% static "marker31.svg" %}');
+				markers[i].setZIndex(200);
+},
+
+
+$scope.funblur=function(i)
+				{
+				 info[i].close();
+				 info[i].setZIndex(0);
+				 //markers[i].setIcon('{% static "marker3.svg" %}');
+				 markers[i*2].setZIndex(0);
+				},
+
+
+$scope.markermap=function()
+					{
+					points=[];
+					info=[];
+					markers=[];
+
+angular.forEach($scope.data, function(value, key){
+					
+				
+
+ var InfoOptions = {
+			
+								  disableAutoPan: false
+								  ,maxWidth: 0
+								  ,pixelOffset: new google.maps.Size(0, 0)
+								  ,zIndex: 0
+								  ,boxStyle: {
+								  padding: "0px 0px 0px 0px",
+								  width: "252px",
+								  height: "40px"
+								},
+								closeBoxURL : "http://www.google.com/intl/en_us/mapfiles/close.gif",
+								infoBoxClearance: new google.maps.Size(5, 5),
+									isHidden: false,
+									pane: "floatPane",
+									enableEventPropagation: false
+				};
+    
+
+	
+					var marker = new google.maps.Marker({
+			          position: new google.maps.LatLng(parseFloat(value.coordinates.substring(0,value.coordinates.indexOf(','))),parseFloat(value.coordinates.substring(value.coordinates.indexOf(',')+1))),
+			          title: value.placename,
+			          zIndex: 0,
+			           //icon: '{% static "marker3.svg" %}',
+			           styles: {
+			           			position:'absolute'
+			           }
+			        });
+			        var marker1 = new google.maps.Marker({
+			          position: new google.maps.LatLng(parseFloat(value.coordinates.substring(0,value.coordinates.indexOf(','))),parseFloat(value.coordinates.substring(value.coordinates.indexOf(',')+1))),
+			          title: value.placename,
+			          zIndex: 0,
+			           //icon: '{% static "marker3.svg" %}',
+			           styles: {
+			           			position:'absolute'
+			           }
+			        });
+			        marker.setMap($scope.map);
+			        marker1.setMap($scope.map1);
+
+					points.push(new google.maps.LatLng(parseFloat(value.coordinates.substring(0,value.coordinates.indexOf(','))),parseFloat(value.coordinates.substring(value.coordinates.indexOf(',')+1))));
+					var boxText=document.createElement("div");
+					
+					boxText.className="tooltip";
+					boxText.innerHTML ="<h5 style='margin-top:1%; margin-bottom: 2%; margin-left: 1%; margin-right: 1%;'><b>"+value.placename+"</b></h5>";
+					boxText.id=value.place_no;
+					var ib = new InfoBox(InfoOptions)
+					ib.setContent(boxText);
+					
+					info.push(ib);
+					
+					marker.set("id",value.place_no+1);
+					marker1.set("id",value.place_no+1);
+
+					marker.addListener('click', function() {
+					var markerBox=document.createElement("span");
+					markerBox.className="w3-card w3-hover-shadow card";
+					markerBox.innerHTML =document.getElementById("div"+this.get('id')).innerHTML;
+					markerBox.id=value.place_no+"A";
+					var ibmarker = new InfoBox(InfoOptions);
+					ibmarker.setContent(markerBox);
+			        ibmarker.open($scope.map,this);
+			        });
+          
+					marker1.addListener('click', function() {
+					var markerBox=document.createElement("span");
+					markerBox.className="w3-card w3-hover-shadow card";
+					markerBox.innerHTML =document.getElementById("div"+this.get('id')).innerHTML;
+					markerBox.id=value.place_no+"A";
+					var ibmarker = new InfoBox(InfoOptions);
+					ibmarker.setContent(markerBox);
+			        ibmarker.open($scope.map,this);
+			        });
+            
+					markers.push(marker);
+					markers.push(marker1);
+   });
+
+
+//alert(points);
+
+
+},
+$scope.hobbytag=function(search)
+{		search_key={}
+		$scope.myValue=search;
+		search_key["hobbytag"]=search;
+		$scope.serach_result()
+
+
+},
+
+$scope.extratagfun=function(search)
+{
+
+
+			 $scope.myValue=$scope.myValue+","+search;
+			 search_key["extratag"]=search;
+             //alert(search)
+			 $scope.serach_result()
+},
+
+$scope.search=function(){
+
+      
+            
+            if($scope.myValue=="")
+            {
+              $scope.mySwitch=false;
+            }
+            obj={"text":$scope.myValue};
+         
+              $http({
+                        method: "POST",
+                        url:"/search/",
+                        data:obj,
+                        headers: {'Content-Type': 'application/json'}
+
+                        }).then(function(response){
+                          
+                            if($scope.myValue=="")
+                              {
+                                $scope.mySwitch=false;
+                              }
+                              else
+                              {
+                                $scope.mySwitch=true;
+                              }
+                              var place=response.data;
+                             
+                              $scope.results=place.places;  
+                                //alert($scope.results);
+
+                    });
+    },
+
+{%if not sessionid%}
+$scope.sessionid="";
+$scope.add_place={};
+{%endif%}
+
+{%if sessionid %}
+$scope.sessionid={{sessionid}};
+$scope.add_place={};
+
+{%endif%}
+//if ($scope.sessionid!=null)
+
+
+    $scope.postphoto=function(photo){
+      //alert($scope.myFile1);
+
+    var file1=$scope.myFile1;
+    var phototext=photo.newphototext;
+       var fd=new FormData();
+       fd.append('file1',file1);
+       fd.append('photoposttext',phototext);
+        fd.append('placeid',$scope.placeid);
+        fd.append('type','photos')
+        window.onload=$('#photos').hide();
+    var message="Uploading Photo";
+		ToastFunctionProcessing(message);
+    $scope.progressbar = ngProgressFactory.createInstance();
+	$scope.progressbar.setHeight('1px');
+	$scope.progressbar.setColor('#4DB6AC');
+	$scope.progressbar.start();
+
+        //alert("The post photo objects are "+fd.get("placeid")+" "+fd.get("file1")+" "+fd.get("photoposttext"));
+       $http({
+		method:"POST",
+		url:"/socialnetwork/pp/"+fd.get("placeid")+"/",
+		data:fd,
+		transformRequest:angular.identity,
+		 headers: {'Content-Type':undefined}
+
+	}).then(function(response){
+
+		$scope.photos.splice(0,0,response.data);
+           window.onload=$('#snackbar').hide();
+		//alert(response.data.user_pic);
+            $interval(function(){
+			$scope.progressbar.complete();
+
+			},1000,1);
+       
+		var message="Your photo was successfully posted.";
+		ToastFunction(message);
+          
+
+
+	});
+
+    },
+   
+
+
+
+    $scope.posttips=function(tip){
+
+    //alert("In the post tips function");
+      tipdetails=tip.tipdetails;
+      tiptitle=tip.tiptitle;
+      placeid=$scope.placeid;
+      var obj={'tipdetails':tipdetails,'tiptitle':tiptitle,'placeid':placeid};
+        //alert("The requested parameter are"+obj.tipdetails+" "+obj.tiptitle+" "+obj.placeid);
+    var message="Uploading Tip";
+		ToastFunctionProcessing(message);
+    $scope.progressbar = ngProgressFactory.createInstance();
+	$scope.progressbar.setHeight('2px');
+	$scope.progressbar.setColor('#008489');
+	$scope.progressbar.start();
+      window.onload=$('#tips').hide();
+    var message="Processing your Tip.";
+		ToastFunction(message);
+        $http({
+      method:"POST",
+      url:"/socialnetwork/posttips/"+obj.placeid+"/",
+      data:obj,
+      headers:{'Content-Type':'application/x-www-form-urlencoded'}
+
+    }).then(function(response){
+
+      //alert("The response for tips are"+response.data);
+      //$scope.tips=response.data;
+	
+      $scope.loadphotos();
+            window.onload=$('#snackbar').hide();
+		//alert(response.data.user_pic);
+            $interval(function(){
+			$scope.progressbar.complete();
+
+			},1000,1);
+	  
+	  var message="Your tip was successfully posted.";
+		ToastFunction(message);
+	
+    });
+
+
+
+  },
+
+
+
+
+$scope.searchplace=function()
+     {
+
+      //alert($scope.placename);
+    
+      var obj={'placename':$scope.placename};
+
+      $http({
+      method:"POST",
+      url:"/searchplaces/",
+      data:obj,
+      headers:{'Content-Type':'application/x-www-form-urlencoded'}
+
+    }).then(function(response){
+      $scope.places=null;
+      $scope.places=response.data;
+    });
+  },
+
+  $scope.searchgoogleplace=function()
+     {
+
+      
+    
+      var name=$scope.add_place.title;
+
+      var place=document.getElementById("gosearch");
+      
+      var autocomplete = new google.maps.places.Autocomplete(place);
+ 		
+     google.maps.event.addListener(autocomplete, 'place_changed', function() {
+       var place2=autocomplete.getPlace();
+      	alert(autocomplete.getplace);
+        
+        $scope.createMarker(place2);
+        
+    });
+
+    
+  },
+
+
+
+
+$scope.initmap=function()
+{
+	var pyrmont = new google.maps.LatLng(26.7347,83.3362);
+
+  $scope.mapadd = new google.maps.Map(document.getElementById('mapadd'), {
+      center: pyrmont,
+      zoom: 5
+    });
+},
+
+$scope.initialize=function(locationpoint) {
+
+
+  
+alert($scope.add_place.title);
+  var request = {
+    query: $scope.add_place.title
+  };
+  $scope.service = new google.maps.places.PlacesService($scope.mapadd);
+  $scope.service.textSearch(request, $scope.callback);
+},
+
+$scope.callback= function(results, status) {
+
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      $scope.createMarker(results[i]);
+
+    }
+  }
+},
+
+ $scope.createMarker=function(place)
+ {
+
+ 	var placeLoc = place.geometry.location;
+ 	$scope.add_place.location=placeLoc;
+ 	var map=$scope.mapadd;
+ 	map.setCenter(placeLoc);
+        var marker = new google.maps.Marker({
+          map: map,
+          position: placeLoc
+        }); 
+
+       
+
+ },
+
+
+ $scope.addtag=function(){
+ 
+
+      $http({
+      method:"POST",
+      url:"/hobbytags/",
+      headers:{'Content-Type':'application/x-www-form-urlencoded'}
+
+    }).then(function(response){
+      $scope.hobbytags=response.data;
+       //alert($scope.hobbytags);
+    });
+  },
+$scope.containsObject = function(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (angular.equals(list[i], obj)) {
+            return true;
+        }
+    }
+
+    return false;
+},
+
+  $scope.pushtag=function(add_place,value)
+  {
+  	if(!add_place.hobbytag)
+  	{
+  		add_place.hobbytag=[]
+  	}
+
+  	if (!$scope.containsObject(value,add_place.hobbytag))
+  	{
+  	add_place.hobbytag.push(value);
+  }
+  
+  },
+
+  $scope.removetag=function(add_place,value)
+  {
+  	
+  	var index = add_place.hobbytag.indexOf(value);
+  	add_place.hobbytag.splice(index, 1); 
+  
+  },
+
+  $scope.setplacename=function(name)
+  {
+
+    $scope.placename=name.title;
+    $scope.places=null;
+    $scope.placeid=name.id
+  },
+
+ 
+
+ $scope.add_placeinfo=function(add_place){
+
+
+//alert("In the place info function");
+var obj={'placeinfo':add_place};
+
+$http({
+    method: "POST",
+    url: "/addplace/",
+    data:obj,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).then(function(response){
+                    //alert(response.data.credibilitypoint);
+                 //   if(response.data)
+                 //   {
+                   // alert("Thank You");
+				   window.onload=$('#add_place').hide();
+                //document.getElementById("#add_place").style.display="none";
+				//  }
+              //    else
+              //    {
+                    //alert("Wrong");
+              //    }
+  
+  });
+
+}
+
+
+});
+
+
+</script> 
+
+		
+        <script src="{% static 'infobox.js' %}"></script>  
+
+  <script>
+    function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    }
+    function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    }
+    </script>
+        <script>
+
+	function ToastFunction(message) {
+    var x = document.getElementById("snackbar");
+    
+	x.className = "show";
+	x.innerHTML=message;
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+	
+	
+    function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+    </script>
+          <script>
+    function openTab(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";}
+    </script>
+    
+    <script>
+    function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    }
+    function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    }
+    </script>
+        <script>
+// Dropdown
+function dropFunction(div) {
+    var x = document.getElementById(div);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+// Filter
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDIV");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+ function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#thumbnail1')
+                        .attr('src', e.target.result)
+                        .width(130)
+                        .height(80);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+<script type="text/javascript">
+	function showaddmodel()
+	{
+		//alert("In the show add model block"+document.getElementById("add_place"));
+		document.getElementById('add_place').style.display='block';
+		google.maps.event.trigger(mapadd, 'resize'); 
+		w3_close();
+		//window.onload=$('add_place').hide(); 
+		
+	} 
+</script> 
+</html> 

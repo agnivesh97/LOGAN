@@ -1,0 +1,21 @@
+
+{% load staticfiles %}
+
+
+<html>
+<head>
+</head>
+<body>
+
+<center>
+<form method="POST" action="/showlist/">
+{%csrf_token%}
+username: <input type="text" name="username">
+<br>
+password: <input type="password" name="password">
+<input type="submit">
+</form>
+</center>
+
+
+</body>
